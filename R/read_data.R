@@ -1,0 +1,50 @@
+# https://shiring.github.io/machine_learning/2017/03/07/grid_search
+# https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/deep-learning.html
+library(readxl)
+library(tidyverse)
+library(tidymodels)
+library(rsparkling)
+library(h2o)
+library(sparklyr)
+sc <- spark_connect(master = "local")
+library(here)
+
+set.seed(108)
+
+file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1) %>%
+  select("Station_code" = StationCode_2019, "CWV" = CWVDailyMean_2019, "ELV" = Elevation_2019, 
+         "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019,
+         "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = RHDailyMean_2019,
+         "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
+         "Press" = PressureDailyMean_2019, "season" = Season_2019) %>%
+  na.omit() %>% 
+  mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) 
+
+file_shared$Station_code <- as.factor(file_shared$Station_code)
+file_shared$season <- as.factor(file_shared$season)
+
+# h2o.shutdown()
+h2o.no_progress()
+h2o.init(max_mem_size = "5g")
+
+file_shared <- as.h2o(file_shared)
+
+splits <- h2o.splitFrame(
+  data = file_shared,
+  ratios = c(0.6, 0.2),   ## only need to specify 2 fractions, the 3rd is implied
+  destination_frames = c("train_hex", "valid_hex", "test_hex"), seed = 108
+)
+train <- splits[[1]]
+valid <- splits[[2]]
+test  <- splits[[3]]
+
+response <- "PM2.5"
+features <- setdiff(names(train), c(response))
+
+
+search_criteria <- list(strategy = "RandomDiscrete", 
+                        max_runtime_secs = 30 * 60,
+                        stopping_metric = "mse",
+                        stopping_tolerance = 0.005,
+                        stopping_rounds = 15,
+                        seed = 108)
