@@ -1,6 +1,6 @@
 # https://shiring.github.io/machine_learning/2017/03/07/grid_search
 # https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/deep-learning.html
-
+# https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/understanding-deep-learning-parameter-tuning-with-mxnet-h2o-package-in-r/tutorial/
 hyper_grid <- list(
   activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"), 
   hidden = list(c(5, 5, 5, 5, 5), c(50, 50, 50), c(100, 100, 100)),

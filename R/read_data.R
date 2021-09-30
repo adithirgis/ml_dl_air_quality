@@ -1,5 +1,3 @@
-# https://shiring.github.io/machine_learning/2017/03/07/grid_search
-# https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/deep-learning.html
 library(readxl)
 library(tidyverse)
 library(tidymodels)
