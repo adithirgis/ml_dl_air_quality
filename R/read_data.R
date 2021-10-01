@@ -1,8 +1,12 @@
+library(lightgbm)
 library(readxl)
 library(tidyverse)
 library(tidymodels)
 library(h2o)
 library(here)
+library(data.table)
+library(Matrix)
+library(MLmetrics)
 
 set.seed(108)
 
@@ -22,7 +26,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "6g")
+h2o.init(max_mem_size = "5g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -40,8 +44,8 @@ features <- setdiff(names(train), c(response))
 h2o.describe(file_shared)
 
 search_criteria <- list(strategy = "RandomDiscrete", 
-                        max_runtime_secs = 30 * 60,
                         stopping_metric = "mse",
                         stopping_tolerance = 1e-3,
-                        stopping_rounds = 15,
+                        stopping_rounds = 10,
+                        max_models = 40,
                         seed = 108)

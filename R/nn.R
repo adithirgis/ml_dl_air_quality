@@ -1,11 +1,7 @@
-# https://shiring.github.io/machine_learning/2017/03/07/grid_search
-# https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/deep-learning.html
-# https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/understanding-deep-learning-parameter-tuning-with-mxnet-h2o-package-in-r/tutorial/
-# https://htmlpreview.github.io/?https://github.com/ledell/sldm4-h2o/blob/master/sldm4-deeplearning-h2o.html
 
 hyper_grid <- list(
   activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"), 
-  hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(50, 50, 50, 50), c(100, 100, 100, 100)),
+  hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(100, 100, 100, 100)),
   epochs = c(50, 100, 200, 300, 400, 500),
   l1 = c(0, 0.00001, 0.0001), 
   l2 = c(0, 0.00001, 0.0001),
@@ -25,7 +21,7 @@ dl_grid <- h2o.grid(algorithm = "deeplearning",
                     y = response,
                     grid_id = "dl_grid",
                     training_frame = train,
-                    nfolds = 15,                           
+                    nfolds = 10,                           
                     hyper_params = hyper_grid,
                     search_criteria = search_criteria,
                     seed = 108
