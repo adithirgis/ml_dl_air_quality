@@ -46,7 +46,7 @@ h2o.describe(file_shared)
 
 search_criteria <- list(strategy = "RandomDiscrete", 
                         stopping_metric = "mse",
-                        stopping_tolerance = 1e-3,
+                        stopping_tolerance = 1e-4,
                         stopping_rounds = 10,
-                        max_models = 40,
+                        max_models = 100,
                         seed = 108)

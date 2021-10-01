@@ -21,15 +21,6 @@ hyper_grid <- list(
   booster = c("gbtree", "gblinear")
 )
 
-search_criteria = list(
-  strategy = "RandomDiscrete",
-  max_runtime_secs = 3600,
-  max_models = 100,
-  seed = 108,
-  stopping_rounds = 10,
-  stopping_metric = "mse",
-  stopping_tolerance = 1e-4
-)
 
 grid <- h2o.grid(
   hyper_params = hyper_grid,
