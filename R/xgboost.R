@@ -2,6 +2,8 @@
 
 hyper_grid <- list(
   sample_rate = seq(0.2, 1, 0.01),
+  reg_lambda = c(0, 0.0001, 0.001, 0.1, 1),
+  reg_alpha = c(0, 0.0001, 0.001, 0.1, 1),
   col_sample_rate = seq(0.2, 1, 0.01),
   col_sample_rate_per_tree = seq(0.2, 1, 0.01),
   col_sample_rate_change_per_level = seq(0.9, 1.1, 0.01),
