@@ -1,1161 +1,315 @@
-21/09/30 10:42:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-21/09/30 10:42:54 INFO SparkContext: Running Spark version 2.4.3
-21/09/30 10:42:54 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
-21/09/30 10:42:54 INFO SparkContext: Submitted application: sparklyr
-21/09/30 10:42:54 INFO SecurityManager: Changing view acls to: Dell
-21/09/30 10:42:54 INFO SecurityManager: Changing modify acls to: Dell
-21/09/30 10:42:54 INFO SecurityManager: Changing view acls groups to: 
-21/09/30 10:42:54 INFO SecurityManager: Changing modify acls groups to: 
-21/09/30 10:42:54 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Dell); groups with view permissions: Set(); users  with modify permissions: Set(Dell); groups with modify permissions: Set()
-21/09/30 10:42:54 INFO Utils: Successfully started service 'sparkDriver' on port 55966.
-21/09/30 10:42:54 INFO SparkEnv: Registering MapOutputTracker
-21/09/30 10:42:54 INFO SparkEnv: Registering BlockManagerMaster
-21/09/30 10:42:54 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-21/09/30 10:42:54 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-21/09/30 10:42:54 INFO DiskBlockManager: Created local directory at C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\blockmgr-1bd62f62-19a2-43c1-b16d-2918c4bec0d6
-21/09/30 10:42:54 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
-21/09/30 10:42:54 INFO SparkEnv: Registering OutputCommitCoordinator
-21/09/30 10:42:54 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local]. Please check your configured local directories.
-21/09/30 10:42:55 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-21/09/30 10:42:55 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://127.0.0.1:4040
-21/09/30 10:42:55 INFO SparkContext: Added JAR file:///D:/R/library/rsparkling/java/sparkling_water_assembly.jar at spark://127.0.0.1:55966/jars/sparkling_water_assembly.jar with timestamp 1632978775227
-21/09/30 10:42:55 INFO SparkContext: Added JAR file:/D:/R/library/sparklyr/java/sparklyr-2.4-2.11.jar at spark://127.0.0.1:55966/jars/sparklyr-2.4-2.11.jar with timestamp 1632978775229
-21/09/30 10:42:55 INFO Executor: Starting executor ID driver on host localhost
-21/09/30 10:42:55 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 56008.
-21/09/30 10:42:55 INFO NettyBlockTransferService: Server created on 127.0.0.1:56008
-21/09/30 10:42:55 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-21/09/30 10:42:55 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 56008, None)
-21/09/30 10:42:55 INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:56008 with 912.3 MB RAM, BlockManagerId(driver, 127.0.0.1, 56008, None)
-21/09/30 10:42:55 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 56008, None)
-21/09/30 10:42:55 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 56008, None)
-21/09/30 10:42:55 INFO SharedState: loading hive config file: file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/conf/hive-site.xml
-21/09/30 10:42:55 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive') to the value of spark.sql.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive').
-21/09/30 10:42:55 INFO SharedState: Warehouse path is 'C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive'.
-21/09/30 10:42:56 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
-21/09/30 10:42:59 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
-21/09/30 10:43:00 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
-21/09/30 10:43:00 INFO ObjectStore: ObjectStore, initialize called
-21/09/30 10:43:01 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
-21/09/30 10:43:01 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
-21/09/30 10:43:02 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
-21/09/30 10:43:03 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 10:43:03 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 10:43:04 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 10:43:04 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 10:43:04 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
-21/09/30 10:43:04 INFO ObjectStore: Initialized ObjectStore
-21/09/30 10:43:04 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
-21/09/30 10:43:04 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
-21/09/30 10:43:04 INFO HiveMetaStore: Added admin role in metastore
-21/09/30 10:43:04 INFO HiveMetaStore: Added public role in metastore
-21/09/30 10:43:04 INFO HiveMetaStore: No user is added in admin role, since config is empty
-21/09/30 10:43:04 INFO HiveMetaStore: 0: get_all_databases
-21/09/30 10:43:04 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_all_databases	
-21/09/30 10:43:04 INFO HiveMetaStore: 0: get_functions: db=default pat=*
-21/09/30 10:43:04 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
-21/09/30 10:43:04 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 10:43:05 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell
-21/09/30 10:43:05 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/Temp/29e8d1e2-fd76-4ba0-a2c9-9b55aa988aa0_resources
-21/09/30 10:43:05 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/29e8d1e2-fd76-4ba0-a2c9-9b55aa988aa0
-21/09/30 10:43:05 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/29e8d1e2-fd76-4ba0-a2c9-9b55aa988aa0
-21/09/30 10:43:05 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/29e8d1e2-fd76-4ba0-a2c9-9b55aa988aa0/_tmp_space.db
-21/09/30 10:43:05 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive
-21/09/30 10:43:05 INFO HiveMetaStore: 0: get_database: default
-21/09/30 10:43:05 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 10:43:05 INFO HiveMetaStore: 0: get_database: global_temp
-21/09/30 10:43:05 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: global_temp	
-21/09/30 10:43:05 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
-21/09/30 10:43:05 INFO HiveMetaStore: 0: get_database: default
-21/09/30 10:43:05 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 10:43:05 INFO HiveMetaStore: 0: get_database: default
-21/09/30 10:43:05 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 10:43:05 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 10:43:05 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 10:43:06 INFO CodeGenerator: Code generated in 441.6185 ms
-21/09/30 10:43:07 INFO CodeGenerator: Code generated in 24.3025 ms
-21/09/30 10:43:07 INFO CodeGenerator: Code generated in 20.1001 ms
-21/09/30 10:43:07 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 10:43:07 INFO DAGScheduler: Registering RDD 3 (count at utils.scala:24)
-21/09/30 10:43:07 INFO DAGScheduler: Got job 0 (count at utils.scala:24) with 1 output partitions
-21/09/30 10:43:07 INFO DAGScheduler: Final stage: ResultStage 1 (count at utils.scala:24)
-21/09/30 10:43:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
-21/09/30 10:43:07 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
-21/09/30 10:43:07 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24), which has no missing parents
-21/09/30 10:43:07 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 10:43:07 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 10:43:07 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:56008 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 10:43:07 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
-21/09/30 10:43:08 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 10:43:08 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
-21/09/30 10:43:08 INFO ContextCleaner: Cleaned accumulator 1
-21/09/30 10:43:08 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 10:43:08 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-21/09/30 10:43:08 INFO Executor: Fetching spark://127.0.0.1:55966/jars/sparkling_water_assembly.jar with timestamp 1632978775227
-21/09/30 10:43:08 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:55966 after 30 ms (0 ms spent in bootstraps)
-21/09/30 10:43:08 INFO Utils: Fetching spark://127.0.0.1:55966/jars/sparkling_water_assembly.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-623660ed-3787-405d-8cdc-2554bba75583\userFiles-ed6a7935-a9ce-411b-8821-3e0464de9ee0\fetchFileTemp749170490114069485.tmp
-21/09/30 10:43:10 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-623660ed-3787-405d-8cdc-2554bba75583/userFiles-ed6a7935-a9ce-411b-8821-3e0464de9ee0/sparkling_water_assembly.jar to class loader
-21/09/30 10:43:10 INFO Executor: Fetching spark://127.0.0.1:55966/jars/sparklyr-2.4-2.11.jar with timestamp 1632978775229
-21/09/30 10:43:10 INFO Utils: Fetching spark://127.0.0.1:55966/jars/sparklyr-2.4-2.11.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-623660ed-3787-405d-8cdc-2554bba75583\userFiles-ed6a7935-a9ce-411b-8821-3e0464de9ee0\fetchFileTemp7510618357747898379.tmp
-21/09/30 10:43:10 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-623660ed-3787-405d-8cdc-2554bba75583/userFiles-ed6a7935-a9ce-411b-8821-3e0464de9ee0/sparklyr-2.4-2.11.jar to class loader
-21/09/30 10:43:10 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1542 bytes result sent to driver
-21/09/30 10:43:10 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2446 ms on localhost (executor driver) (1/1)
-21/09/30 10:43:10 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-21/09/30 10:43:10 INFO DAGScheduler: ShuffleMapStage 0 (count at utils.scala:24) finished in 2.792 s
-21/09/30 10:43:10 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 10:43:10 INFO DAGScheduler: running: Set()
-21/09/30 10:43:10 INFO DAGScheduler: waiting: Set(ResultStage 1)
-21/09/30 10:43:10 INFO DAGScheduler: failed: Set()
-21/09/30 10:43:10 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24), which has no missing parents
-21/09/30 10:43:10 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 10:43:10 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 10:43:10 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:56008 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 10:43:10 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
-21/09/30 10:43:10 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 10:43:10 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
-21/09/30 10:43:10 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 10:43:10 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
-21/09/30 10:43:10 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 10:43:10 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 9 ms
-21/09/30 10:43:10 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1732 bytes result sent to driver
-21/09/30 10:43:10 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 63 ms on localhost (executor driver) (1/1)
-21/09/30 10:43:10 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
-21/09/30 10:43:10 INFO DAGScheduler: ResultStage 1 (count at utils.scala:24) finished in 0.078 s
-21/09/30 10:43:10 INFO DAGScheduler: Job 0 finished: count at utils.scala:24, took 3.002648 s
-21/09/30 10:43:11 INFO HiveMetaStore: 0: get_database: default
-21/09/30 10:43:11 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 10:43:11 INFO HiveMetaStore: 0: get_database: default
-21/09/30 10:43:11 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 10:43:11 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 10:43:11 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 10:43:11 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 10:43:11 INFO DAGScheduler: Registering RDD 10 (count at utils.scala:24)
-21/09/30 10:43:11 INFO DAGScheduler: Got job 1 (count at utils.scala:24) with 1 output partitions
-21/09/30 10:43:11 INFO DAGScheduler: Final stage: ResultStage 3 (count at utils.scala:24)
-21/09/30 10:43:11 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
-21/09/30 10:43:11 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
-21/09/30 10:43:11 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24), which has no missing parents
-21/09/30 10:43:11 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 10:43:11 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 10:43:11 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:56008 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 10:43:11 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
-21/09/30 10:43:11 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 10:43:11 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
-21/09/30 10:43:11 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 10:43:11 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
-21/09/30 10:43:11 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1413 bytes result sent to driver
-21/09/30 10:43:11 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 39 ms on localhost (executor driver) (1/1)
-21/09/30 10:43:11 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
-21/09/30 10:43:11 INFO DAGScheduler: ShuffleMapStage 2 (count at utils.scala:24) finished in 0.047 s
-21/09/30 10:43:11 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 10:43:11 INFO DAGScheduler: running: Set()
-21/09/30 10:43:11 INFO DAGScheduler: waiting: Set(ResultStage 3)
-21/09/30 10:43:11 INFO DAGScheduler: failed: Set()
-21/09/30 10:43:11 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24), which has no missing parents
-21/09/30 10:43:11 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 10:43:11 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 10:43:11 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:56008 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 10:43:11 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
-21/09/30 10:43:11 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 10:43:11 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
-21/09/30 10:43:11 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 10:43:11 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
-21/09/30 10:43:11 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 10:43:11 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
-21/09/30 10:43:11 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1732 bytes result sent to driver
-21/09/30 10:43:11 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 18 ms on localhost (executor driver) (1/1)
-21/09/30 10:43:11 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
-21/09/30 10:43:11 INFO DAGScheduler: ResultStage 3 (count at utils.scala:24) finished in 0.025 s
-21/09/30 10:43:11 INFO DAGScheduler: Job 1 finished: count at utils.scala:24, took 0.076676 s
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 62
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 84
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 110
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 123
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 68
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 99
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 130
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 103
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 116
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 66
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 114
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 104
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 89
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 108
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 82
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 120
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 85
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 109
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 73
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 119
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 112
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 126
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 106
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 122
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 124
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 98
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 128
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 129
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 80
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 86
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 105
-21/09/30 11:13:09 INFO ContextCleaner: Cleaned accumulator 97
-21/09/30 11:13:10 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 127.0.0.1:56008 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 71
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 107
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 93
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 113
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 111
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 70
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 72
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 102
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 101
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 81
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 127
-21/09/30 11:13:10 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 127.0.0.1:56008 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 100
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 96
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 125
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 88
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 118
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 75
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 117
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 91
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 95
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 78
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 121
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 67
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 87
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 115
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 90
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 74
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 77
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 83
-21/09/30 11:13:10 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 127.0.0.1:56008 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 76
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 79
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 94
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned shuffle 1
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 92
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 131
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 69
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 53
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 37
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 30
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 8
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 31
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 32
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 64
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 54
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 22
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 59
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 13
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 61
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 50
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 16
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 57
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 43
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 23
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 47
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 46
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 4
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 17
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 41
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 20
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 58
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 11
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 28
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 26
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 6
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 55
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 27
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 39
-21/09/30 11:13:10 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 127.0.0.1:56008 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 52
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 65
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 9
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 49
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 48
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 14
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 0
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 38
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 42
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 45
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 40
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 10
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 44
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 34
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 7
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 24
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 12
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 18
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 33
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 3
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 5
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 35
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 56
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 60
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 21
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 36
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 15
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 19
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 51
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 29
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 25
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 63
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned shuffle 0
-21/09/30 11:13:10 INFO ContextCleaner: Cleaned accumulator 2
-21/09/30 11:14:44 INFO SparkContext: Invoking stop() from shutdown hook
-21/09/30 11:14:44 INFO SparkUI: Stopped Spark web UI at http://127.0.0.1:4040
-21/09/30 11:14:44 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-21/09/30 11:14:45 INFO MemoryStore: MemoryStore cleared
-21/09/30 11:14:45 INFO BlockManager: BlockManager stopped
-21/09/30 11:14:45 INFO BlockManagerMaster: BlockManagerMaster stopped
-21/09/30 11:14:45 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-21/09/30 11:14:45 INFO SparkContext: Successfully stopped SparkContext
-21/09/30 11:14:45 INFO ShutdownHookManager: Shutdown hook called
-21/09/30 11:14:45 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\Temp\spark-dc6b0928-dd17-4da9-a15c-2828408f03b6
-21/09/30 11:14:45 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-623660ed-3787-405d-8cdc-2554bba75583
-21/09/30 11:32:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-21/09/30 11:32:12 INFO SparkContext: Running Spark version 2.4.3
-21/09/30 11:32:12 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
-21/09/30 11:32:12 INFO SparkContext: Submitted application: sparklyr
-21/09/30 11:32:12 INFO SecurityManager: Changing view acls to: Dell
-21/09/30 11:32:12 INFO SecurityManager: Changing modify acls to: Dell
-21/09/30 11:32:12 INFO SecurityManager: Changing view acls groups to: 
-21/09/30 11:32:12 INFO SecurityManager: Changing modify acls groups to: 
-21/09/30 11:32:12 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Dell); groups with view permissions: Set(); users  with modify permissions: Set(Dell); groups with modify permissions: Set()
-21/09/30 11:32:12 INFO Utils: Successfully started service 'sparkDriver' on port 55043.
-21/09/30 11:32:12 INFO SparkEnv: Registering MapOutputTracker
-21/09/30 11:32:12 INFO SparkEnv: Registering BlockManagerMaster
-21/09/30 11:32:12 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-21/09/30 11:32:12 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-21/09/30 11:32:12 INFO DiskBlockManager: Created local directory at C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\blockmgr-4c814c12-cc64-41e4-8ebe-a1b6094867f6
-21/09/30 11:32:12 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
-21/09/30 11:32:12 INFO SparkEnv: Registering OutputCommitCoordinator
-21/09/30 11:32:12 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local]. Please check your configured local directories.
-21/09/30 11:32:13 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-21/09/30 11:32:13 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://127.0.0.1:4040
-21/09/30 11:32:13 INFO SparkContext: Added JAR file:///D:/R/library/rsparkling/java/sparkling_water_assembly.jar at spark://127.0.0.1:55043/jars/sparkling_water_assembly.jar with timestamp 1632981733143
-21/09/30 11:32:13 INFO SparkContext: Added JAR file:/D:/R/library/sparklyr/java/sparklyr-2.4-2.11.jar at spark://127.0.0.1:55043/jars/sparklyr-2.4-2.11.jar with timestamp 1632981733145
-21/09/30 11:32:13 INFO Executor: Starting executor ID driver on host localhost
-21/09/30 11:32:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 55084.
-21/09/30 11:32:13 INFO NettyBlockTransferService: Server created on 127.0.0.1:55084
-21/09/30 11:32:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-21/09/30 11:32:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 55084, None)
-21/09/30 11:32:13 INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:55084 with 912.3 MB RAM, BlockManagerId(driver, 127.0.0.1, 55084, None)
-21/09/30 11:32:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 55084, None)
-21/09/30 11:32:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 55084, None)
-21/09/30 11:32:13 INFO SharedState: loading hive config file: file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/conf/hive-site.xml
-21/09/30 11:32:13 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive') to the value of spark.sql.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive').
-21/09/30 11:32:13 INFO SharedState: Warehouse path is 'C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive'.
-21/09/30 11:32:14 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
-21/09/30 11:32:36 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
-21/09/30 11:32:37 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
-21/09/30 11:32:37 INFO ObjectStore: ObjectStore, initialize called
-21/09/30 11:32:37 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
-21/09/30 11:32:37 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
-21/09/30 11:32:39 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
-21/09/30 11:32:40 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 11:32:40 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 11:32:42 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 11:32:42 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 11:32:42 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
-21/09/30 11:32:42 INFO ObjectStore: Initialized ObjectStore
-21/09/30 11:32:42 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
-21/09/30 11:32:42 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
-21/09/30 11:32:43 INFO HiveMetaStore: Added admin role in metastore
-21/09/30 11:32:43 INFO HiveMetaStore: Added public role in metastore
-21/09/30 11:32:43 INFO HiveMetaStore: No user is added in admin role, since config is empty
-21/09/30 11:32:43 INFO HiveMetaStore: 0: get_all_databases
-21/09/30 11:32:43 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_all_databases	
-21/09/30 11:32:43 INFO HiveMetaStore: 0: get_functions: db=default pat=*
-21/09/30 11:32:43 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
-21/09/30 11:32:43 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 11:32:45 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/Temp/1931e48e-83ec-4579-a1d5-8f8f40e2fa6d_resources
-21/09/30 11:32:45 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/1931e48e-83ec-4579-a1d5-8f8f40e2fa6d
-21/09/30 11:32:45 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/1931e48e-83ec-4579-a1d5-8f8f40e2fa6d
-21/09/30 11:32:45 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/1931e48e-83ec-4579-a1d5-8f8f40e2fa6d/_tmp_space.db
-21/09/30 11:32:45 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive
-21/09/30 11:32:45 INFO HiveMetaStore: 0: get_database: default
-21/09/30 11:32:45 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 11:32:45 INFO HiveMetaStore: 0: get_database: global_temp
-21/09/30 11:32:45 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: global_temp	
-21/09/30 11:32:45 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
-21/09/30 11:32:45 INFO HiveMetaStore: 0: get_database: default
-21/09/30 11:32:45 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 11:32:45 INFO HiveMetaStore: 0: get_database: default
-21/09/30 11:32:45 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 11:32:45 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 11:32:45 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 11:32:46 INFO CodeGenerator: Code generated in 303.1976 ms
-21/09/30 11:32:46 INFO CodeGenerator: Code generated in 24.3276 ms
-21/09/30 11:32:46 INFO CodeGenerator: Code generated in 24.6166 ms
-21/09/30 11:32:47 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 11:32:47 INFO DAGScheduler: Registering RDD 3 (count at utils.scala:24)
-21/09/30 11:32:47 INFO DAGScheduler: Got job 0 (count at utils.scala:24) with 1 output partitions
-21/09/30 11:32:47 INFO DAGScheduler: Final stage: ResultStage 1 (count at utils.scala:24)
-21/09/30 11:32:47 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
-21/09/30 11:32:47 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
-21/09/30 11:32:47 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24), which has no missing parents
-21/09/30 11:32:47 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 11:32:47 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 11:32:47 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:55084 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 11:32:47 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
-21/09/30 11:32:47 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 11:32:47 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
-21/09/30 11:32:47 INFO ContextCleaner: Cleaned accumulator 1
-21/09/30 11:32:47 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 11:32:47 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-21/09/30 11:32:47 INFO Executor: Fetching spark://127.0.0.1:55043/jars/sparklyr-2.4-2.11.jar with timestamp 1632981733145
-21/09/30 11:32:48 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:55043 after 44 ms (0 ms spent in bootstraps)
-21/09/30 11:32:48 INFO Utils: Fetching spark://127.0.0.1:55043/jars/sparklyr-2.4-2.11.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-07f492d5-ec69-4f64-8ff4-ea86a3dc452a\userFiles-c8112912-a7e6-4a79-b28a-c43aca628da6\fetchFileTemp4915671261871274892.tmp
-21/09/30 11:32:48 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-07f492d5-ec69-4f64-8ff4-ea86a3dc452a/userFiles-c8112912-a7e6-4a79-b28a-c43aca628da6/sparklyr-2.4-2.11.jar to class loader
-21/09/30 11:32:48 INFO Executor: Fetching spark://127.0.0.1:55043/jars/sparkling_water_assembly.jar with timestamp 1632981733143
-21/09/30 11:32:48 INFO Utils: Fetching spark://127.0.0.1:55043/jars/sparkling_water_assembly.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-07f492d5-ec69-4f64-8ff4-ea86a3dc452a\userFiles-c8112912-a7e6-4a79-b28a-c43aca628da6\fetchFileTemp8604285071060993262.tmp
-21/09/30 11:32:50 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-07f492d5-ec69-4f64-8ff4-ea86a3dc452a/userFiles-c8112912-a7e6-4a79-b28a-c43aca628da6/sparkling_water_assembly.jar to class loader
-21/09/30 11:32:51 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1542 bytes result sent to driver
-21/09/30 11:32:51 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 3877 ms on localhost (executor driver) (1/1)
-21/09/30 11:32:51 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-21/09/30 11:32:51 INFO DAGScheduler: ShuffleMapStage 0 (count at utils.scala:24) finished in 4.489 s
-21/09/30 11:32:51 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 11:32:51 INFO DAGScheduler: running: Set()
-21/09/30 11:32:51 INFO DAGScheduler: waiting: Set(ResultStage 1)
-21/09/30 11:32:51 INFO DAGScheduler: failed: Set()
-21/09/30 11:32:51 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24), which has no missing parents
-21/09/30 11:32:51 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 11:32:51 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 11:32:51 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:55084 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 11:32:51 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
-21/09/30 11:32:51 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 11:32:51 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
-21/09/30 11:32:51 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 11:32:51 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
-21/09/30 11:32:52 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 11:32:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 54 ms
-21/09/30 11:32:52 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1775 bytes result sent to driver
-21/09/30 11:32:52 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 316 ms on localhost (executor driver) (1/1)
-21/09/30 11:32:52 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
-21/09/30 11:32:52 INFO DAGScheduler: ResultStage 1 (count at utils.scala:24) finished in 0.373 s
-21/09/30 11:32:52 INFO DAGScheduler: Job 0 finished: count at utils.scala:24, took 5.110386 s
-21/09/30 11:32:52 INFO HiveMetaStore: 0: get_database: default
-21/09/30 11:32:52 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 11:32:52 INFO HiveMetaStore: 0: get_database: default
-21/09/30 11:32:52 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 11:32:52 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 11:32:52 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 11:32:52 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 11:32:52 INFO DAGScheduler: Registering RDD 10 (count at utils.scala:24)
-21/09/30 11:32:52 INFO DAGScheduler: Got job 1 (count at utils.scala:24) with 1 output partitions
-21/09/30 11:32:52 INFO DAGScheduler: Final stage: ResultStage 3 (count at utils.scala:24)
-21/09/30 11:32:52 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
-21/09/30 11:32:52 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
-21/09/30 11:32:52 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24), which has no missing parents
-21/09/30 11:32:52 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 11:32:52 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 11:32:52 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:55084 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 11:32:52 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
-21/09/30 11:32:52 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 11:32:52 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
-21/09/30 11:32:52 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 11:32:52 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
-21/09/30 11:32:52 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1456 bytes result sent to driver
-21/09/30 11:32:52 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 53 ms on localhost (executor driver) (1/1)
-21/09/30 11:32:52 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
-21/09/30 11:32:52 INFO DAGScheduler: ShuffleMapStage 2 (count at utils.scala:24) finished in 0.064 s
-21/09/30 11:32:52 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 11:32:52 INFO DAGScheduler: running: Set()
-21/09/30 11:32:52 INFO DAGScheduler: waiting: Set(ResultStage 3)
-21/09/30 11:32:52 INFO DAGScheduler: failed: Set()
-21/09/30 11:32:52 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24), which has no missing parents
-21/09/30 11:32:52 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 11:32:52 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 11:32:52 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:55084 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 11:32:52 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
-21/09/30 11:32:52 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 11:32:52 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
-21/09/30 11:32:52 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 11:32:52 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
-21/09/30 11:32:52 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 11:32:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
-21/09/30 11:32:52 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1818 bytes result sent to driver
-21/09/30 11:32:52 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 27 ms on localhost (executor driver) (1/1)
-21/09/30 11:32:52 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
-21/09/30 11:32:52 INFO DAGScheduler: ResultStage 3 (count at utils.scala:24) finished in 0.040 s
-21/09/30 11:32:52 INFO DAGScheduler: Job 1 finished: count at utils.scala:24, took 0.116311 s
-21/09/30 11:33:45 INFO SparkContext: Invoking stop() from shutdown hook
-21/09/30 11:33:49 INFO SparkUI: Stopped Spark web UI at http://127.0.0.1:4040
-21/09/30 11:33:49 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
-21/09/30 11:33:49 INFO MemoryStore: MemoryStore cleared
-21/09/30 11:33:49 INFO BlockManager: BlockManager stopped
-21/09/30 11:33:49 INFO BlockManagerMaster: BlockManagerMaster stopped
-21/09/30 11:33:49 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
-21/09/30 11:33:49 INFO SparkContext: Successfully stopped SparkContext
-21/09/30 11:33:49 INFO ShutdownHookManager: Shutdown hook called
-21/09/30 11:33:49 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\Temp\spark-71764100-0b7a-44cd-91d1-d281ca22109f
-21/09/30 11:33:49 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-07f492d5-ec69-4f64-8ff4-ea86a3dc452a
-21/09/30 12:21:30 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-21/09/30 12:21:33 INFO SparkContext: Running Spark version 2.4.3
-21/09/30 12:21:33 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
-21/09/30 12:21:33 INFO SparkContext: Submitted application: sparklyr
-21/09/30 12:21:34 INFO SecurityManager: Changing view acls to: Dell
-21/09/30 12:21:34 INFO SecurityManager: Changing modify acls to: Dell
-21/09/30 12:21:34 INFO SecurityManager: Changing view acls groups to: 
-21/09/30 12:21:34 INFO SecurityManager: Changing modify acls groups to: 
-21/09/30 12:21:34 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Dell); groups with view permissions: Set(); users  with modify permissions: Set(Dell); groups with modify permissions: Set()
-21/09/30 12:21:34 INFO Utils: Successfully started service 'sparkDriver' on port 60315.
-21/09/30 12:21:34 INFO SparkEnv: Registering MapOutputTracker
-21/09/30 12:21:34 INFO SparkEnv: Registering BlockManagerMaster
-21/09/30 12:21:34 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-21/09/30 12:21:34 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-21/09/30 12:21:34 INFO DiskBlockManager: Created local directory at C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\blockmgr-1764ce06-bb82-4f99-bbe3-77834a669354
-21/09/30 12:21:34 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
-21/09/30 12:21:34 INFO SparkEnv: Registering OutputCommitCoordinator
-21/09/30 12:21:34 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local]. Please check your configured local directories.
-21/09/30 12:21:35 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-21/09/30 12:21:35 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://127.0.0.1:4040
-21/09/30 12:21:35 INFO SparkContext: Added JAR file:///D:/R/library/rsparkling/java/sparkling_water_assembly.jar at spark://127.0.0.1:60315/jars/sparkling_water_assembly.jar with timestamp 1632984695349
-21/09/30 12:21:35 INFO SparkContext: Added JAR file:/D:/R/library/sparklyr/java/sparklyr-2.4-2.11.jar at spark://127.0.0.1:60315/jars/sparklyr-2.4-2.11.jar with timestamp 1632984695352
-21/09/30 12:21:35 INFO Executor: Starting executor ID driver on host localhost
-21/09/30 12:21:35 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 60356.
-21/09/30 12:21:35 INFO NettyBlockTransferService: Server created on 127.0.0.1:60356
-21/09/30 12:21:35 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-21/09/30 12:21:35 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 60356, None)
-21/09/30 12:21:35 INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:60356 with 912.3 MB RAM, BlockManagerId(driver, 127.0.0.1, 60356, None)
-21/09/30 12:21:35 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 60356, None)
-21/09/30 12:21:35 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 60356, None)
-21/09/30 12:21:36 INFO SharedState: loading hive config file: file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/conf/hive-site.xml
-21/09/30 12:21:36 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive') to the value of spark.sql.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive').
-21/09/30 12:21:36 INFO SharedState: Warehouse path is 'C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive'.
-21/09/30 12:21:38 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
-21/09/30 12:22:15 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
-21/09/30 12:22:17 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
-21/09/30 12:22:17 INFO ObjectStore: ObjectStore, initialize called
-21/09/30 12:22:17 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
-21/09/30 12:22:17 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
-21/09/30 12:22:22 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
-21/09/30 12:22:24 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 12:22:24 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 12:22:26 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 12:22:26 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 12:22:26 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
-21/09/30 12:22:26 INFO ObjectStore: Initialized ObjectStore
-21/09/30 12:22:26 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
-21/09/30 12:22:26 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
-21/09/30 12:22:27 INFO HiveMetaStore: Added admin role in metastore
-21/09/30 12:22:27 INFO HiveMetaStore: Added public role in metastore
-21/09/30 12:22:27 INFO HiveMetaStore: No user is added in admin role, since config is empty
-21/09/30 12:22:27 INFO HiveMetaStore: 0: get_all_databases
-21/09/30 12:22:27 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_all_databases	
-21/09/30 12:22:27 INFO HiveMetaStore: 0: get_functions: db=default pat=*
-21/09/30 12:22:27 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
-21/09/30 12:22:27 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 12:22:28 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/Temp/be8314ea-cc17-4718-91af-743f9eff7be2_resources
-21/09/30 12:22:28 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/be8314ea-cc17-4718-91af-743f9eff7be2
-21/09/30 12:22:28 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/be8314ea-cc17-4718-91af-743f9eff7be2
-21/09/30 12:22:28 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/be8314ea-cc17-4718-91af-743f9eff7be2/_tmp_space.db
-21/09/30 12:22:28 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive
-21/09/30 12:22:28 INFO HiveMetaStore: 0: get_database: default
-21/09/30 12:22:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 12:22:28 INFO HiveMetaStore: 0: get_database: global_temp
-21/09/30 12:22:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: global_temp	
-21/09/30 12:22:28 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
-21/09/30 12:22:28 INFO HiveMetaStore: 0: get_database: default
-21/09/30 12:22:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 12:22:28 INFO HiveMetaStore: 0: get_database: default
-21/09/30 12:22:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 12:22:28 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 12:22:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 12:22:29 INFO CodeGenerator: Code generated in 321.8748 ms
-21/09/30 12:22:30 INFO CodeGenerator: Code generated in 25.4611 ms
-21/09/30 12:22:30 INFO CodeGenerator: Code generated in 21.3384 ms
-21/09/30 12:22:30 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 12:22:30 INFO DAGScheduler: Registering RDD 3 (count at utils.scala:24)
-21/09/30 12:22:30 INFO DAGScheduler: Got job 0 (count at utils.scala:24) with 1 output partitions
-21/09/30 12:22:30 INFO DAGScheduler: Final stage: ResultStage 1 (count at utils.scala:24)
-21/09/30 12:22:30 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
-21/09/30 12:22:31 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
-21/09/30 12:22:31 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24), which has no missing parents
-21/09/30 12:22:31 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 12:22:31 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 12:22:31 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:60356 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 12:22:31 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
-21/09/30 12:22:31 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 12:22:31 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
-21/09/30 12:22:31 INFO ContextCleaner: Cleaned accumulator 1
-21/09/30 12:22:31 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 12:22:31 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-21/09/30 12:22:31 INFO Executor: Fetching spark://127.0.0.1:60315/jars/sparklyr-2.4-2.11.jar with timestamp 1632984695352
-21/09/30 12:22:31 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:60315 after 40 ms (0 ms spent in bootstraps)
-21/09/30 12:22:31 INFO Utils: Fetching spark://127.0.0.1:60315/jars/sparklyr-2.4-2.11.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-bdf84ac4-4c0b-42ad-a421-d0b763c098b1\userFiles-d40f81b1-3380-4ecc-9f6f-3bd10a280f8b\fetchFileTemp341386203623315701.tmp
-21/09/30 12:22:32 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-bdf84ac4-4c0b-42ad-a421-d0b763c098b1/userFiles-d40f81b1-3380-4ecc-9f6f-3bd10a280f8b/sparklyr-2.4-2.11.jar to class loader
-21/09/30 12:22:32 INFO Executor: Fetching spark://127.0.0.1:60315/jars/sparkling_water_assembly.jar with timestamp 1632984695349
-21/09/30 12:22:32 INFO Utils: Fetching spark://127.0.0.1:60315/jars/sparkling_water_assembly.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-bdf84ac4-4c0b-42ad-a421-d0b763c098b1\userFiles-d40f81b1-3380-4ecc-9f6f-3bd10a280f8b\fetchFileTemp2825227927521710214.tmp
-21/09/30 12:22:34 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-bdf84ac4-4c0b-42ad-a421-d0b763c098b1/userFiles-d40f81b1-3380-4ecc-9f6f-3bd10a280f8b/sparkling_water_assembly.jar to class loader
-21/09/30 12:22:35 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1542 bytes result sent to driver
-21/09/30 12:22:35 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 3747 ms on localhost (executor driver) (1/1)
-21/09/30 12:22:35 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-21/09/30 12:22:35 INFO DAGScheduler: ShuffleMapStage 0 (count at utils.scala:24) finished in 4.255 s
-21/09/30 12:22:35 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 12:22:35 INFO DAGScheduler: running: Set()
-21/09/30 12:22:35 INFO DAGScheduler: waiting: Set(ResultStage 1)
-21/09/30 12:22:35 INFO DAGScheduler: failed: Set()
-21/09/30 12:22:35 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24), which has no missing parents
-21/09/30 12:22:35 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 12:22:35 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 12:22:35 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:60356 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 12:22:35 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
-21/09/30 12:22:35 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 12:22:35 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
-21/09/30 12:22:35 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 12:22:35 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
-21/09/30 12:22:35 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 12:22:35 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 33 ms
-21/09/30 12:22:35 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1818 bytes result sent to driver
-21/09/30 12:22:35 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 169 ms on localhost (executor driver) (1/1)
-21/09/30 12:22:35 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
-21/09/30 12:22:35 INFO DAGScheduler: ResultStage 1 (count at utils.scala:24) finished in 0.210 s
-21/09/30 12:22:35 INFO DAGScheduler: Job 0 finished: count at utils.scala:24, took 4.674118 s
-21/09/30 12:22:36 INFO HiveMetaStore: 0: get_database: default
-21/09/30 12:22:36 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 12:22:36 INFO HiveMetaStore: 0: get_database: default
-21/09/30 12:22:36 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 12:22:36 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 12:22:36 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 12:22:36 INFO ContextCleaner: Cleaned accumulator 67
-21/09/30 12:22:36 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 12:22:36 INFO DAGScheduler: Registering RDD 10 (count at utils.scala:24)
-21/09/30 12:22:36 INFO DAGScheduler: Got job 1 (count at utils.scala:24) with 1 output partitions
-21/09/30 12:22:36 INFO DAGScheduler: Final stage: ResultStage 3 (count at utils.scala:24)
-21/09/30 12:22:36 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
-21/09/30 12:22:36 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
-21/09/30 12:22:36 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24), which has no missing parents
-21/09/30 12:22:36 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 12:22:36 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 12:22:36 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:60356 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 12:22:36 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
-21/09/30 12:22:36 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 12:22:36 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
-21/09/30 12:22:36 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 12:22:36 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
-21/09/30 12:22:36 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 127.0.0.1:60356 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 12:22:36 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1456 bytes result sent to driver
-21/09/30 12:22:36 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 103 ms on localhost (executor driver) (1/1)
-21/09/30 12:22:36 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
-21/09/30 12:22:36 INFO DAGScheduler: ShuffleMapStage 2 (count at utils.scala:24) finished in 0.133 s
-21/09/30 12:22:36 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 12:22:36 INFO DAGScheduler: running: Set()
-21/09/30 12:22:36 INFO DAGScheduler: waiting: Set(ResultStage 3)
-21/09/30 12:22:36 INFO DAGScheduler: failed: Set()
-21/09/30 12:22:36 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24), which has no missing parents
-21/09/30 12:22:36 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 12:22:36 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 12:22:36 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:60356 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 12:22:36 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
-21/09/30 12:22:36 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 12:22:36 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
-21/09/30 12:22:36 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 12:22:36 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
-21/09/30 12:22:36 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 12:22:36 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
-21/09/30 12:22:36 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1775 bytes result sent to driver
-21/09/30 12:22:36 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 46 ms on localhost (executor driver) (1/1)
-21/09/30 12:22:36 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
-21/09/30 12:22:36 INFO DAGScheduler: ResultStage 3 (count at utils.scala:24) finished in 0.067 s
-21/09/30 12:22:36 INFO DAGScheduler: Job 1 finished: count at utils.scala:24, took 0.213019 s
-21/09/30 12:30:54 WARN Executor: Issue communicating with driver in heartbeater
-org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
-	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
-	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
-	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:36)
-	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
-	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:92)
-	at org.apache.spark.executor.Executor.org$apache$spark$executor$Executor$$reportHeartBeat(Executor.scala:841)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply$mcV$sp(Executor.scala:870)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
-	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
-	at org.apache.spark.executor.Executor$$anon$2.run(Executor.scala:870)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
-	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:223)
-	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:227)
-	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:220)
-	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
-	... 14 more
-21/09/30 12:30:56 WARN NettyRpcEnv: Ignored message: HeartbeatResponse(false)
-21/09/30 12:31:04 WARN Executor: Issue communicating with driver in heartbeater
-org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10000 milliseconds]. This timeout is controlled by spark.executor.heartbeatInterval
-	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:47)
-	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:62)
-	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:58)
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:36)
-	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:76)
-	at org.apache.spark.rpc.RpcEndpointRef.askSync(RpcEndpointRef.scala:92)
-	at org.apache.spark.executor.Executor.org$apache$spark$executor$Executor$$reportHeartBeat(Executor.scala:841)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply$mcV$sp(Executor.scala:870)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
-	at org.apache.spark.executor.Executor$$anon$2$$anonfun$run$1.apply(Executor.scala:870)
-	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1945)
-	at org.apache.spark.executor.Executor$$anon$2.run(Executor.scala:870)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.runAndReset(Unknown Source)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(Unknown Source)
-	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10000 milliseconds]
-	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:223)
-	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:227)
-	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:220)
-	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:75)
-	... 14 more
-21/09/30 12:31:04 WARN NettyRpcEnv: Ignored message: HeartbeatResponse(false)
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 23
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 111
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 115
-21/09/30 12:51:37 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 127.0.0.1:60356 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 89
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 78
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 97
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 121
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 114
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 87
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 73
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 112
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 80
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 123
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 92
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 110
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 88
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned shuffle 1
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 103
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 104
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 74
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 93
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 83
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 105
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 90
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 108
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 113
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 127
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 125
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 107
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 102
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 69
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 79
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 119
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 70
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 116
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 71
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 76
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 66
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 120
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 86
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 91
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 96
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 77
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 98
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 81
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 68
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 75
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 117
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 82
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 129
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 85
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 101
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 126
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 100
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 106
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 95
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 72
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 130
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 118
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 124
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 131
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 84
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 109
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 128
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 94
-21/09/30 12:51:37 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 127.0.0.1:60356 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 99
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 122
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 16
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 65
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 46
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 7
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 50
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 6
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 47
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 45
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 63
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 24
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 39
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 56
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 64
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 62
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 28
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 52
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 4
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 43
-21/09/30 12:51:37 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 127.0.0.1:60356 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 58
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 8
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 25
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 26
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 53
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 9
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 3
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 2
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 57
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 48
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 19
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 42
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 32
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 60
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 0
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 15
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 59
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 17
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 10
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 34
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 30
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 14
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned shuffle 0
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 35
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 49
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 40
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 33
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 31
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 41
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 44
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 22
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 20
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 5
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 27
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 55
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 37
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 18
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 21
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 51
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 13
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 29
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 61
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 12
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 11
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 54
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 36
-21/09/30 12:51:37 INFO ContextCleaner: Cleaned accumulator 38
-21/09/30 13:13:14 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-21/09/30 13:14:16 INFO ShutdownHookManager: Shutdown hook called
-21/09/30 13:14:16 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\Temp\spark-b2b2a29f-585a-4251-8fa3-3da38411128b
-21/09/30 14:10:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-21/09/30 14:11:06 INFO SparkContext: Running Spark version 2.4.3
-21/09/30 14:11:06 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
-21/09/30 14:11:06 INFO SparkContext: Submitted application: sparklyr
-21/09/30 14:11:06 INFO SecurityManager: Changing view acls to: Dell
-21/09/30 14:11:06 INFO SecurityManager: Changing modify acls to: Dell
-21/09/30 14:11:06 INFO SecurityManager: Changing view acls groups to: 
-21/09/30 14:11:06 INFO SecurityManager: Changing modify acls groups to: 
-21/09/30 14:11:06 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Dell); groups with view permissions: Set(); users  with modify permissions: Set(Dell); groups with modify permissions: Set()
-21/09/30 14:11:06 INFO Utils: Successfully started service 'sparkDriver' on port 61818.
-21/09/30 14:11:06 INFO SparkEnv: Registering MapOutputTracker
-21/09/30 14:11:06 INFO SparkEnv: Registering BlockManagerMaster
-21/09/30 14:11:06 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
-21/09/30 14:11:06 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
-21/09/30 14:11:06 INFO DiskBlockManager: Created local directory at C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\blockmgr-1b019202-18cc-4131-926e-c926c673830d
-21/09/30 14:11:06 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
-21/09/30 14:11:06 INFO SparkEnv: Registering OutputCommitCoordinator
-21/09/30 14:11:06 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local]. Please check your configured local directories.
-21/09/30 14:11:06 INFO Utils: Successfully started service 'SparkUI' on port 4040.
-21/09/30 14:11:06 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://127.0.0.1:4040
-21/09/30 14:11:06 INFO SparkContext: Added JAR file:///D:/R/library/rsparkling/java/sparkling_water_assembly.jar at spark://127.0.0.1:61818/jars/sparkling_water_assembly.jar with timestamp 1632991266731
-21/09/30 14:11:06 INFO SparkContext: Added JAR file:/D:/R/library/sparklyr/java/sparklyr-2.4-2.11.jar at spark://127.0.0.1:61818/jars/sparklyr-2.4-2.11.jar with timestamp 1632991266732
-21/09/30 14:11:06 INFO Executor: Starting executor ID driver on host localhost
-21/09/30 14:11:06 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 64598.
-21/09/30 14:11:06 INFO NettyBlockTransferService: Server created on 127.0.0.1:64598
-21/09/30 14:11:06 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
-21/09/30 14:11:06 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 64598, None)
-21/09/30 14:11:06 INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:64598 with 912.3 MB RAM, BlockManagerId(driver, 127.0.0.1, 64598, None)
-21/09/30 14:11:06 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 64598, None)
-21/09/30 14:11:06 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 64598, None)
-21/09/30 14:11:07 INFO SharedState: loading hive config file: file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/conf/hive-site.xml
-21/09/30 14:11:07 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive') to the value of spark.sql.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive').
-21/09/30 14:11:07 INFO SharedState: Warehouse path is 'C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive'.
-21/09/30 14:11:07 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
-21/09/30 14:11:19 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
-21/09/30 14:11:20 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
-21/09/30 14:11:20 INFO ObjectStore: ObjectStore, initialize called
-21/09/30 14:11:20 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
-21/09/30 14:11:20 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
-21/09/30 14:11:21 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
-21/09/30 14:11:22 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 14:11:22 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 14:11:23 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 14:11:23 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 14:11:23 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
-21/09/30 14:11:23 INFO ObjectStore: Initialized ObjectStore
-21/09/30 14:11:23 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
-21/09/30 14:11:23 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
-21/09/30 14:11:23 INFO HiveMetaStore: Added admin role in metastore
-21/09/30 14:11:23 INFO HiveMetaStore: Added public role in metastore
-21/09/30 14:11:23 INFO HiveMetaStore: No user is added in admin role, since config is empty
-21/09/30 14:11:23 INFO HiveMetaStore: 0: get_all_databases
-21/09/30 14:11:23 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_all_databases	
-21/09/30 14:11:23 INFO HiveMetaStore: 0: get_functions: db=default pat=*
-21/09/30 14:11:23 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
-21/09/30 14:11:23 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
-21/09/30 14:11:24 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/Temp/97df0c3b-07f5-4f8c-9a74-35a26145b2b0_resources
-21/09/30 14:11:24 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/97df0c3b-07f5-4f8c-9a74-35a26145b2b0
-21/09/30 14:11:24 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/97df0c3b-07f5-4f8c-9a74-35a26145b2b0
-21/09/30 14:11:24 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/97df0c3b-07f5-4f8c-9a74-35a26145b2b0/_tmp_space.db
-21/09/30 14:11:24 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive
-21/09/30 14:11:24 INFO HiveMetaStore: 0: get_database: default
-21/09/30 14:11:24 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 14:11:24 INFO HiveMetaStore: 0: get_database: global_temp
-21/09/30 14:11:24 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: global_temp	
-21/09/30 14:11:24 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
-21/09/30 14:11:24 INFO HiveMetaStore: 0: get_database: default
-21/09/30 14:11:24 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 14:11:24 INFO HiveMetaStore: 0: get_database: default
-21/09/30 14:11:24 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 14:11:24 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 14:11:24 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 14:11:25 INFO CodeGenerator: Code generated in 259.3932 ms
-21/09/30 14:11:25 INFO CodeGenerator: Code generated in 33.4351 ms
-21/09/30 14:11:25 INFO CodeGenerator: Code generated in 14.3341 ms
-21/09/30 14:11:25 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 14:11:25 INFO DAGScheduler: Registering RDD 3 (count at utils.scala:24)
-21/09/30 14:11:25 INFO DAGScheduler: Got job 0 (count at utils.scala:24) with 1 output partitions
-21/09/30 14:11:25 INFO DAGScheduler: Final stage: ResultStage 1 (count at utils.scala:24)
-21/09/30 14:11:25 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
-21/09/30 14:11:25 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
-21/09/30 14:11:25 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24), which has no missing parents
-21/09/30 14:11:25 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 14:11:25 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 14:11:25 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:64598 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 14:11:25 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
-21/09/30 14:11:25 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 14:11:25 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
-21/09/30 14:11:25 INFO ContextCleaner: Cleaned accumulator 1
-21/09/30 14:11:25 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 14:11:26 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
-21/09/30 14:11:26 INFO Executor: Fetching spark://127.0.0.1:61818/jars/sparkling_water_assembly.jar with timestamp 1632991266731
-21/09/30 14:11:26 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:61818 after 25 ms (0 ms spent in bootstraps)
-21/09/30 14:11:26 INFO Utils: Fetching spark://127.0.0.1:61818/jars/sparkling_water_assembly.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-1e3897e3-da6d-4278-b8f0-92388abeca7b\userFiles-941776ac-dd54-437d-8cce-4a0b14a2d41c\fetchFileTemp4897310935341843645.tmp
-21/09/30 14:11:27 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-1e3897e3-da6d-4278-b8f0-92388abeca7b/userFiles-941776ac-dd54-437d-8cce-4a0b14a2d41c/sparkling_water_assembly.jar to class loader
-21/09/30 14:11:27 INFO Executor: Fetching spark://127.0.0.1:61818/jars/sparklyr-2.4-2.11.jar with timestamp 1632991266732
-21/09/30 14:11:27 INFO Utils: Fetching spark://127.0.0.1:61818/jars/sparklyr-2.4-2.11.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-1e3897e3-da6d-4278-b8f0-92388abeca7b\userFiles-941776ac-dd54-437d-8cce-4a0b14a2d41c\fetchFileTemp280187787333304964.tmp
-21/09/30 14:11:28 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-1e3897e3-da6d-4278-b8f0-92388abeca7b/userFiles-941776ac-dd54-437d-8cce-4a0b14a2d41c/sparklyr-2.4-2.11.jar to class loader
-21/09/30 14:11:28 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1542 bytes result sent to driver
-21/09/30 14:11:28 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2258 ms on localhost (executor driver) (1/1)
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
-21/09/30 14:11:28 INFO DAGScheduler: ShuffleMapStage 0 (count at utils.scala:24) finished in 2.533 s
-21/09/30 14:11:28 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 14:11:28 INFO DAGScheduler: running: Set()
-21/09/30 14:11:28 INFO DAGScheduler: waiting: Set(ResultStage 1)
-21/09/30 14:11:28 INFO DAGScheduler: failed: Set()
-21/09/30 14:11:28 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24), which has no missing parents
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:64598 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 14:11:28 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
-21/09/30 14:11:28 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
-21/09/30 14:11:28 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 14:11:28 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
-21/09/30 14:11:28 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 14:11:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 12 ms
-21/09/30 14:11:28 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1818 bytes result sent to driver
-21/09/30 14:11:28 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 70 ms on localhost (executor driver) (1/1)
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
-21/09/30 14:11:28 INFO DAGScheduler: ResultStage 1 (count at utils.scala:24) finished in 0.098 s
-21/09/30 14:11:28 INFO DAGScheduler: Job 0 finished: count at utils.scala:24, took 2.705493 s
-21/09/30 14:11:28 INFO HiveMetaStore: 0: get_database: default
-21/09/30 14:11:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 14:11:28 INFO HiveMetaStore: 0: get_database: default
-21/09/30 14:11:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
-21/09/30 14:11:28 INFO HiveMetaStore: 0: get_tables: db=default pat=*
-21/09/30 14:11:28 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
-21/09/30 14:11:28 INFO SparkContext: Starting job: count at utils.scala:24
-21/09/30 14:11:28 INFO DAGScheduler: Registering RDD 10 (count at utils.scala:24)
-21/09/30 14:11:28 INFO DAGScheduler: Got job 1 (count at utils.scala:24) with 1 output partitions
-21/09/30 14:11:28 INFO DAGScheduler: Final stage: ResultStage 3 (count at utils.scala:24)
-21/09/30 14:11:28 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
-21/09/30 14:11:28 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
-21/09/30 14:11:28 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24), which has no missing parents
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:64598 (size: 4.2 KB, free: 912.3 MB)
-21/09/30 14:11:28 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
-21/09/30 14:11:28 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
-21/09/30 14:11:28 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
-21/09/30 14:11:28 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
-21/09/30 14:11:28 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1456 bytes result sent to driver
-21/09/30 14:11:28 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 45 ms on localhost (executor driver) (1/1)
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
-21/09/30 14:11:28 INFO DAGScheduler: ShuffleMapStage 2 (count at utils.scala:24) finished in 0.056 s
-21/09/30 14:11:28 INFO DAGScheduler: looking for newly runnable stages
-21/09/30 14:11:28 INFO DAGScheduler: running: Set()
-21/09/30 14:11:28 INFO DAGScheduler: waiting: Set(ResultStage 3)
-21/09/30 14:11:28 INFO DAGScheduler: failed: Set()
-21/09/30 14:11:28 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24), which has no missing parents
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
-21/09/30 14:11:28 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:64598 (size: 3.8 KB, free: 912.3 MB)
-21/09/30 14:11:28 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
-21/09/30 14:11:28 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
-21/09/30 14:11:28 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7767 bytes)
-21/09/30 14:11:28 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
-21/09/30 14:11:28 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
-21/09/30 14:11:28 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
-21/09/30 14:11:28 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1775 bytes result sent to driver
-21/09/30 14:11:28 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 24 ms on localhost (executor driver) (1/1)
-21/09/30 14:11:28 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
-21/09/30 14:11:28 INFO DAGScheduler: ResultStage 3 (count at utils.scala:24) finished in 0.030 s
-21/09/30 14:11:28 INFO DAGScheduler: Job 1 finished: count at utils.scala:24, took 0.092086 s
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 38
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 97
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned shuffle 1
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 114
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 80
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 85
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 110
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 71
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 78
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 86
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 73
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 128
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 72
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 95
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 122
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 101
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 103
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 109
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 79
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 69
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 126
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 90
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 91
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 96
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 123
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 100
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 121
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 131
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 82
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 92
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 104
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 129
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 89
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 76
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 75
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 117
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 107
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 77
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 74
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 93
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 118
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 112
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 66
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 111
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 84
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 108
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 98
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 127
-21/09/30 14:41:14 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 127.0.0.1:64598 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 124
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 102
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 88
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 115
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 81
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 94
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 99
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 105
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 83
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 119
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 113
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 87
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 120
-21/09/30 14:41:14 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 127.0.0.1:64598 in memory (size: 3.8 KB, free: 912.3 MB)
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 125
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 130
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 116
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 70
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 67
-21/09/30 14:41:14 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 127.0.0.1:64598 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 68
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 106
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 28
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 51
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 32
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 8
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 43
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 56
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 14
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 59
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 44
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 3
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 36
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 64
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 20
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 49
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 33
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 30
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 15
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 17
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 62
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 47
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 18
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 26
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 58
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 50
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 46
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 6
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 57
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 16
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 63
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 40
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 41
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 27
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 25
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned shuffle 0
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 37
-21/09/30 14:41:14 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 127.0.0.1:64598 in memory (size: 4.2 KB, free: 912.3 MB)
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 12
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 35
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 13
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 45
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 10
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 11
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 52
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 55
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 21
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 0
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 19
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 4
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 23
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 39
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 22
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 31
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 54
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 9
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 34
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 5
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 29
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 61
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 48
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 7
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 60
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 53
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 65
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 2
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 24
-21/09/30 14:41:14 INFO ContextCleaner: Cleaned accumulator 42
+21/10/01 10:53:34 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+21/10/01 10:53:39 INFO SparkContext: Running Spark version 2.4.3
+21/10/01 10:53:39 WARN SparkConf: Note that spark.local.dir will be overridden by the value set by the cluster manager (via SPARK_LOCAL_DIRS in mesos/standalone/kubernetes and LOCAL_DIRS in YARN).
+21/10/01 10:53:39 INFO SparkContext: Submitted application: sparklyr
+21/10/01 10:53:39 INFO SecurityManager: Changing view acls to: Dell
+21/10/01 10:53:39 INFO SecurityManager: Changing modify acls to: Dell
+21/10/01 10:53:39 INFO SecurityManager: Changing view acls groups to: 
+21/10/01 10:53:39 INFO SecurityManager: Changing modify acls groups to: 
+21/10/01 10:53:39 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Dell); groups with view permissions: Set(); users  with modify permissions: Set(Dell); groups with modify permissions: Set()
+21/10/01 10:53:39 INFO Utils: Successfully started service 'sparkDriver' on port 53119.
+21/10/01 10:53:39 INFO SparkEnv: Registering MapOutputTracker
+21/10/01 10:53:39 INFO SparkEnv: Registering BlockManagerMaster
+21/10/01 10:53:39 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+21/10/01 10:53:39 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+21/10/01 10:53:39 INFO DiskBlockManager: Created local directory at C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\blockmgr-cc968fe8-b922-4ec9-872d-d3734b9cdda1
+21/10/01 10:53:39 INFO MemoryStore: MemoryStore started with capacity 912.3 MB
+21/10/01 10:53:39 INFO SparkEnv: Registering OutputCommitCoordinator
+21/10/01 10:53:39 WARN Utils: The configured local directories are not expected to be URIs; however, got suspicious values [C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local]. Please check your configured local directories.
+21/10/01 10:53:39 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+21/10/01 10:53:40 INFO SparkUI: Bound SparkUI to 127.0.0.1, and started at http://127.0.0.1:4040
+21/10/01 10:53:40 INFO SparkContext: Added JAR file:///D:/R/library/rsparkling/java/sparkling_water_assembly.jar at spark://127.0.0.1:53119/jars/sparkling_water_assembly.jar with timestamp 1633065820036
+21/10/01 10:53:40 INFO SparkContext: Added JAR file:/D:/R/library/sparklyr/java/sparklyr-2.4-2.11.jar at spark://127.0.0.1:53119/jars/sparklyr-2.4-2.11.jar with timestamp 1633065820038
+21/10/01 10:53:40 INFO Executor: Starting executor ID driver on host localhost
+21/10/01 10:53:40 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 53160.
+21/10/01 10:53:40 INFO NettyBlockTransferService: Server created on 127.0.0.1:53160
+21/10/01 10:53:40 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+21/10/01 10:53:40 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 127.0.0.1, 53160, None)
+21/10/01 10:53:40 INFO BlockManagerMasterEndpoint: Registering block manager 127.0.0.1:53160 with 912.3 MB RAM, BlockManagerId(driver, 127.0.0.1, 53160, None)
+21/10/01 10:53:40 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 127.0.0.1, 53160, None)
+21/10/01 10:53:40 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 127.0.0.1, 53160, None)
+21/10/01 10:53:40 INFO SharedState: loading hive config file: file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/conf/hive-site.xml
+21/10/01 10:53:40 INFO SharedState: Setting hive.metastore.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive') to the value of spark.sql.warehouse.dir ('C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive').
+21/10/01 10:53:40 INFO SharedState: Warehouse path is 'C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive'.
+21/10/01 10:53:41 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+21/10/01 10:54:07 INFO HiveUtils: Initializing HiveMetastoreConnection version 1.2.1 using Spark classes.
+21/10/01 10:54:08 INFO HiveMetaStore: 0: Opening raw store with implemenation class:org.apache.hadoop.hive.metastore.ObjectStore
+21/10/01 10:54:08 INFO ObjectStore: ObjectStore, initialize called
+21/10/01 10:54:08 INFO Persistence: Property hive.metastore.integral.jdo.pushdown unknown - will be ignored
+21/10/01 10:54:08 INFO Persistence: Property datanucleus.cache.level2 unknown - will be ignored
+21/10/01 10:54:10 INFO ObjectStore: Setting MetaStore object pin classes with hive.metastore.cache.pinobjtypes="Table,StorageDescriptor,SerDeInfo,Partition,Database,Type,FieldSchema,Order"
+21/10/01 10:54:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+21/10/01 10:54:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+21/10/01 10:54:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MFieldSchema" is tagged as "embedded-only" so does not have its own datastore table.
+21/10/01 10:54:12 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MOrder" is tagged as "embedded-only" so does not have its own datastore table.
+21/10/01 10:54:13 INFO MetaStoreDirectSql: Using direct SQL, underlying DB is DERBY
+21/10/01 10:54:13 INFO ObjectStore: Initialized ObjectStore
+21/10/01 10:54:13 WARN ObjectStore: Version information not found in metastore. hive.metastore.schema.verification is not enabled so recording the schema version 1.2.0
+21/10/01 10:54:13 WARN ObjectStore: Failed to get database default, returning NoSuchObjectException
+21/10/01 10:54:13 INFO HiveMetaStore: Added admin role in metastore
+21/10/01 10:54:13 INFO HiveMetaStore: Added public role in metastore
+21/10/01 10:54:13 INFO HiveMetaStore: No user is added in admin role, since config is empty
+21/10/01 10:54:13 INFO HiveMetaStore: 0: get_all_databases
+21/10/01 10:54:13 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_all_databases	
+21/10/01 10:54:13 INFO HiveMetaStore: 0: get_functions: db=default pat=*
+21/10/01 10:54:13 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_functions: db=default pat=*	
+21/10/01 10:54:13 INFO Datastore: The class "org.apache.hadoop.hive.metastore.model.MResourceUri" is tagged as "embedded-only" so does not have its own datastore table.
+21/10/01 10:54:14 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/Temp/edc42f89-5df5-43c6-a28f-19a99fdc75f0_resources
+21/10/01 10:54:14 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/edc42f89-5df5-43c6-a28f-19a99fdc75f0
+21/10/01 10:54:14 INFO SessionState: Created local directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/edc42f89-5df5-43c6-a28f-19a99fdc75f0
+21/10/01 10:54:14 INFO SessionState: Created HDFS directory: C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive/Dell/edc42f89-5df5-43c6-a28f-19a99fdc75f0/_tmp_space.db
+21/10/01 10:54:14 INFO HiveClientImpl: Warehouse location for Hive client (version 1.2.2) is C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/hive
+21/10/01 10:54:14 INFO HiveMetaStore: 0: get_database: default
+21/10/01 10:54:14 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
+21/10/01 10:54:14 INFO HiveMetaStore: 0: get_database: global_temp
+21/10/01 10:54:14 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: global_temp	
+21/10/01 10:54:14 WARN ObjectStore: Failed to get database global_temp, returning NoSuchObjectException
+21/10/01 10:54:14 INFO HiveMetaStore: 0: get_database: default
+21/10/01 10:54:14 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
+21/10/01 10:54:14 INFO HiveMetaStore: 0: get_database: default
+21/10/01 10:54:14 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
+21/10/01 10:54:14 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+21/10/01 10:54:14 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+21/10/01 10:54:15 INFO CodeGenerator: Code generated in 342.825 ms
+21/10/01 10:54:16 INFO CodeGenerator: Code generated in 32.3763 ms
+21/10/01 10:54:16 INFO CodeGenerator: Code generated in 14.5925 ms
+21/10/01 10:54:16 INFO SparkContext: Starting job: count at utils.scala:24
+21/10/01 10:54:16 INFO DAGScheduler: Registering RDD 3 (count at utils.scala:24)
+21/10/01 10:54:16 INFO DAGScheduler: Got job 0 (count at utils.scala:24) with 1 output partitions
+21/10/01 10:54:16 INFO DAGScheduler: Final stage: ResultStage 1 (count at utils.scala:24)
+21/10/01 10:54:16 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+21/10/01 10:54:16 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+21/10/01 10:54:16 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24), which has no missing parents
+21/10/01 10:54:16 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
+21/10/01 10:54:16 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
+21/10/01 10:54:16 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 127.0.0.1:53160 (size: 4.2 KB, free: 912.3 MB)
+21/10/01 10:54:16 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1161
+21/10/01 10:54:16 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
+21/10/01 10:54:16 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+21/10/01 10:54:17 INFO ContextCleaner: Cleaned accumulator 1
+21/10/01 10:54:17 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
+21/10/01 10:54:17 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+21/10/01 10:54:17 INFO Executor: Fetching spark://127.0.0.1:53119/jars/sparklyr-2.4-2.11.jar with timestamp 1633065820038
+21/10/01 10:54:17 INFO TransportClientFactory: Successfully created connection to /127.0.0.1:53119 after 36 ms (0 ms spent in bootstraps)
+21/10/01 10:54:17 INFO Utils: Fetching spark://127.0.0.1:53119/jars/sparklyr-2.4-2.11.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-800ad9fb-18b2-4733-bec2-51448c8c2fa7\userFiles-22d6f3b9-8282-412f-84ff-868aa3a042f4\fetchFileTemp1354384203905676250.tmp
+21/10/01 10:54:17 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-800ad9fb-18b2-4733-bec2-51448c8c2fa7/userFiles-22d6f3b9-8282-412f-84ff-868aa3a042f4/sparklyr-2.4-2.11.jar to class loader
+21/10/01 10:54:17 INFO Executor: Fetching spark://127.0.0.1:53119/jars/sparkling_water_assembly.jar with timestamp 1633065820036
+21/10/01 10:54:17 INFO Utils: Fetching spark://127.0.0.1:53119/jars/sparkling_water_assembly.jar to C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-800ad9fb-18b2-4733-bec2-51448c8c2fa7\userFiles-22d6f3b9-8282-412f-84ff-868aa3a042f4\fetchFileTemp7805484015544322826.tmp
+21/10/01 10:54:21 INFO Executor: Adding file:/C:/Users/Dell/AppData/Local/spark/spark-2.4.3-bin-hadoop2.7/tmp/local/spark-800ad9fb-18b2-4733-bec2-51448c8c2fa7/userFiles-22d6f3b9-8282-412f-84ff-868aa3a042f4/sparkling_water_assembly.jar to class loader
+21/10/01 10:54:22 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1542 bytes result sent to driver
+21/10/01 10:54:22 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 5065 ms on localhost (executor driver) (1/1)
+21/10/01 10:54:22 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+21/10/01 10:54:22 INFO DAGScheduler: ShuffleMapStage 0 (count at utils.scala:24) finished in 5.471 s
+21/10/01 10:54:22 INFO DAGScheduler: looking for newly runnable stages
+21/10/01 10:54:22 INFO DAGScheduler: running: Set()
+21/10/01 10:54:22 INFO DAGScheduler: waiting: Set(ResultStage 1)
+21/10/01 10:54:22 INFO DAGScheduler: failed: Set()
+21/10/01 10:54:22 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24), which has no missing parents
+21/10/01 10:54:22 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
+21/10/01 10:54:22 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
+21/10/01 10:54:22 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 127.0.0.1:53160 (size: 3.8 KB, free: 912.3 MB)
+21/10/01 10:54:22 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1161
+21/10/01 10:54:22 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[6] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
+21/10/01 10:54:22 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks
+21/10/01 10:54:22 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, ANY, 7767 bytes)
+21/10/01 10:54:22 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+21/10/01 10:54:22 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+21/10/01 10:54:22 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 14 ms
+21/10/01 10:54:22 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 1775 bytes result sent to driver
+21/10/01 10:54:22 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 88 ms on localhost (executor driver) (1/1)
+21/10/01 10:54:22 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+21/10/01 10:54:22 INFO DAGScheduler: ResultStage 1 (count at utils.scala:24) finished in 0.103 s
+21/10/01 10:54:22 INFO DAGScheduler: Job 0 finished: count at utils.scala:24, took 5.699973 s
+21/10/01 10:54:22 INFO HiveMetaStore: 0: get_database: default
+21/10/01 10:54:22 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
+21/10/01 10:54:22 INFO HiveMetaStore: 0: get_database: default
+21/10/01 10:54:22 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_database: default	
+21/10/01 10:54:22 INFO HiveMetaStore: 0: get_tables: db=default pat=*
+21/10/01 10:54:22 INFO audit: ugi=Dell	ip=unknown-ip-addr	cmd=get_tables: db=default pat=*	
+21/10/01 10:54:22 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 127.0.0.1:53160 in memory (size: 3.8 KB, free: 912.3 MB)
+21/10/01 10:54:23 INFO SparkContext: Starting job: count at utils.scala:24
+21/10/01 10:54:23 INFO DAGScheduler: Registering RDD 10 (count at utils.scala:24)
+21/10/01 10:54:23 INFO DAGScheduler: Got job 1 (count at utils.scala:24) with 1 output partitions
+21/10/01 10:54:23 INFO DAGScheduler: Final stage: ResultStage 3 (count at utils.scala:24)
+21/10/01 10:54:23 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 2)
+21/10/01 10:54:23 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 2)
+21/10/01 10:54:23 INFO DAGScheduler: Submitting ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24), which has no missing parents
+21/10/01 10:54:23 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 7.9 KB, free 912.3 MB)
+21/10/01 10:54:23 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 4.2 KB, free 912.3 MB)
+21/10/01 10:54:23 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 127.0.0.1:53160 (size: 4.2 KB, free: 912.3 MB)
+21/10/01 10:54:23 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1161
+21/10/01 10:54:23 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 2 (MapPartitionsRDD[10] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
+21/10/01 10:54:23 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks
+21/10/01 10:54:23 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 7882 bytes)
+21/10/01 10:54:23 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+21/10/01 10:54:23 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1499 bytes result sent to driver
+21/10/01 10:54:23 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 82 ms on localhost (executor driver) (1/1)
+21/10/01 10:54:23 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+21/10/01 10:54:23 INFO DAGScheduler: ShuffleMapStage 2 (count at utils.scala:24) finished in 0.096 s
+21/10/01 10:54:23 INFO DAGScheduler: looking for newly runnable stages
+21/10/01 10:54:23 INFO DAGScheduler: running: Set()
+21/10/01 10:54:23 INFO DAGScheduler: waiting: Set(ResultStage 3)
+21/10/01 10:54:23 INFO DAGScheduler: failed: Set()
+21/10/01 10:54:23 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24), which has no missing parents
+21/10/01 10:54:23 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 7.1 KB, free 912.3 MB)
+21/10/01 10:54:23 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.8 KB, free 912.3 MB)
+21/10/01 10:54:23 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 127.0.0.1:53160 (size: 3.8 KB, free: 912.3 MB)
+21/10/01 10:54:23 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1161
+21/10/01 10:54:23 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[13] at count at utils.scala:24) (first 15 tasks are for partitions Vector(0))
+21/10/01 10:54:23 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks
+21/10/01 10:54:23 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3, localhost, executor driver, partition 0, ANY, 7767 bytes)
+21/10/01 10:54:23 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+21/10/01 10:54:23 INFO ShuffleBlockFetcherIterator: Getting 1 non-empty blocks including 1 local blocks and 0 remote blocks
+21/10/01 10:54:23 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+21/10/01 10:54:23 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 1732 bytes result sent to driver
+21/10/01 10:54:23 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 18 ms on localhost (executor driver) (1/1)
+21/10/01 10:54:23 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool 
+21/10/01 10:54:23 INFO DAGScheduler: ResultStage 3 (count at utils.scala:24) finished in 0.066 s
+21/10/01 10:54:23 INFO DAGScheduler: Job 1 finished: count at utils.scala:24, took 0.174050 s
+21/10/01 11:24:52 INFO ContextCleaner: Cleaned accumulator 29
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 90
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 120
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 122
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 102
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 112
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 113
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 110
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 80
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 97
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 131
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 69
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 82
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 130
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 86
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 101
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 109
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 114
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 105
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 75
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 83
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 118
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 81
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 108
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 116
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 66
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 100
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 79
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 87
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 67
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 88
+21/10/01 11:24:53 INFO ContextCleaner: Cleaned accumulator 129
+21/10/01 11:24:53 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 127.0.0.1:53160 in memory (size: 4.2 KB, free: 912.3 MB)
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 117
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 76
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 121
+21/10/01 11:24:54 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 127.0.0.1:53160 in memory (size: 3.8 KB, free: 912.3 MB)
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 94
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 89
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 124
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 72
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 77
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 68
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 104
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 84
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 99
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 127
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 125
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 95
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 78
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 98
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 115
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 70
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 91
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 119
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 71
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned shuffle 1
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 123
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 106
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 126
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 96
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 128
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 103
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 85
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 74
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 92
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 93
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 73
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 107
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 111
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 44
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 17
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 19
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 51
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 26
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 43
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 40
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 37
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 55
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 62
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 18
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 5
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 10
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 16
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 49
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 38
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 65
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 15
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 24
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 59
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 14
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 41
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 9
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 54
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 58
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 22
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 63
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 13
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 25
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 27
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 61
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 8
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 47
+21/10/01 11:24:54 INFO ContextCleaner: Cleaned accumulator 45
+21/10/01 11:24:54 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 127.0.0.1:53160 in memory (size: 4.2 KB, free: 912.3 MB)
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 7
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 12
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 3
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 23
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 32
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 56
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 31
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 0
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 39
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 48
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 4
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 64
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 33
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 34
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 28
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 11
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 35
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 30
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 53
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 36
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 20
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 50
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 52
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 42
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 21
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 60
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 2
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned shuffle 0
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 46
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 6
+21/10/01 11:24:55 INFO ContextCleaner: Cleaned accumulator 57
+21/10/01 12:51:03 INFO SparkContext: Invoking stop() from shutdown hook
+21/10/01 12:51:12 INFO SparkUI: Stopped Spark web UI at http://127.0.0.1:4040
+21/10/01 12:51:17 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+21/10/01 12:51:22 INFO MemoryStore: MemoryStore cleared
+21/10/01 12:51:22 INFO BlockManager: BlockManager stopped
+21/10/01 12:51:23 INFO BlockManagerMaster: BlockManagerMaster stopped
+21/10/01 12:51:25 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+21/10/01 12:51:28 INFO SparkContext: Successfully stopped SparkContext
+21/10/01 12:51:28 INFO ShutdownHookManager: Shutdown hook called
+21/10/01 12:51:29 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\spark\spark-2.4.3-bin-hadoop2.7\tmp\local\spark-800ad9fb-18b2-4733-bec2-51448c8c2fa7
+21/10/01 12:51:29 INFO ShutdownHookManager: Deleting directory C:\Users\Dell\AppData\Local\Temp\spark-dc14b230-bde0-491d-9306-b1a55e2f49cf

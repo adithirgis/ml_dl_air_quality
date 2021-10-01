@@ -18,7 +18,7 @@ system.time(random_grid <- h2o.grid(
   x = features, 
   y = response, 
   training_frame = train,
-  validation_frame = valid,
+  nfolds = 15,  
   hyper_params = hyper_grid,
   search_criteria = search_criteria
 ))
@@ -39,7 +39,7 @@ best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
 # Now let's evaluate the model performance on a test set
-best_model_perf <- h2o.performance(model = best_model, newdata = valid)
+best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
 # RMSE of best model
 h2o.mse(best_model_perf) %>% sqrt()

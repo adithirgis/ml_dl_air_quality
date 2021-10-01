@@ -1,10 +1,12 @@
 # https://shiring.github.io/machine_learning/2017/03/07/grid_search
 # https://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/deep-learning.html
 # https://www.hackerearth.com/practice/machine-learning/machine-learning-algorithms/understanding-deep-learning-parameter-tuning-with-mxnet-h2o-package-in-r/tutorial/
+# https://htmlpreview.github.io/?https://github.com/ledell/sldm4-h2o/blob/master/sldm4-deeplearning-h2o.html
+
 hyper_grid <- list(
   activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"), 
-  hidden = list(c(5, 5, 5, 5, 5), c(50, 50, 50), c(100, 100, 100)),
-  epochs = c(50, 100, 200),
+  hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(50, 50, 50, 50), c(100, 100, 100, 100)),
+  epochs = c(50, 100, 200, 300, 400, 500),
   l1 = c(0, 0.00001, 0.0001), 
   l2 = c(0, 0.00001, 0.0001),
   rate = c(0, 01, 0.005, 0.001),
@@ -17,18 +19,18 @@ hyper_grid <- list(
   max_w2 = c(10, 100, 1000, 3.4028235e+38)
 )
 
-system.time(dl_grid <- h2o.grid(algorithm = "deeplearning", 
+start <- Sys.time()
+dl_grid <- h2o.grid(algorithm = "deeplearning", 
                     x = features,
                     y = response,
                     grid_id = "dl_grid",
                     training_frame = train,
-                    validation_frame = valid,
                     nfolds = 15,                           
                     hyper_params = hyper_grid,
                     search_criteria = search_criteria,
                     seed = 108
-))
-
+)
+end <- Sys.time()
 # collect the results and sort by our model performance metric of choice
 grid_perf <- h2o.getGrid(
   grid_id = "dl_grid", 
@@ -43,11 +45,24 @@ best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
 # Now let's evaluate the model performance on a test set
-best_model_perf <- h2o.performance(model = best_model, newdata = valid)
+best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
 # RMSE of best model
 h2o.mse(best_model_perf) %>% sqrt()
 
+h2o.scoreHistory(best_model)
+plot(best_model, 
+     timestep = "epochs", 
+     metric = "rmse")
+
+# Get the CV models from the `best_model` object
+cv_models <- sapply(best_model@model$cross_validation_models, 
+                    function(i) h2o.getModel(i$name))
+
+# Plot the scoring history over time
+plot(cv_models[[1]], 
+     timestep = "epochs", 
+     metric = "rmse")
 
 file_shared$h2o_nn <- predict(best_model, file_shared)
 file_shared <- as.data.frame(file_shared)
