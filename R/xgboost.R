@@ -14,7 +14,7 @@ hyper_grid <- list(
   distribution = c("AUTO", "gaussian", "poisson", "gamma"),
   tree_method = c("auto", "exact", "approx"),
   grow_policy = c("depthwise"),
-  booster = c("gbtree", "gblinear")
+  booster = c("gbtree", "gblinear", "dart")
 )
 
 
@@ -80,7 +80,7 @@ hyper_grid <- list(
   distribution = c("AUTO", "gaussian", "poisson", "gamma"),
   tree_method = c("hist"),
   grow_policy = c("lossguide"),
-  booster = c("gbtree", "gblinear")
+  booster = c("gbtree", "gblinear", "dart")
 )
 
 
