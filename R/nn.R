@@ -27,7 +27,7 @@ dl_grid <- h2o.grid(algorithm = "deeplearning",
                     seed = 108
 )
 end <- Sys.time()
-# collect the results and sort by our model performance metric of choice
+
 grid_perf <- h2o.getGrid(
   grid_id = "dl_grid", 
   sort_by = "mse", 
@@ -35,15 +35,11 @@ grid_perf <- h2o.getGrid(
 )
 print(grid_perf)
 
-
-# Grab the model_id for the top model, chosen by validation error
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
-# Now let's evaluate the model performance on a test set
 best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
-# RMSE of best model
 h2o.mse(best_model_perf) %>% sqrt()
 
 h2o.scoreHistory(best_model)
@@ -51,11 +47,9 @@ plot(best_model,
      timestep = "epochs", 
      metric = "rmse")
 
-# Get the CV models from the `best_model` object
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
 
-# Plot the scoring history over time
 plot(cv_models[[1]], 
      timestep = "epochs", 
      metric = "rmse")

@@ -50,11 +50,11 @@ search_criteria <- list(strategy = "RandomDiscrete",
 
 
 # save and load the model
-model_path <- h2o.saveModel(object = model, path = getwd(), force = TRUE)
-print(model_path)
+# model_path <- h2o.saveModel(object = model, path = getwd(), force = TRUE)
+# print(model_path)
 
-saved_model <- h2o.loadModel(model_path)
-
-my_local_model <- h2o.download_model(model, path = "/Users/UserName/Desktop")
-
-uploaded_model <- h2o.upload_model(my_local_model)
+# saved_model <- h2o.loadModel(model_path)
+ 
+# my_local_model <- h2o.download_model(model, path = "/Users/UserName/Desktop")
+ 
+# uploaded_model <- h2o.upload_model(my_local_model)
