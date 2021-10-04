@@ -26,7 +26,7 @@ grid <- h2o.grid(
   x = features,
   y = response,
   training_frame = train,
-  nfolds = 10,
+  nfolds = 15,
   score_tree_interval = 10,
   seed = 108
 )
@@ -92,7 +92,7 @@ grid <- h2o.grid(
   x = features,
   y = response,
   training_frame = train,
-  nfolds = 10,
+  nfolds = 15,
   score_tree_interval = 10,
   seed = 108
 )
