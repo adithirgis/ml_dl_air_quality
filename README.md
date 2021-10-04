@@ -21,8 +21,8 @@ This exercise is implemented using the open source H2O platform.
 
 ## LightGBM
 
-- # https://www.kaggle.com/andrewmvd/lightgbm-in-r/report
+- https://www.kaggle.com/andrewmvd/lightgbm-in-r/report
 
-- # https://neptune.ai/blog/lightgbm-parameters-guide
+- https://neptune.ai/blog/lightgbm-parameters-guide
 
 - https://www.r-bloggers.com/2020/08/how-to-use-lightgbm-with-tidymodels/
