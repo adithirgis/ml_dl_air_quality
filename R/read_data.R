@@ -45,7 +45,7 @@ search_criteria <- list(strategy = "RandomDiscrete",
                         stopping_metric = "mse",
                         stopping_tolerance = 1e-4,
                         stopping_rounds = 10,
-                        max_models = 50,
+                        max_runtime_secs = 90*60,
                         seed = 108)
 
 

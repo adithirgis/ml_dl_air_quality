@@ -41,8 +41,9 @@ print(grid_perf)
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
-best_model_perf <- h2o.performance(model = best_model, newdata = test)
-h2o.mse(best_model_perf) %>% sqrt()
+model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
+print(model_path)
+saved_model <- h2o.loadModel(model_path)
 
 h2o.scoreHistory(best_model)
 plot(best_model, 
@@ -51,10 +52,16 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
+model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+print(model_path)
 
 plot(cv_models[[1]], 
      timestep = "epochs", 
      metric = "rmse")
+
+best_model_perf <- h2o.performance(model = best_model, newdata = test)
+
+h2o.mse(best_model_perf) %>% sqrt()
 
 file_shared$h2o_XGB <- predict(best_model, file_shared)
 file_shared <- as.data.frame(file_shared)
@@ -63,6 +70,15 @@ summary(lm(PM2.5 ~ h2o_XGB, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_XGB) / file_shared$PM2.5), na.rm = TRUE) * 100
 
 write.csv(file_shared, "results/h2o_XGB.csv")
+
+test$h2o_XGB <- predict(best_model, test)
+test <- as.data.frame(test)
+ggplot(test, aes(PM2.5, h2o_XGB)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_XGB, data = test))
+mean(abs((test$PM2.5 - test$h2o_XGB) / test$PM2.5), na.rm = TRUE) * 100
+
+write.csv(test, "results/test_h2o_XGB.csv")
+
 
 # lightGBM
 hyper_grid <- list(
@@ -107,8 +123,9 @@ print(grid_perf)
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
-best_model_perf <- h2o.performance(model = best_model, newdata = test)
-h2o.mse(best_model_perf) %>% sqrt()
+model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
+print(model_path)
+saved_model <- h2o.loadModel(model_path)
 
 h2o.scoreHistory(best_model)
 plot(best_model, 
@@ -117,10 +134,16 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
+model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+print(model_path)
 
 plot(cv_models[[1]], 
      timestep = "epochs", 
      metric = "rmse")
+
+best_model_perf <- h2o.performance(model = best_model, newdata = test)
+
+h2o.mse(best_model_perf) %>% sqrt()
 
 file_shared$h2o_LGBM <- predict(best_model, file_shared)
 file_shared <- as.data.frame(file_shared)
@@ -129,3 +152,11 @@ summary(lm(PM2.5 ~ h2o_LGBM, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_LGBM) / file_shared$PM2.5), na.rm = TRUE) * 100
 
 write.csv(file_shared, "results/h2o_LGBM.csv")
+
+test$h2o_LGBM <- predict(test, test)
+test <- as.data.frame(test)
+ggplot(test, aes(PM2.5, h2o_LGBM)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_LGBM, data = test))
+mean(abs((test$PM2.5 - test$h2o_LGBM) / test$PM2.5), na.rm = TRUE) * 100
+
+write.csv(test, "results/test_h2o_LGBM.csv")

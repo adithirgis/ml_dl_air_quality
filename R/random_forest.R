@@ -5,7 +5,7 @@ hyper_grid <- list(
   mtries      = seq(2, 10, by = 1),
   max_depth   = seq(20, 40, by = 5),
   min_rows    = seq(1, 5, by = 2),
-  nbins       = seq(10, 30, by = 5),
+  nbins       = seq(10, 40, by = 5),
   sample_rate = c(.55, .632, .7, .75, .8)
 )
 
@@ -38,11 +38,9 @@ print(grid_perf)
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
-# Now let's evaluate the model performance on a test set
-best_model_perf <- h2o.performance(model = best_model, newdata = test)
-
-# RMSE of best model
-h2o.mse(best_model_perf) %>% sqrt()
+model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
+print(model_path)
+saved_model <- h2o.loadModel(model_path)
 
 h2o.scoreHistory(best_model)
 plot(best_model, 
@@ -52,11 +50,21 @@ plot(best_model,
 # Get the CV models from the `best_model` object
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
+# Save model
+model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+print(model_path)
 
 # Plot the scoring history over time
 plot(cv_models[[1]], 
      timestep = "epochs", 
      metric = "rmse")
+
+# Now let's evaluate the model performance on a test set
+best_model_perf <- h2o.performance(model = best_model, newdata = test)
+
+# RMSE of best model
+h2o.mse(best_model_perf) %>% sqrt()
+
 
 file_shared$h2o_DRF <- predict(best_model, file_shared)
 file_shared <- as.data.frame(file_shared)
@@ -64,4 +72,5 @@ ggplot(file_shared, aes(PM2.5, h2o_DRF)) + geom_point() + geom_smooth(method = "
 summary(lm(PM2.5 ~ h2o_DRF, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_DRF) / file_shared$PM2.5), na.rm = TRUE) * 100
 
-write.csv(file_shared, "results/h2o_DRF.csv")
+write.csv(file_shared, "h2o_DRF.csv")
+
