@@ -12,7 +12,7 @@ hyper_grid <- list(
   momentum_start = c(0, 0.5),
   momentum_stable = c(0.99, 0.5, 0),
   input_dropout_ratio = c(0, 0.1, 0.2),
-  max_w2 = c(10, 100, 1000, 3.4028235e+38)
+  max_w2 = c(1, 10, 100, 1000)
 )
 
 start <- Sys.time()
