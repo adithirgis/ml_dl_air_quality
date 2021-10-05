@@ -1,0 +1,45 @@
+---
+title: "DL model details"
+author: "Adithi R. Upadhya"
+date: "05/10/2021"
+output: html_document
+---
+
+# dl_grid
+
+```{r echo = FALSE, eval = FALSE}
+
+```
+
+# grid_perf
+
+```{r echo = FALSE, eval = FALSE}
+
+```
+
+
+# h2o.scoreHistory(best_model)
+
+```{r echo = FALSE, eval = FALSE}
+
+```
+
+# cv_models
+
+```{r echo = FALSE, eval = FALSE}
+
+
+```
+
+
+# best_model_perf using test data 
+
+```{r echo = FALSE, eval = FALSE}
+
+```
+
+# h2o.mse(best_model_perf) %>% sqrt()
+
+```{r echo = FALSE, eval = FALSE}
+
+```
