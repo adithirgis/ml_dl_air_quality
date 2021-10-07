@@ -2,11 +2,11 @@
 # collect the results and sort by our model performance metric of choice
 hyper_grid <- list(
   ntrees      = seq(100, 500, by = 100),
-  mtries      = seq(2, 10, by = 1),
+  mtries      = seq(2, 10, by = 2),
   max_depth   = seq(20, 40, by = 5),
   min_rows    = seq(1, 5, by = 2),
   nbins       = seq(10, 40, by = 5),
-  sample_rate = c(.55, .632, .7, .75, .8)
+  sample_rate = c(.55, .632, 0.7, .75, .8)
 )
 
 # build grid search 
@@ -43,9 +43,6 @@ print(model_path)
 saved_model <- h2o.loadModel(model_path)
 
 h2o.scoreHistory(best_model)
-plot(best_model, 
-     timestep = "epochs", 
-     metric = "rmse")
 
 # Get the CV models from the `best_model` object
 cv_models <- sapply(best_model@model$cross_validation_models, 
