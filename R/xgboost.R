@@ -52,8 +52,8 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
-model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
-print(model_path)
+# model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+# print(model_path)
 
 plot(cv_models[[1]], 
      timestep = "epochs", 
@@ -134,8 +134,8 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
-model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
-print(model_path)
+# model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+# print(model_path)
 
 plot(cv_models[[1]], 
      timestep = "epochs", 

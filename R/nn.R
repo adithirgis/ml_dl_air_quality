@@ -49,8 +49,6 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
-model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
-print(model_path)
 
 plot(cv_models[[1]], 
      timestep = "epochs", 
@@ -66,3 +64,4 @@ ggplot(file_shared, aes(PM2.5, h2o_nn)) + geom_point() + geom_smooth(method = "l
 summary(lm(PM2.5 ~ h2o_nn, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_nn) / file_shared$PM2.5), na.rm = TRUE) * 100
 write.csv(file_shared, "h2o_DL.csv")
+
