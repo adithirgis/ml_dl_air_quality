@@ -38,6 +38,7 @@ print(grid_perf)
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
+# Save model
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
 saved_model <- h2o.loadModel(model_path)
@@ -47,9 +48,9 @@ h2o.scoreHistory(best_model)
 # Get the CV models from the `best_model` object
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
-# Save model
-model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
-print(model_path)
+
+# model_path <- h2o.saveModel(object = cv_models, path = getwd(), force = TRUE)
+# print(model_path)
 
 # Plot the scoring history over time
 plot(cv_models[[1]], 
