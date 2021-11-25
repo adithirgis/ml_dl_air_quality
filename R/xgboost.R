@@ -25,6 +25,9 @@ grid <- h2o.grid(
   grid_id = "xgb_grid",
   x = features,
   y = response,
+  keep_cross_validation_predictions = TRUE,
+  keep_cross_validation_models = TRUE,
+  keep_cross_validation_fold_assignment = TRUE,
   training_frame = train,
   nfolds = 10,
   score_tree_interval = 10,
@@ -44,7 +47,7 @@ best_model <- h2o.getModel(best_model_id)
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
 saved_model <- h2o.loadModel(model_path)
-
+h2o.varimp(best_model) 
 h2o.scoreHistory(best_model)
 plot(best_model, 
      timestep = "epochs", 

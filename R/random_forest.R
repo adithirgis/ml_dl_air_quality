@@ -18,6 +18,9 @@ random_grid <- h2o.grid(
   x = features, 
   y = response, 
   training_frame = train,
+  keep_cross_validation_predictions = TRUE,
+  keep_cross_validation_models = TRUE,
+  keep_cross_validation_fold_assignment = TRUE, 
   nfolds = 10,  
   hyper_params = hyper_grid,
   search_criteria = search_criteria
@@ -42,7 +45,7 @@ best_model <- h2o.getModel(best_model_id)
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
 saved_model <- h2o.loadModel(model_path)
-
+h2o.varimp(best_model) 
 h2o.scoreHistory(best_model)
 
 # Get the CV models from the `best_model` object
