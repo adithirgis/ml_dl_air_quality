@@ -9,9 +9,9 @@ hyper_grid <- list(
   sample_rate = c(.55, .632, 0.7, .75, .8)
 )
 
-# build grid search 
 
-start <- Sys.time()
+# Find Parameters: Use Hyper Parameter Tuning on a "Training Dataset" that sections your training data into 5-Folds. The output at Stage 1 is the parameter set.
+# build grid search 
 random_grid <- h2o.grid(
   algorithm = "randomForest",
   grid_id = "rf_grid",
@@ -25,8 +25,7 @@ random_grid <- h2o.grid(
   hyper_params = hyper_grid,
   search_criteria = search_criteria
 )
-end <- Sys.time() 
-beepr::beep()
+
 
 # collect the results and sort by our model performance metric of choice
 grid_perf <- h2o.getGrid(
@@ -60,14 +59,29 @@ plot(cv_models[[1]],
      timestep = "epochs", 
      metric = "rmse")
 
+# Compare and Select Best Model: Evaluate the performance on a hidden "Test Dataset". The ouput at Stage 2 is that we determine best model.
 # Now let's evaluate the model performance on a test set
 best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
 # RMSE of best model
 h2o.mse(best_model_perf) %>% sqrt()
 
+# Train Final Model: Once we have selected the best model, we train on the full dataset. This model goes into production.
+model_drf <- h2o.randomForest(x = features, 
+                             y = response, 
+                             training_frame = train,
+                             
+                             ntrees = 10,
+                             max_depth = 5,
+                             min_rows = 10,
+                             
+                             keep_cross_validation_predictions = TRUE,
+                             keep_cross_validation_models = TRUE,
+                             keep_cross_validation_fold_assignment = TRUE, 
+                             nfolds = 10)
 
-file_shared$h2o_DRF <- predict(best_model, file_shared)
+
+file_shared$h2o_DRF <- predict(model_drf, file_shared)
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_DRF)) + geom_point() + geom_smooth(method = "lm")
 summary(lm(PM2.5 ~ h2o_DRF, data = file_shared))

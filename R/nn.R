@@ -61,7 +61,30 @@ best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
 h2o.mse(best_model_perf) %>% sqrt()
 
-file_shared$h2o_nn <- predict(best_model, file_shared)
+model_dl <- h2o.deeplearning(x = features,
+                             y = response,
+                             training_frame = train,
+                             
+                             distribution = "tweedie",
+                             hidden = c(1),
+                             epochs = 1000,
+                             train_samples_per_iteration = -1,
+                             reproducible = TRUE,
+                             activation = "Tanh",
+                             single_node_mode = FALSE,
+                             balance_classes = FALSE,
+                             force_load_balance = FALSE,
+                             seed = 108,
+                             tweedie_power = 1.5,
+                             score_training_samples = 0,
+                             
+                             score_validation_samples = 0,
+                             keep_cross_validation_predictions = TRUE,
+                             keep_cross_validation_models = TRUE,
+                             keep_cross_validation_fold_assignment = TRUE, 
+                             nfolds = 10)
+
+file_shared$h2o_nn <- predict(model_dl, file_shared)
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_nn)) + geom_point() + geom_smooth(method = "lm")
 summary(lm(PM2.5 ~ h2o_nn, data = file_shared))
