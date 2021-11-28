@@ -1,4 +1,5 @@
-# xgboost
+
+# lightGBM
 hyper_grid <- list(
   sample_rate = seq(0.2, 1, 0.01),
   reg_lambda = c(0, 0.0001, 0.001, 0.1, 1),
@@ -12,17 +13,18 @@ hyper_grid <- list(
   eta = c(0.025, 0.05, 0.1, 0.3),
   gamma = c(0, 0.05, 0.1, 0.5, 0.7, 0.9, 1.0),
   distribution = c("AUTO", "gaussian", "poisson", "gamma"),
-  tree_method = c("auto", "exact"),
-  grow_policy = c("depthwise"),
+  tree_method = c("hist"),
+  grow_policy = c("lossguide"),
   booster = c("gbtree", "gblinear", "dart")
 )
 
 
-xgb_grid_m <- h2o.grid(
+
+lgb_grid_m <- h2o.grid(
   hyper_params = hyper_grid,
   search_criteria = search_criteria,
   algorithm = "xgboost",
-  grid_id = "xgb_grid",
+  grid_id = "lgb_grid",
   x = features,
   y = response,
   keep_cross_validation_predictions = TRUE,
@@ -33,10 +35,10 @@ xgb_grid_m <- h2o.grid(
   score_tree_interval = 10,
   seed = 108
 )
-xgb_grid_m
+lgb_grid_m
 
 grid_perf <- h2o.getGrid(
-  grid_id = "xgb_grid", 
+  grid_id = "lgb_grid", 
   sort_by = "mse", 
   decreasing = FALSE
 )
@@ -65,20 +67,22 @@ best_model_perf <- h2o.performance(model = best_model, newdata = test)
 h2o.mse(best_model_perf) %>% sqrt()
 
 
-test$h2o_xgb <- predict(best_model, test)
+test$h2o_lgb <- predict(best_model, test)
 test <- as.data.frame(test)
-write.csv(test, "test_h2o_XGB.csv")
+write.csv(test, "test_h2o_LGB.csv")
 
-file_shared$h2o_xgb <- predict(best_model, file_shared)
+file_shared$h2o_lgb <- predict(best_model, file_shared)
 
 
-model_xgb <- h2o.xgboost(x = features,
+model_lgb <- h2o.xgboost(x = features,
                          y = response,
                          training_frame = train,
+                         grow_policy = "lossguide",
+                         tree_method = "hist",
                          
                          booster = "dart",
                          normalize_type = "tree",
-                         
+
                          seed = 108,
                          keep_cross_validation_predictions = TRUE,
                          keep_cross_validation_models = TRUE,
@@ -86,13 +90,13 @@ model_xgb <- h2o.xgboost(x = features,
                          nfolds = 10)
 
 
-model_xgb
-h2o.varimp(model_xgb)
-file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
+model_lgb
+h2o.varimp(model_lgb)
+file_shared$h2o_lgb_m <- predict(model_lgb, file_shared)
 file_shared <- as.data.frame(file_shared)
-ggplot(file_shared, aes(PM2.5, h2o_xgb_m)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_xgb_m, data = file_shared))
-mean(abs((file_shared$PM2.5 - file_shared$h2o_xgb_m) / file_shared$PM2.5), na.rm = TRUE) * 100
-write.csv(file_shared, "results/h2o_XGB.csv")
+ggplot(file_shared, aes(PM2.5, h2o_lgb_m)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_lgb_m, data = file_shared))
+mean(abs((file_shared$PM2.5 - file_shared$h2o_lgb_m) / file_shared$PM2.5), na.rm = TRUE) * 100
+write.csv(file_shared, "results/h2o_LGB.csv")
 
 
