@@ -24,7 +24,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "6g")
+h2o.init(max_mem_size = "22g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -45,7 +45,7 @@ search_criteria <- list(strategy = "RandomDiscrete",
                         stopping_metric = "mse",
                         stopping_tolerance = 1e-4,
                         stopping_rounds = 10,
-                        max_runtime_secs = 60,
+                        max_runtime_secs = 90 * 60,
                         seed = 108)
 
 

@@ -44,7 +44,7 @@ best_model <- h2o.getModel(best_model_id)
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
 saved_model <- h2o.loadModel(model_path)
-
+ 
 h2o.scoreHistory(best_model)
 plot(best_model, 
      timestep = "epochs", 
@@ -61,11 +61,11 @@ best_model_perf <- h2o.performance(model = best_model, newdata = test)
 
 h2o.mse(best_model_perf) %>% sqrt()
 
-test$h2o_dl <- predict(best_model, test)
+test$h2o_DL <- predict(best_model, test)
 test <- as.data.frame(test)
 write.csv(test, "test_h2o_DL.csv")
 
-file_shared$h2o_dl <- predict(best_model, file_shared)
+file_shared$h2o_dl_bm <- predict(best_model, file_shared)
 
 
 model_dl <- h2o.deeplearning(x = features,
@@ -90,10 +90,10 @@ model_dl <- h2o.deeplearning(x = features,
                              nfolds = 10)
 model_dl
 h2o.varimp(model_dl)
-file_shared$h2o_dl_m <- predict(model_dl, file_shared)
+file_shared$h2o_dl <- predict(model_dl, file_shared)
 file_shared <- as.data.frame(file_shared)
-ggplot(file_shared, aes(PM2.5, h2o_dl_m)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_dl_m, data = file_shared))
-mean(abs((file_shared$PM2.5 - file_shared$h2o_dl_m) / file_shared$PM2.5), na.rm = TRUE) * 100
+ggplot(file_shared, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_dl, data = file_shared))
+mean(abs((file_shared$PM2.5 - file_shared$h2o_dl) / file_shared$PM2.5), na.rm = TRUE) * 100
 write.csv(file_shared, "h2o_DL.csv")
 

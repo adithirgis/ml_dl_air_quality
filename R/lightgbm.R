@@ -37,6 +37,7 @@ lgb_grid_m <- h2o.grid(
 )
 lgb_grid_m
 
+
 grid_perf <- h2o.getGrid(
   grid_id = "lgb_grid", 
   sort_by = "mse", 
@@ -79,10 +80,18 @@ model_lgb <- h2o.xgboost(x = features,
                          training_frame = train,
                          grow_policy = "lossguide",
                          tree_method = "hist",
-                         
-                         booster = "dart",
-                         normalize_type = "tree",
-
+                         sample_rate = 0.35,
+                         reg_lambda = 0.001,
+                         reg_alpha = 0.001,
+                         col_sample_rate = 0.74,
+                         col_sample_rate_per_tree = 0.25,
+                         min_rows = 3,
+                         min_split_improvement = 0,
+                         ntrees = 500, 
+                         max_depth = 6, min_child_weight = 3,
+                         eta = 0.025,
+                         gamma = 0,
+                         distribution = "poisson",
                          seed = 108,
                          keep_cross_validation_predictions = TRUE,
                          keep_cross_validation_models = TRUE,

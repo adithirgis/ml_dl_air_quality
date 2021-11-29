@@ -1,12 +1,12 @@
 
 # collect the results and sort by our model performance metric of choice
 hyper_grid <- list(
-  ntrees      = seq(100, 500, by = 100),
-  mtries      = seq(2, 10, by = 2),
-  max_depth   = seq(20, 40, by = 5),
-  min_rows    = seq(1, 5, by = 2),
-  nbins       = seq(10, 40, by = 5),
-  sample_rate = c(.55, .632, 0.7, .75, .8)
+  ntrees      = seq(200, 400, by = 150),
+  mtries      = seq(1, 6, by = 5),
+  max_depth   = seq(10, 40, by = 20),
+  min_rows    = seq(3, 6, by = 3),
+  nbins       = seq(10, 40, by = 20),
+  sample_rate = c(.55, .632, .75, .8)
 )
 
 
@@ -66,26 +66,35 @@ best_model_perf <- h2o.performance(model = best_model, newdata = test)
 # RMSE of best model
 h2o.mse(best_model_perf) %>% sqrt()
 
+
+test$h2o_rf <- predict(best_model, test)
+test <- as.data.frame(test)
+write.csv(test, "test_h2o_RF.csv")
+
+file_shared$h2o_rf <- predict(best_model, file_shared)
+
 # Train Final Model: Once we have selected the best model, we train on the full dataset. This model goes into production.
 model_drf <- h2o.randomForest(x = features, 
                              y = response, 
                              training_frame = train,
-                             
-                             ntrees = 10,
-                             max_depth = 5,
-                             min_rows = 10,
-                             
+                             ntrees = 100,
+                             max_depth = 30,
+                             min_rows = 3,
+                             mtries = 6,
+                             nbins = 30, 
+                             sample_rate = 0.75,
                              keep_cross_validation_predictions = TRUE,
                              keep_cross_validation_models = TRUE,
                              keep_cross_validation_fold_assignment = TRUE, 
                              nfolds = 10)
 
-
-file_shared$h2o_DRF <- predict(model_drf, file_shared)
+model_drf
+h2o.varimp(model_drf)
+file_shared$h2o_rf_m <- predict(model_drf, file_shared)
 file_shared <- as.data.frame(file_shared)
-ggplot(file_shared, aes(PM2.5, h2o_DRF)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_DRF, data = file_shared))
-mean(abs((file_shared$PM2.5 - file_shared$h2o_DRF) / file_shared$PM2.5), na.rm = TRUE) * 100
+ggplot(file_shared, aes(PM2.5, h2o_rf_m)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_rf_m, data = file_shared))
+mean(abs((file_shared$PM2.5 - file_shared$h2o_rf_m) / file_shared$PM2.5), na.rm = TRUE) * 100
 
-write.csv(file_shared, "h2o_DRF.csv")
+write.csv(file_shared, "h2o_RF.csv")
 

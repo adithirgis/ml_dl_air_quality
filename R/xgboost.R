@@ -42,6 +42,7 @@ grid_perf <- h2o.getGrid(
 )
 print(grid_perf)
 
+
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 
@@ -75,10 +76,21 @@ file_shared$h2o_xgb <- predict(best_model, file_shared)
 model_xgb <- h2o.xgboost(x = features,
                          y = response,
                          training_frame = train,
-                         
+                         sample_rate = 0.45,
+                         reg_lambda = 0.0001,
+                         reg_alpha = 0.001,
+                         col_sample_rate = 0.77000,
+                         col_sample_rate_per_tree = 0.97000,
+                         min_rows = 2,
+                         min_split_improvement = 0.1,
+                         ntrees = 786, 
+                         max_depth = 20, min_child_weight = 2,
+                         eta = 0.1,
+                         gamma = 0.1,
+                         distribution = "gamma",
+                         tree_method = "exact",
+                         grow_policy = "depthwise",
                          booster = "dart",
-                         normalize_type = "tree",
-                         
                          seed = 108,
                          keep_cross_validation_predictions = TRUE,
                          keep_cross_validation_models = TRUE,
@@ -94,5 +106,8 @@ ggplot(file_shared, aes(PM2.5, h2o_xgb_m)) + geom_point() + geom_smooth(method =
 summary(lm(PM2.5 ~ h2o_xgb_m, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_xgb_m) / file_shared$PM2.5), na.rm = TRUE) * 100
 write.csv(file_shared, "results/h2o_XGB.csv")
+
+
+
 
 
