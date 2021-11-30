@@ -104,7 +104,8 @@ print(grid_perf)
 # Grab the model_id for the top model, chosen by validation error
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
-
+h2o.varimp(best_model)
+h2o.varimp_plot(best_model)
 best_model
 
 # Save model
@@ -161,6 +162,7 @@ cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 
 h2o.varimp(model_drf)
+h2o.varimp_plot(model_drf)
 file_shared$h2o_rf_m <- predict(model_drf, file_shared)
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_rf_m)) + geom_point() + geom_smooth(method = "lm")

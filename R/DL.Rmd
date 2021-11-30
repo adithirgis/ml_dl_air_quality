@@ -105,7 +105,8 @@ print(grid_perf)
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 best_model
-
+h2o.varimp(best_model)
+h2o.varimp_plot(best_model)
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
 saved_model <- h2o.loadModel(model_path)
@@ -159,6 +160,7 @@ model_dl
 cvpreds_id <- model_dl@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 h2o.varimp(model_dl)
+h2o.varimp_plot(model_dl)
 file_shared$h2o_dl <- predict(model_dl, file_shared)
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "lm")
