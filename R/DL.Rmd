@@ -1,3 +1,67 @@
+---
+title: "DL"
+author: "Adithi R. Upadhya"
+date: "30/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r warning = FALSE}
+library(xgboost)
+library(readxl)
+library(tidyverse)
+library(tidymodels)
+library(h2o)
+library(here)
+library(data.table)
+
+set.seed(108)
+
+file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1) %>%
+  select("Station_code" = StationCode_2019, "CWV" = CWVDailyMean_2019, "ELV" = Elevation_2019, 
+         "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019,
+         "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = RHDailyMean_2019,
+         "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
+         "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019) %>%
+  mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) %>% 
+  filter(!is.nan(PM2.5)) 
+
+
+file_shared$Station_code <- as.factor(file_shared$Station_code)
+file_shared$season <- as.factor(file_shared$season)
+file_shared$day <- as.factor(file_shared$day)
+
+# h2o.shutdown()
+h2o.no_progress()
+h2o.init(max_mem_size = "22g")
+
+file_shared <- as.h2o(file_shared)
+
+splits <- h2o.splitFrame(
+  data = file_shared,
+  ratios = c(0.7, 0),   
+  destination_frames = c("train_hex", "valid_hex", "test_hex"), seed = 108
+)
+train <- splits[[1]]
+valid <- splits[[2]]
+test  <- splits[[3]]
+
+response <- "PM2.5"
+features <- setdiff(names(train), c(response))
+h2o.describe(file_shared)
+
+search_criteria <- list(strategy = "RandomDiscrete", 
+                        stopping_metric = "mse",
+                        stopping_tolerance = 1e-4,
+                        stopping_rounds = 10,
+                        max_runtime_secs = 90 * 60,
+                        seed = 108)
+
+# uploaded_model <- h2o.upload_model(my_local_model)
 
 hyper_grid <- list(
   activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"), 
@@ -29,7 +93,7 @@ dl_grid <- h2o.grid(algorithm = "deeplearning",
                     search_criteria = search_criteria,
                     seed = 108
 )
-
+dl_grid
 
 grid_perf <- h2o.getGrid(
   grid_id = "dl_grid", 
@@ -40,6 +104,7 @@ print(grid_perf)
 
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
+best_model
 
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
 print(model_path)
@@ -52,13 +117,14 @@ plot(best_model,
 
 cv_models <- sapply(best_model@model$cross_validation_models, 
                     function(i) h2o.getModel(i$name))
+cv_models
 
 plot(cv_models[[1]], 
      timestep = "epochs", 
      metric = "rmse")
 
 best_model_perf <- h2o.performance(model = best_model, newdata = test)
-
+best_model_perf
 h2o.mse(best_model_perf) %>% sqrt()
 
 test$h2o_DL <- predict(best_model, test)
@@ -70,7 +136,7 @@ file_shared$h2o_dl_bm <- predict(best_model, file_shared)
 
 model_dl <- h2o.deeplearning(x = features,
                              y = response,
-                             training_frame = train,
+                             training_frame = file_shared,
                              distribution = "gaussian",
                              hidden =  c(50, 50, 50, 50),
                              epochs = 300,
@@ -89,6 +155,8 @@ model_dl <- h2o.deeplearning(x = features,
                              keep_cross_validation_fold_assignment = TRUE, 
                              nfolds = 10)
 model_dl
+cvpreds_id <- model_dl@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 h2o.varimp(model_dl)
 file_shared$h2o_dl <- predict(model_dl, file_shared)
 file_shared <- as.data.frame(file_shared)
@@ -96,4 +164,7 @@ ggplot(file_shared, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "l
 summary(lm(PM2.5 ~ h2o_dl, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_dl) / file_shared$PM2.5), na.rm = TRUE) * 100
 write.csv(file_shared, "h2o_DL.csv")
+
+
+```
 
