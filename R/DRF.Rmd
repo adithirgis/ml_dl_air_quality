@@ -57,7 +57,6 @@ h2o.describe(file_shared)
 search_criteria <- list(strategy = "RandomDiscrete", 
                         stopping_metric = "mse",
                         stopping_tolerance = 1e-4,
-                        stopping_rounds = 10,
                         max_runtime_secs = 90 * 60,
                         seed = 108)
 
@@ -86,6 +85,7 @@ random_grid <- h2o.grid(
   keep_cross_validation_models = TRUE,
   keep_cross_validation_fold_assignment = TRUE, 
   nfolds = 10,  
+  categorical_encoding = "one_hot_internal",
   hyper_params = hyper_grid,
   search_criteria = search_criteria
 )
@@ -151,6 +151,7 @@ model_drf <- h2o.randomForest(x = features,
                              mtries = 6,
                              nbins = 30, 
                              sample_rate = 0.75,
+                             categorical_encoding = "one_hot_internal",
                              keep_cross_validation_predictions = TRUE,
                              keep_cross_validation_models = TRUE,
                              keep_cross_validation_fold_assignment = TRUE, 

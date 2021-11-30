@@ -57,7 +57,6 @@ h2o.describe(file_shared)
 search_criteria <- list(strategy = "RandomDiscrete", 
                         stopping_metric = "mse",
                         stopping_tolerance = 1e-4,
-                        stopping_rounds = 10,
                         max_runtime_secs = 90 * 60,
                         seed = 108)
 
@@ -91,6 +90,7 @@ lgb_grid_m <- h2o.grid(
   grid_id = "lgb_grid",
   x = features,
   y = response,
+  categorical_encoding = "one_hot_internal",
   keep_cross_validation_predictions = TRUE,
   keep_cross_validation_models = TRUE,
   keep_cross_validation_fold_assignment = TRUE,
@@ -148,6 +148,7 @@ model_lgb <- h2o.xgboost(x = features,
                          tree_method = "hist",
                          sample_rate = 0.35,
                          reg_lambda = 0.001,
+                         categorical_encoding = "one_hot_internal",
                          reg_alpha = 0.001,
                          col_sample_rate = 0.74,
                          col_sample_rate_per_tree = 0.25,
