@@ -85,7 +85,7 @@ random_grid <- h2o.grid(
   keep_cross_validation_models = TRUE,
   keep_cross_validation_fold_assignment = TRUE, 
   nfolds = 10,  
-  categorical_encoding = "OneHotExplicit",
+  categorical_encoding = "AUTO",
   hyper_params = hyper_grid,
   search_criteria = search_criteria
 )
@@ -151,7 +151,6 @@ model_drf <- h2o.randomForest(x = features,
                              mtries = 6,
                              nbins = 30, 
                              sample_rate = 0.75,
-                             categorical_encoding = "OneHotExplicit",
                              keep_cross_validation_predictions = TRUE,
                              keep_cross_validation_models = TRUE,
                              keep_cross_validation_fold_assignment = TRUE, 
