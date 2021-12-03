@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r warning = FALSE}
+```{r warning = FALSE, message = FALSE}
 library(xgboost)
 library(readxl)
 library(tidyverse)
@@ -28,7 +28,8 @@ file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1)
          "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
          "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019) %>%
   mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) %>% 
-  filter(!is.nan(PM2.5)) 
+  filter(!is.nan(PM2.5)) %>% 
+  na.omit()
 
 
 file_shared$Station_code <- as.factor(file_shared$Station_code)
@@ -37,7 +38,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "22g")
+h2o.init(max_mem_size = "25g", min_mem_size = "8g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -79,6 +80,10 @@ hyper_grid <- list(
   max_w2 = c(1, 10, 100, 1000, 3.4028235e+38)
 )
 
+```
+
+
+```{r cache = TRUE, message = FALSE, warning = FALSE}
 dl_grid <- h2o.grid(algorithm = "deeplearning", 
                     x = features,
                     y = response,
@@ -102,6 +107,10 @@ grid_perf <- h2o.getGrid(
 )
 print(grid_perf)
 
+```
+
+
+```{r message = FALSE, warning = FALSE}
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
 best_model

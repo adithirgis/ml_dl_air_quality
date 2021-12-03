@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r warning = FALSE}
+```{r warning = FALSE, message = FALSE}
 library(xgboost)
 library(readxl)
 library(tidyverse)
@@ -22,22 +22,22 @@ library(data.table)
 set.seed(108)
 
 file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1) %>%
-  select("Station_code" = StationCode_2019, "CWV" = CWVDailyMean_2019, "ELV" = Elevation_2019, 
-         "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019,
+  select("CWV" = CWVDailyMean_2019, "ELV" = Elevation_2019, 
+         "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019, "Station_code" = StationCode_2019, "Season" = Season_2019,
          "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = RHDailyMean_2019,
          "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
-         "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019) %>%
+         "Press" = PressureDailyMean_2019, "day" = JulianDay_2019) %>%
   mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) %>% 
-  filter(!is.nan(PM2.5)) 
+  na.omit() 
 
 
+file_shared$Season <- as.factor(file_shared$Season)
 file_shared$Station_code <- as.factor(file_shared$Station_code)
-file_shared$season <- as.factor(file_shared$season)
 file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "22g")
+h2o.init(max_mem_size = "25g", min_mem_size = "8g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -64,14 +64,17 @@ search_criteria <- list(strategy = "RandomDiscrete",
 
 # collect the results and sort by our model performance metric of choice
 hyper_grid <- list(
-  ntrees      = seq(200, 400, by = 150),
+  ntrees      = seq(200, 500, by = 150),
   mtries      = seq(1, 6, by = 5),
   max_depth   = seq(10, 40, by = 20),
   min_rows    = seq(3, 6, by = 3),
   nbins       = seq(10, 40, by = 20),
   sample_rate = c(.55, .632, .75, .8)
 )
+```
 
+
+```{r cache = TRUE, message = FALSE, warning = FALSE}
 
 # Find Parameters: Use Hyper Parameter Tuning on a "Training Dataset" that sections your training data into 5-Folds. The output at Stage 1 is the parameter set.
 # build grid search 
@@ -100,7 +103,10 @@ grid_perf <- h2o.getGrid(
 )
 print(grid_perf)
 
+```
 
+
+```{r message = FALSE, warning = FALSE}
 # Grab the model_id for the top model, chosen by validation error
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
@@ -146,18 +152,15 @@ file_shared$h2o_rf <- predict(best_model, file_shared)
 model_drf <- h2o.randomForest(x = features, 
                              y = response, 
                              training_frame = file_shared,
-                             ntrees = 100,
-                             max_depth = 30,                             
-                             nbins = 30, 
-                             min_rows = 3,
-                             mtries = 6,
-                             sample_rate = 0.75,
+                             ntrees = 500,
                              keep_cross_validation_predictions = TRUE,
                              keep_cross_validation_models = TRUE,
                              keep_cross_validation_fold_assignment = TRUE, 
                              nfolds = 10)
 
 model_drf
+
+
 cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 
