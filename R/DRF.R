@@ -39,9 +39,11 @@ print(grid_perf)
 # Grab the model_id for the top model, chosen by validation error
 best_model_id <- grid_perf@model_ids[[1]]
 best_model <- h2o.getModel(best_model_id)
+best_model
+
 h2o.varimp(best_model)
 h2o.varimp_plot(best_model)
-best_model
+
 
 # Save model
 model_path <- h2o.saveModel(object = best_model, path = getwd(), force = TRUE)
