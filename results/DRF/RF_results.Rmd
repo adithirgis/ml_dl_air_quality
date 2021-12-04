@@ -1,0 +1,688 @@
+---
+title: "DRF"
+author: "Adithi R Upadhya"
+date: "04/12/2021"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## random_grid
+
+```{r eval = FALSE}
+H2O Grid Details
+================
+
+Grid ID: rf_grid 
+Used hyper parameters: 
+  -  max_depth 
+  -  min_rows 
+  -  mtries 
+  -  nbins 
+  -  ntrees 
+  -  sample_rate 
+Number of models: 128 
+Number of failed models: 0 
+
+Hyper-Parameter Search Summary: ordered by increasing residual_deviance
+  max_depth min_rows  mtries    nbins    ntrees sample_rate         model_ids
+1  10.00000  5.00000 6.00000 10.00000 200.00000     0.80000  rf_grid_model_76
+2  30.00000  5.00000 6.00000 10.00000 400.00000     0.80000  rf_grid_model_66
+3  30.00000  5.00000 6.00000 10.00000 200.00000     0.80000 rf_grid_model_110
+4  30.00000  5.00000 6.00000 10.00000 200.00000     0.75000  rf_grid_model_75
+5  30.00000  5.00000 6.00000 10.00000 400.00000     0.75000  rf_grid_model_49
+  residual_deviance
+1         435.82854
+2         437.48802
+3         441.80582
+4         441.91276
+5         442.51015
+
+---
+    max_depth min_rows  mtries    nbins    ntrees sample_rate         model_ids
+123  10.00000 10.00000 2.00000 30.00000 400.00000     0.55000 rf_grid_model_118
+124  30.00000 10.00000 2.00000 30.00000 400.00000     0.55000  rf_grid_model_48
+125  30.00000 10.00000 2.00000 10.00000 400.00000     0.55000  rf_grid_model_19
+126  10.00000 10.00000 2.00000 10.00000 400.00000     0.55000 rf_grid_model_101
+127  10.00000 10.00000 2.00000 30.00000 200.00000     0.55000  rf_grid_model_30
+128  10.00000 10.00000 2.00000 10.00000 200.00000     0.55000  rf_grid_model_98
+    residual_deviance
+123         710.48054
+124         713.58190
+125         719.44280
+126         721.05328
+127         725.74145
+128         730.02020
+```
+
+## print(grid_perf)
+
+```{r eval = FALSE}
+H2O Grid Details
+================
+
+Grid ID: rf_grid 
+Used hyper parameters: 
+  -  max_depth 
+  -  min_rows 
+  -  mtries 
+  -  nbins 
+  -  ntrees 
+  -  sample_rate 
+Number of models: 128 
+Number of failed models: 0 
+
+Hyper-Parameter Search Summary: ordered by increasing mse
+  max_depth min_rows  mtries    nbins    ntrees sample_rate         model_ids       mse
+1  10.00000  5.00000 6.00000 10.00000 200.00000     0.80000  rf_grid_model_76 435.82854
+2  30.00000  5.00000 6.00000 10.00000 400.00000     0.80000  rf_grid_model_66 437.48802
+3  30.00000  5.00000 6.00000 10.00000 200.00000     0.80000 rf_grid_model_110 441.80582
+4  30.00000  5.00000 6.00000 10.00000 200.00000     0.75000  rf_grid_model_75 441.91276
+5  30.00000  5.00000 6.00000 10.00000 400.00000     0.75000  rf_grid_model_49 442.51015
+
+---
+    max_depth min_rows  mtries    nbins    ntrees sample_rate         model_ids
+123  10.00000 10.00000 2.00000 30.00000 400.00000     0.55000 rf_grid_model_118
+124  30.00000 10.00000 2.00000 30.00000 400.00000     0.55000  rf_grid_model_48
+125  30.00000 10.00000 2.00000 10.00000 400.00000     0.55000  rf_grid_model_19
+126  10.00000 10.00000 2.00000 10.00000 400.00000     0.55000 rf_grid_model_101
+127  10.00000 10.00000 2.00000 30.00000 200.00000     0.55000  rf_grid_model_30
+128  10.00000 10.00000 2.00000 10.00000 200.00000     0.55000  rf_grid_model_98
+          mse
+123 710.48054
+124 713.58190
+125 719.44280
+126 721.05328
+127 725.74145
+128 730.02020
+```
+
+## best_model
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1426919        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        241        399   320.73000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  420.4862
+RMSE:  20.50576
+MAE:  13.59835
+RMSLE:  0.1646197
+Mean Residual Deviance :  420.4862
+
+
+
+H2ORegressionMetrics: drf
+** Reported on cross-validation data. **
+** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  435.8285
+RMSE:  20.87651
+MAE:  13.67537
+RMSLE:  0.1655874
+Mean Residual Deviance :  435.8285
+
+
+Cross-Validation Metrics Summary: 
+                             mean         sd cv_1_valid cv_2_valid cv_3_valid
+mae                     13.683401   0.610422  12.922681  13.823491  13.278401
+mean_residual_deviance 437.496060 106.879100 332.897200 415.167300 358.196660
+mse                    437.496060 106.879100 332.897200 415.167300 358.196660
+r2                       0.924453   0.019787   0.943752   0.940337   0.928777
+residual_deviance      437.496060 106.879100 332.897200 415.167300 358.196660
+rmse                    20.784742   2.469941  18.245470  20.375654  18.926085
+rmsle                    0.165410   0.012536   0.175143   0.142956   0.169445
+                       cv_4_valid cv_5_valid cv_6_valid cv_7_valid cv_8_valid
+mae                     14.319715  13.718395  13.026348  14.655043  14.378402
+mean_residual_deviance 560.704900 651.388700 350.404850 503.376600 468.659900
+mse                    560.704900 651.388700 350.404850 503.376600 468.659900
+r2                       0.904065   0.879705   0.936197   0.914233   0.928872
+residual_deviance      560.704900 651.388700 350.404850 503.376600 468.659900
+rmse                    23.679209  25.522316  18.719105  22.436056  21.648554
+rmsle                    0.185196   0.179042   0.165295   0.163937   0.154623
+                       cv_9_valid cv_10_valid
+mae                     13.591942   13.119596
+mean_residual_deviance 392.941860  341.222800
+mse                    392.941860  341.222800
+r2                       0.936124    0.932469
+residual_deviance      392.941860  341.222800
+rmse                    19.822762   18.472218
+rmsle                    0.155562    0.162905
+```
+
+## h2o.varimp(best_model)
+
+```{r eval = FALSE}
+Variable Importances: 
+       variable relative_importance scaled_importance percentage
+1           day   2478214400.000000          1.000000   0.629468
+2           BLH    486831616.000000          0.196445   0.123656
+3        Season    262813328.000000          0.106049   0.066755
+4  Station_code    259436912.000000          0.104687   0.065897
+5           AOD    181426768.000000          0.073209   0.046083
+6           CWV     68611504.000000          0.027686   0.017427
+7         Press     55921904.000000          0.022565   0.014204
+8          Temp     33774892.000000          0.013629   0.008579
+9          NDVI     29564856.000000          0.011930   0.007509
+10           WS     25632148.000000          0.010343   0.006511
+11           RH     22099666.000000          0.008918   0.005613
+12           WD     17498094.000000          0.007061   0.004445
+13          ELV     15171232.000000          0.006122   0.003854
+```
+
+## h2o.scoreHistory(best_model)
+
+```{r eval = FALSE}
+Scoring History: 
+            timestamp          duration number_of_trees training_rmse training_mae
+1 2021-12-04 18:11:30 18 min 45.017 sec               0            NA           NA
+2 2021-12-04 18:11:30 18 min 45.025 sec               1      26.56967     18.05530
+3 2021-12-04 18:11:30 18 min 45.032 sec               2      26.15524     17.44257
+4 2021-12-04 18:11:30 18 min 45.039 sec               3      25.19431     17.17138
+5 2021-12-04 18:11:30 18 min 45.046 sec               4      26.07038     17.42511
+  training_deviance
+1                NA
+2         705.94753
+3         684.09664
+4         634.75333
+5         679.66496
+
+---
+              timestamp          duration number_of_trees training_rmse training_mae
+196 2021-12-04 18:11:31 18 min 46.604 sec             195      20.52053     13.60534
+197 2021-12-04 18:11:31 18 min 46.612 sec             196      20.51856     13.60155
+198 2021-12-04 18:11:31 18 min 46.620 sec             197      20.50890     13.59824
+199 2021-12-04 18:11:31 18 min 46.629 sec             198      20.50695     13.59724
+200 2021-12-04 18:11:31 18 min 46.637 sec             199      20.51285     13.60203
+201 2021-12-04 18:11:31 18 min 46.645 sec             200      20.50576     13.59835
+    training_deviance
+196         421.09221
+197         421.01150
+198         420.61496
+199         420.53502
+200         420.77695
+201         420.48619
+```
+
+## cv_models
+
+```{r eval = FALSE}
+[[1]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_1 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1354929        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        239        355   303.33000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  446.8984
+RMSE:  21.13997
+MAE:  14.0117
+RMSLE:  0.1656406
+Mean Residual Deviance :  446.8984
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  332.8972
+RMSE:  18.24547
+MAE:  12.92268
+RMSLE:  0.1751425
+Mean Residual Deviance :  332.8972
+
+
+
+
+[[2]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_2 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1340864        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        240        355   298.45000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  429.0857
+RMSE:  20.71438
+MAE:  13.68923
+RMSLE:  0.1684429
+Mean Residual Deviance :  429.0857
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  415.1673
+RMSE:  20.37565
+MAE:  13.82349
+RMSLE:  0.142956
+Mean Residual Deviance :  415.1673
+
+
+
+
+[[3]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_3 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1353949        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        243        361   301.38000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  434.3448
+RMSE:  20.84094
+MAE:  13.81897
+RMSLE:  0.1662661
+Mean Residual Deviance :  434.3448
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  358.1966
+RMSE:  18.92608
+MAE:  13.2784
+RMSLE:  0.1694453
+Mean Residual Deviance :  358.1966
+
+
+
+
+[[4]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_4 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1353457        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        209        348   301.56000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  422.8504
+RMSE:  20.56333
+MAE:  13.83202
+RMSLE:  0.1651254
+Mean Residual Deviance :  422.8504
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  560.7049
+RMSE:  23.67921
+MAE:  14.31972
+RMSLE:  0.1851956
+Mean Residual Deviance :  560.7049
+
+
+
+
+[[5]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_5 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1376744        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        234        367   308.16500
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  439.8222
+RMSE:  20.97194
+MAE:  13.97857
+RMSLE:  0.1666855
+Mean Residual Deviance :  439.8222
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  651.3887
+RMSE:  25.52232
+MAE:  13.7184
+RMSLE:  0.1790424
+Mean Residual Deviance :  651.3887
+
+
+
+
+[[6]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_6 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1339187        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        224        365   298.97500
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  440.3318
+RMSE:  20.98409
+MAE:  13.89269
+RMSLE:  0.1677369
+Mean Residual Deviance :  440.3318
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  350.4049
+RMSE:  18.7191
+MAE:  13.02635
+RMSLE:  0.1652953
+Mean Residual Deviance :  350.4049
+
+
+
+
+[[7]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_7 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1355427        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        225        366   303.11000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  432.4541
+RMSE:  20.79553
+MAE:  13.74704
+RMSLE:  0.1663885
+Mean Residual Deviance :  432.4541
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  503.3766
+RMSE:  22.43606
+MAE:  14.65504
+RMSLE:  0.1639368
+Mean Residual Deviance :  503.3766
+
+
+
+
+[[8]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_8 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1356333        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        245        360   302.70000
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  439.9514
+RMSE:  20.97502
+MAE:  13.90621
+RMSLE:  0.1684573
+Mean Residual Deviance :  439.9514
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  468.6599
+RMSE:  21.64855
+MAE:  14.3784
+RMSLE:  0.1546227
+Mean Residual Deviance :  468.6599
+
+
+
+
+[[9]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_9 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1367277        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        237        370   305.61500
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  436.5804
+RMSE:  20.89451
+MAE:  13.80288
+RMSLE:  0.1677197
+Mean Residual Deviance :  436.5804
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  392.9419
+RMSE:  19.82276
+MAE:  13.59194
+RMSLE:  0.1555621
+Mean Residual Deviance :  392.9419
+
+
+
+
+[[10]]
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  rf_grid_model_76_cv_10 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1369088        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        224        372   305.44500
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  435.3671
+RMSE:  20.86545
+MAE:  13.82928
+RMSLE:  0.1660915
+Mean Residual Deviance :  435.3671
+
+
+H2ORegressionMetrics: drf
+** Reported on validation data. **
+
+MSE:  341.2228
+RMSE:  18.47222
+MAE:  13.1196
+RMSLE:  0.1629046
+Mean Residual Deviance :  341.2228
+```
+
+## best_model_perf
+
+
+```{r eval = FALSE}
+H2ORegressionMetrics: drf
+
+MSE:  426.4983
+RMSE:  20.65183
+MAE:  13.88624
+RMSLE:  0.1620849
+Mean Residual Deviance :  426.4983
+```
+
+
+## h2o.mse(best_model_perf) %>% sqrt()
+
+
+```{r eval = FALSE}
+20.651
+```
+
+## model_drf
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: drf
+Model ID:  DRF_model_R_1638620559777_1 
+Model Summary: 
+  number_of_trees number_of_internal_trees model_size_in_bytes min_depth max_depth
+1             200                      200             1406423        10        10
+  mean_depth min_leaves max_leaves mean_leaves
+1   10.00000        286        437   359.43500
+
+
+H2ORegressionMetrics: drf
+** Reported on training data. **
+** Metrics reported on Out-Of-Bag training samples **
+
+MSE:  423.2818
+RMSE:  20.57381
+MAE:  13.78377
+RMSLE:  0.1639533
+Mean Residual Deviance :  423.2818
+
+
+
+H2ORegressionMetrics: drf
+** Reported on cross-validation data. **
+** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  424.1176
+RMSE:  20.59411
+MAE:  13.76171
+RMSLE:  0.163968
+Mean Residual Deviance :  424.1176
+
+
+Cross-Validation Metrics Summary: 
+                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
+mae                     13.759520  0.566013  13.766283  13.429354  13.494084  13.225113
+mean_residual_deviance 424.169500 62.992890 484.664300 401.214570 372.195770 356.025700
+mse                    424.169500 62.992890 484.664300 401.214570 372.195770 356.025700
+r2                       0.928648  0.012688   0.920995   0.930966   0.938516   0.936113
+residual_deviance      424.169500 62.992890 484.664300 401.214570 372.195770 356.025700
+rmse                    20.544205  1.529413  22.015093  20.030342  19.292376  18.868643
+rmsle                    0.163719  0.012081   0.187912   0.154713   0.155849   0.147041
+                       cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid
+mae                     14.937880  13.656120  13.931427  14.394947  12.994242
+mean_residual_deviance 488.763600 527.075100 411.623630 448.584960 331.154400
+mse                    488.763600 527.075100 411.623630 448.584960 331.154400
+r2                       0.926180   0.901893   0.932669   0.919696   0.948896
+residual_deviance      488.763600 527.075100 411.623630 448.584960 331.154400
+rmse                    22.107998  22.958115  20.288510  21.179825  18.197647
+rmsle                    0.178680   0.164532   0.166217   0.160782   0.155734
+                       cv_10_valid
+mae                      13.765744
+mean_residual_deviance  420.393040
+mse                     420.393040
+r2                        0.930555
+residual_deviance       420.393040
+rmse                     20.503489
+rmsle                     0.165732
+```
+
+## h2o.varimp(model_drf)
+
+```{r eval = FALSE}
+Variable Importances: 
+       variable relative_importance scaled_importance percentage
+1           day   2694863104.000000          1.000000   0.487634
+2           BLH    781451072.000000          0.289978   0.141403
+3           AOD    426125664.000000          0.158125   0.077107
+4        Season    381277536.000000          0.141483   0.068992
+5  Station_code    318220032.000000          0.118084   0.057582
+6         Press    266763584.000000          0.098990   0.048271
+7          Temp    174215232.000000          0.064647   0.031524
+8           CWV    158258944.000000          0.058726   0.028637
+9            RH    100543576.000000          0.037309   0.018193
+10         NDVI     93733616.000000          0.034782   0.016961
+11           WS     58806636.000000          0.021822   0.010641
+12           WD     46730212.000000          0.017340   0.008456
+13          ELV     25421514.000000          0.009433   0.004600
+```
+
