@@ -201,7 +201,7 @@ rmsle                    0.174701   0.213822   0.160822   0.178423    0.173921
 
 ## h2o.varimp(best_model)
 
-```{r}
+```{r eval = FALSE}
 Variable Importances: 
   variable relative_importance scaled_importance percentage
 1  day.261            1.000000          1.000000   0.014954
@@ -546,7 +546,6 @@ Mean Residual Deviance :  11.28018
 ## h2o.scoreHistory(best_model)
 
 ```{r eval = FALSE}
-> h2o.scoreHistory(best_model)
 Scoring History: 
             timestamp          duration training_speed    epochs iterations
 1 2021-12-03 16:43:07         0.000 sec             NA   0.00000          0
