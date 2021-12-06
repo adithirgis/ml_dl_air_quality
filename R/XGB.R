@@ -67,7 +67,7 @@ h2o.mse(best_model_perf) %>% sqrt()
 
 test$h2o_xgb <- predict(best_model, test)
 test <- as.data.frame(test)
-write.csv(test, "test_h2o_XGB.csv")
+write.csv(test, "results/XGB/test_h2o_XGB.csv")
 
 file_shared$h2o_xgb <- predict(best_model, file_shared)
 
@@ -109,4 +109,4 @@ file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_xgb_m)) + geom_point() + geom_smooth(method = "lm")
 summary(lm(PM2.5 ~ h2o_xgb_m, data = file_shared))
 mean(abs((file_shared$PM2.5 - file_shared$h2o_xgb_m) / file_shared$PM2.5), na.rm = TRUE) * 100
-write.csv(file_shared, "results/h2o_XGB.csv")
+write.csv(file_shared, "results/XGB/h2o_XGB.csv")
