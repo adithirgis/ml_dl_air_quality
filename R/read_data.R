@@ -4,13 +4,15 @@ library(tidyverse)
 library(tidymodels)
 library(h2o)
 library(here)
+library(mgcv)
+library(caret)
 
 set.seed(108)
 
 file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1) %>%
   select("Station_code" = StationCode_2019, "CWV" = CWVDailyMean_2019, "ELV" = Elevation_2019, 
          "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019,
-         "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = RHDailyMean_2019,
+         "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = NDVI_2019,
          "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
          "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019) %>%
   mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) %>% 
