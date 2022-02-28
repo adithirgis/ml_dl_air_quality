@@ -113,16 +113,69 @@ model_dl <- h2o.deeplearning(x = features,
                              keep_cross_validation_models = TRUE,
                              keep_cross_validation_fold_assignment = TRUE, 
                              nfolds = 10)
-
 model_dl
-
 cvpreds_id <- model_dl@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-
 h2o.varimp(model_dl)
 h2o.varimp_plot(model_dl)
-
 file_shared$h2o_dl <- predict(model_dl, file_shared)
+
+model_dl_sp <- h2o.deeplearning(x = features,
+                             y = response,
+                             training_frame = file_shared,
+                             distribution = "gaussian",
+                             hidden =  c(30, 30, 30, 30),
+                             rate = 0.005,
+                             epochs = 54,
+                             l1 = 0.00001, 
+                             l2 = 0.00001,
+                             rho = 0.95,
+                             categorical_encoding = "AUTO",
+                             epsilon = 1e-7,
+                             momentum_start = 0,
+                             input_dropout_ratio = 0.1,
+                             max_w2 = 10,
+                             reproducible = TRUE,
+                             activation = "Tanh",
+                             seed = 108,
+                             keep_cross_validation_predictions = TRUE,
+                             keep_cross_validation_models = TRUE,
+                             fold_column = "Station_code")
+model_dl_sp
+cvpreds_id_sp <- model_dl_sp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+h2o.varimp(model_dl_sp)
+h2o.varimp_plot(model_dl_sp)
+file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
+
+model_dl_temp <- h2o.deeplearning(x = features,
+                                y = response,
+                                training_frame = file_shared,
+                                distribution = "gaussian",
+                                hidden =  c(30, 30, 30, 30),
+                                rate = 0.005,
+                                epochs = 54,
+                                l1 = 0.00001, 
+                                l2 = 0.00001,
+                                rho = 0.95,
+                                categorical_encoding = "AUTO",
+                                epsilon = 1e-7,
+                                momentum_start = 0,
+                                input_dropout_ratio = 0.1,
+                                max_w2 = 10,
+                                reproducible = TRUE,
+                                activation = "Tanh",
+                                seed = 108,
+                                keep_cross_validation_predictions = TRUE,
+                                keep_cross_validation_models = TRUE,
+                                fold_column = "month")
+model_dl_temp
+cvpreds_id_temp <- model_dl_temp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+h2o.varimp(model_dl_temp)
+h2o.varimp_plot(model_dl_temp)
+file_shared$h2o_dl_temp <- predict(model_dl_temp, file_shared)
+
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "lm")
 summary(lm(PM2.5 ~ h2o_dl, data = file_shared))

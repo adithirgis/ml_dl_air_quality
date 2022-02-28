@@ -105,6 +105,70 @@ file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 h2o.varimp(model_xgb)
 h2o.varimp_plot(model_xgb)
 file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
+
+model_xgb_sp <- h2o.xgboost(x = features,
+                            y = response,
+                            training_frame = file_shared,
+                            sample_rate = 0.57,
+                            reg_lambda = 0.1,
+                            reg_alpha = 0.0001,
+                            col_sample_rate = 0.7900,
+                            col_sample_rate_per_tree = 0.46000,
+                            min_rows = 2,
+                            min_split_improvement = 0.05,
+                            ntrees = 1000, 
+                            max_depth = 4, 
+                            min_child_weight = 2,
+                            eta = 0.1,
+                            gamma = 0.05,
+                            distribution = "gamma",
+                            tree_method = "exact",
+                            grow_policy = "depthwise",
+                            categorical_encoding = "AUTO",
+                            booster = "gbtree",
+                            seed = 108,
+                            keep_cross_validation_predictions = TRUE,
+                            keep_cross_validation_models = TRUE,
+                            fold_column = "Station_code")
+model_xgb_sp
+cvpreds_id_sp <- model_xgb_sp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+h2o.varimp(model_xgb_sp)
+h2o.varimp_plot(model_xgb_sp)
+file_shared$h2o_xgb_sp <- predict(model_xgb_sp, file_shared)
+
+model_xgb_temp <- h2o.xgboost(x = features,
+                              y = response,
+                              training_frame = file_shared,
+                              sample_rate = 0.57,
+                              reg_lambda = 0.1,
+                              reg_alpha = 0.0001,
+                              col_sample_rate = 0.7900,
+                              col_sample_rate_per_tree = 0.46000,
+                              min_rows = 2,
+                              min_split_improvement = 0.05,
+                              ntrees = 1000, 
+                              max_depth = 4, 
+                              min_child_weight = 2,
+                              eta = 0.1,
+                              gamma = 0.05,
+                              distribution = "gamma",
+                              tree_method = "exact",
+                              grow_policy = "depthwise",
+                              categorical_encoding = "AUTO",
+                              booster = "gbtree",
+                              seed = 108,
+                              keep_cross_validation_predictions = TRUE,
+                              keep_cross_validation_models = TRUE,
+                              fold_column = "month")
+model_xgb_temp
+cvpreds_id_temp <- model_xgb_temp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+h2o.varimp(model_xgb_temp)
+h2o.varimp_plot(model_xgb_temp)
+file_shared$h2o_xgb_temp <- predict(model_xgb_temp, file_shared)
+
+
 file_shared <- as.data.frame(file_shared)
 ggplot(file_shared, aes(PM2.5, h2o_xgb_m)) + geom_point() + geom_smooth(method = "lm")
 summary(lm(PM2.5 ~ h2o_xgb_m, data = file_shared))

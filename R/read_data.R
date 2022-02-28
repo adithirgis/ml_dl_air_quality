@@ -14,8 +14,8 @@ file_shared <- read_excel(here("data", "Final_Delhi_2019_Data.xlsx"), sheet = 1)
          "AOD" = Corrected_DailyMeanAOD_2019, "PM2.5" = Corrected_PM25DailyMean_2019,
          "Temp" = TempDailyMean_2019, "RH" = RHDailyMean_2019, "NDVI" = NDVI_2019,
          "WD" = WDDailyMean_2019, "WS" = WSDailyMean_2019, "BLH" = BLHDailyMean_2019,
-         "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019) %>%
-  mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press"), as.numeric) %>% 
+         "Press" = PressureDailyMean_2019, "season" = Season_2019, "day" = JulianDay_2019, "month" = Month_2019) %>%
+  mutate_at(c("CWV", "ELV", "AOD", "PM2.5", "Temp", "RH", "NDVI", "WD", "WS", "BLH", "Press", "month"), as.numeric) %>% 
   filter(!is.nan(PM2.5)) %>% 
   na.omit()
 
@@ -40,7 +40,7 @@ valid <- splits[[2]]
 test  <- splits[[3]]
 
 response <- "PM2.5"
-features <- setdiff(names(train), c(response))
+features <- setdiff(names(train), c(response, "month"))
 h2o.describe(file_shared)
 
 search_criteria <- list(strategy = "RandomDiscrete", 
