@@ -26,3 +26,14 @@ This exercise is implemented using the open source H2O platform.
 - https://neptune.ai/blog/lightgbm-parameters-guide
 
 - https://www.r-bloggers.com/2020/08/how-to-use-lightgbm-with-tidymodels/
+
+## Extras 
+
+- Example - https://www.mdpi.com/2072-4292/13/18/3790 
+
+- Cross Validation - https://docs.h2o.ai/h2o/latest-stable/h2o-docs/cross-validation.html#combining-holdout-predictions 
+
+- Random Grid Search - https://docs.h2o.ai/h2o/latest-stable/h2o-docs/grid-search.html 
+
+- Variable Importance - https://docs.h2o.ai/h2o/latest-stable/h2o-docs/variable-importance.html 
+
