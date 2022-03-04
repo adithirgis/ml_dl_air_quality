@@ -93,7 +93,7 @@ file_shared$h2o_dl_bm <- predict(best_model, file_shared)
 
 model_dl <- h2o.deeplearning(x = features,
                              y = response,
-                             training_frame = file_shared,
+                             training_frame = train,
                              distribution = "gaussian",
                              hidden =  c(30, 30, 30, 30),
                              rate = 0.005,
@@ -115,14 +115,14 @@ model_dl <- h2o.deeplearning(x = features,
                              nfolds = 10)
 model_dl
 cvpreds_id <- model_dl@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
+train$cvpreds <- h2o.getFrame(cvpreds_id)
 h2o.varimp(model_dl)
 h2o.varimp_plot(model_dl)
-file_shared$h2o_dl <- predict(model_dl, file_shared)
+train$h2o_dl <- predict(model_dl, train)
 
 model_dl_sp <- h2o.deeplearning(x = features,
                              y = response,
-                             training_frame = file_shared,
+                             training_frame = train,
                              distribution = "gaussian",
                              hidden =  c(30, 30, 30, 30),
                              rate = 0.005,
@@ -143,14 +143,14 @@ model_dl_sp <- h2o.deeplearning(x = features,
                              fold_column = "Station_code")
 model_dl_sp
 cvpreds_id_sp <- model_dl_sp@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+train$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_dl_sp)
 h2o.varimp_plot(model_dl_sp)
-file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
+train$h2o_dl_sp <- predict(model_dl_sp, train)
 
 model_dl_temp <- h2o.deeplearning(x = features,
                                 y = response,
-                                training_frame = file_shared,
+                                training_frame = train,
                                 distribution = "gaussian",
                                 hidden =  c(30, 30, 30, 30),
                                 rate = 0.005,
@@ -171,13 +171,13 @@ model_dl_temp <- h2o.deeplearning(x = features,
                                 fold_column = "month")
 model_dl_temp
 cvpreds_id_temp <- model_dl_temp@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+train$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
 h2o.varimp(model_dl_temp)
 h2o.varimp_plot(model_dl_temp)
-file_shared$h2o_dl_temp <- predict(model_dl_temp, file_shared)
+train$h2o_dl_temp <- predict(model_dl_temp, train)
 
-file_shared <- as.data.frame(file_shared)
-ggplot(file_shared, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_dl, data = file_shared))
-mean(abs((file_shared$PM2.5 - file_shared$h2o_dl) / file_shared$PM2.5), na.rm = TRUE) * 100
-write.csv(file_shared, "results/DL/h2o_DL.csv")
+train <- as.data.frame(train)
+ggplot(train, aes(PM2.5, h2o_dl)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_dl, data = train))
+mean(abs((train$PM2.5 - train$h2o_dl) / train$PM2.5), na.rm = TRUE) * 100
+write.csv(train, "results/DL/h2o_DL.csv")
