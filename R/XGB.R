@@ -73,7 +73,7 @@ file_shared$h2o_xgb <- predict(best_model, file_shared)
 
 model_xgb <- h2o.xgboost(x = features,
                          y = response,
-                         training_frame = train,
+                         training_frame = file_shared,
                          sample_rate = 0.57,
                          reg_lambda = 0.1,
                          reg_alpha = 0.0001,
@@ -101,14 +101,14 @@ model_xgb <- h2o.xgboost(x = features,
 model_xgb
 
 cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds <- h2o.getFrame(cvpreds_id)
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 h2o.varimp(model_xgb)
 h2o.varimp_plot(model_xgb)
-train$h2o_xgb_m <- predict(model_xgb, train)
+file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
 
 model_xgb_sp <- h2o.xgboost(x = features,
                             y = response,
-                            training_frame = train,
+                            training_frame = file_shared,
                             sample_rate = 0.57,
                             reg_lambda = 0.1,
                             reg_alpha = 0.0001,
@@ -132,14 +132,14 @@ model_xgb_sp <- h2o.xgboost(x = features,
                             fold_column = "Station_code")
 model_xgb_sp
 cvpreds_id_sp <- model_xgb_sp@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_xgb_sp)
 h2o.varimp_plot(model_xgb_sp)
-train$h2o_xgb_sp <- predict(model_xgb_sp, train)
+file_shared$h2o_xgb_sp <- predict(model_xgb_sp, file_shared)
 
 model_xgb_temp <- h2o.xgboost(x = features,
                               y = response,
-                              training_frame = train,
+                              training_frame = file_shared,
                               sample_rate = 0.57,
                               reg_lambda = 0.1,
                               reg_alpha = 0.0001,
@@ -163,14 +163,10 @@ model_xgb_temp <- h2o.xgboost(x = features,
                               fold_column = "month")
 model_xgb_temp
 cvpreds_id_temp <- model_xgb_temp@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
 h2o.varimp(model_xgb_temp)
 h2o.varimp_plot(model_xgb_temp)
-train$h2o_xgb_temp <- predict(model_xgb_temp, train)
+file_shared$h2o_xgb_temp <- predict(model_xgb_temp, file_shared)
 
-
-train <- as.data.frame(train)
-ggplot(train, aes(PM2.5, h2o_xgb_m)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_xgb_m, data = train))
-mean(abs((train$PM2.5 - train$h2o_xgb_m) / train$PM2.5), na.rm = TRUE) * 100
-write.csv(train, "results/XGB/h2o_XGB.csv")
+file_shared <- as.data.frame(file_shared)
+write.csv(file_shared, "results/XGB/h2o_XGB.csv")

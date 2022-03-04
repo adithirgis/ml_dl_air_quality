@@ -78,7 +78,7 @@ file_shared$h2o_rf <- predict(best_model, file_shared)
 # Train Final Model: Once we have selected the best model, we train on the full dataset. This model goes into production.
 model_drf <- h2o.randomForest(x = features, 
                               y = response, 
-                              training_frame = train,
+                              training_frame = file_shared,
                               ntrees = 400,
                               sample_rate = 0.8,
                               max_depth = 30,
@@ -94,15 +94,15 @@ model_drf
 
 
 cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds <- h2o.getFrame(cvpreds_id)
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 
 h2o.varimp(model_drf)
 h2o.varimp_plot(model_drf)
-train$h2o_rf_m <- predict(model_drf, train)
+file_shared$h2o_rf_m <- predict(model_drf, file_shared)
 
 model_drf_sp <- h2o.randomForest(x = features, 
                                 y = response, 
-                                training_frame = train,
+                                training_frame = file_shared,
                                 ntrees = 400,
                                 sample_rate = 0.8,
                                 max_depth = 30,
@@ -114,14 +114,14 @@ model_drf_sp <- h2o.randomForest(x = features,
                                 fold_column = "Station_code")
 model_drf_sp
 cvpreds_id_sp <- model_drf_sp@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_drf_sp)
 h2o.varimp_plot(model_drf_sp)
-train$h2o_drf_sp <- predict(model_drf_sp, train)
+file_shared$h2o_drf_sp <- predict(model_drf_sp, file_shared)
 
 model_drf_temp <- h2o.randomForest(x = features, 
                                   y = response, 
-                                  training_frame = train,
+                                  training_frame = file_shared,
                                   ntrees = 400,
                                   sample_rate = 0.8,
                                   max_depth = 30,
@@ -133,14 +133,14 @@ model_drf_temp <- h2o.randomForest(x = features,
                                   fold_column = "month")
 model_drf_temp
 cvpreds_id_temp <- model_drf_temp@model$cross_validation_holdout_predictions_frame_id$name
-train$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
 h2o.varimp(model_drf_temp)
 h2o.varimp_plot(model_drf_temp)
-train$h2o_drf_temp <- predict(model_drf_temp, train)
+file_shared$h2o_drf_temp <- predict(model_drf_temp, file_shared)
 
 
-train <- as.data.frame(train)
-ggplot(train, aes(PM2.5, h2o_rf_m)) + geom_point() + geom_smooth(method = "lm")
-summary(lm(PM2.5 ~ h2o_rf_m, data = train))
-mean(abs((train$PM2.5 - train$h2o_rf_m) / train$PM2.5), na.rm = TRUE) * 100
-write.csv(train, "results/DRF/h2o_RF.csv")
+file_shared <- as.data.frame(file_shared)
+ggplot(file_shared, aes(PM2.5, h2o_rf_m)) + geom_point() + geom_smooth(method = "lm")
+summary(lm(PM2.5 ~ h2o_rf_m, data = file_shared))
+mean(abs((file_shared$PM2.5 - file_shared$h2o_rf_m) / file_shared$PM2.5), na.rm = TRUE) * 100
+write.csv(file_shared, "results/DRF/h2o_RF.csv")
