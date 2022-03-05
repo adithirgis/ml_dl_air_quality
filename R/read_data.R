@@ -6,6 +6,7 @@ library(h2o)
 library(here)
 library(mgcv)
 library(caret)
+library(data.table)
 
 set.seed(108)
 
@@ -26,7 +27,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "25g", min_mem_size = "8g")
+h2o.init(max_mem_size = "8g", min_mem_size = "3g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -48,3 +49,19 @@ search_criteria <- list(strategy = "RandomDiscrete",
                         stopping_tolerance = 1e-4,
                         max_runtime_secs = 90 * 60,
                         seed = 108)
+
+
+dir <- here::here("data/Predictors_Spatial_Mapping")
+all_tables <- data.frame()
+list_csv <- list.files(dir, pattern = "\\.csv$")
+for(i in list_csv) {
+  table <- fread(paste0(dir, "/", i))
+  iname <- sub("\\.csv.*", "", i)
+  colnames(table) <- paste0(iname, "_", colnames(table))
+  all_tables <- cbind(table, all_tables)
+}
+
+names(all_tables) <- gsub("_V", "_", names(all_tables))
+
+
+
