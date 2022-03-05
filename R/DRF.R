@@ -118,6 +118,7 @@ file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_drf_sp)
 h2o.varimp_plot(model_drf_sp)
 file_shared$h2o_drf_sp <- predict(model_drf_sp, file_shared)
+rf <- predict_daily(number_of_days, all_tables, model_drf_sp, "rf")
 
 model_drf_temp <- h2o.randomForest(x = features, 
                                   y = response, 

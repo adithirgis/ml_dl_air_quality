@@ -147,6 +147,7 @@ file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_dl_sp)
 h2o.varimp_plot(model_dl_sp)
 file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
+dl <- predict_daily(number_of_days, all_tables, model_dl_sp, "dl")
 
 model_dl_temp <- h2o.deeplearning(x = features,
                                 y = response,

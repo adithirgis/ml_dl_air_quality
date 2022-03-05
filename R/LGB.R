@@ -136,6 +136,8 @@ file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_lgb_sp)
 h2o.varimp_plot(model_lgb_sp)
 file_shared$h2o_lgb_sp <- predict(model_lgb_sp, file_shared)
+lgb <- predict_daily(number_of_days, all_tables, model_lgb_sp, "lgb")
+
 
 model_lgb_temp <- h2o.xgboost(x = features,
                             y = response,

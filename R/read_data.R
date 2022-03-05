@@ -27,7 +27,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "8g", min_mem_size = "3g")
+h2o.init(max_mem_size = "25g", min_mem_size = "8g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -41,7 +41,7 @@ valid <- splits[[2]]
 test  <- splits[[3]]
 
 response <- "PM2.5"
-features <- setdiff(names(train), c(response, "month"))
+features <- setdiff(names(train), c(response, "month", "Station_code", "day", "season"))
 h2o.describe(file_shared)
 
 search_criteria <- list(strategy = "RandomDiscrete", 
@@ -54,14 +54,26 @@ search_criteria <- list(strategy = "RandomDiscrete",
 dir <- here::here("data/Predictors_Spatial_Mapping")
 all_tables <- data.frame()
 list_csv <- list.files(dir, pattern = "\\.csv$")
+list_csv <- sub("\\.csv.*", "", list_csv)
 for(i in list_csv) {
-  table <- fread(paste0(dir, "/", i))
-  iname <- sub("\\.csv.*", "", i)
-  colnames(table) <- paste0(iname, "_", colnames(table))
+  table <- fread(paste0(dir, "/", i, ".csv"))
+  colnames(table) <- paste0(i, "_", colnames(table))
   all_tables <- cbind(table, all_tables)
 }
 
 names(all_tables) <- gsub("_V", "_", names(all_tables))
+number_of_days <- ncol(table)
 
-
-
+predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
+  for(i in 1:number_of_days) {
+    all_tables_sub <- all_tables %>% 
+      select(ends_with(paste0("_", as.character(i)))) %>% 
+      mutate(day = i)
+    names(all_tables_sub) <- c("WS", "WD", "Temp", "RH", "Press", "NDVI", "ELV",
+                               "CWV", "BLH", "AOD", "day")
+    all_tables_sub <- as.h2o(all_tables_sub)
+    all_tables_sub$PM2.5 <- predict(model_input_sp, all_tables_sub)
+    all_tables_sub <- as.data.frame(all_tables_sub)
+    write.csv(all_tables_sub, paste0(model, "predicted", "_", as.character(i), ".csv"))
+  }
+}    
