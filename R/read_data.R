@@ -30,7 +30,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "8g", min_mem_size = "3g")
+h2o.init(max_mem_size = "25g", min_mem_size = "8g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -80,7 +80,7 @@ predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
     all_tables_sub <- all_tables %>% 
       select(ends_with(paste0("_", as.character(i))), lat, lon) %>% 
-      janitor::remove_empty("rows") %>% 
+      # janitor::remove_empty("rows") %>% 
       mutate(day = as.character(file_meta[i, "day"]), season = as.character(file_meta[i, "season"]))
     names(all_tables_sub) <- c("WS", "WD", "Temp", "RH", "Press", "NDVI", "ELV",
                                "CWV", "BLH", "AOD", "lat", "lon", "day", "season")
