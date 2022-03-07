@@ -23,7 +23,7 @@ predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
     write.csv(all_tables_sub, paste0(model, "_predicted", "_", as.character(i), ".csv"))
   }
 }    
-predict_daily(number_of_days, all_tables, model_gam_sp, "gam")
+predict_daily(number_of_days, all_tables, gam_model, "gam")
 
 file_shared$model_pred <- predict(gam_model, newdata = file_shared)
 write.csv(file_shared, "gam_model.csv")

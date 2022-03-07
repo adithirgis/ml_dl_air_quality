@@ -72,6 +72,38 @@ write.csv(test, "results/XGB/test_h2o_XGB.csv")
 file_shared$h2o_xgb <- predict(best_model, file_shared)
 
 model_xgb <- h2o.xgboost(x = features,
+                            y = response,
+                            training_frame = file_shared,
+                            sample_rate = 0.57,
+                            reg_lambda = 0.1,
+                            reg_alpha = 0.0001,
+                            col_sample_rate = 0.7900,
+                            col_sample_rate_per_tree = 0.46000,
+                            min_rows = 2,
+                            min_split_improvement = 0.05,
+                            ntrees = 1000, 
+                            max_depth = 4, 
+                            min_child_weight = 2,
+                            eta = 0.1,
+                            gamma = 0.05,
+                            distribution = "gamma",
+                            tree_method = "exact",
+                            grow_policy = "depthwise",
+                            categorical_encoding = "AUTO",
+                            booster = "gbtree",
+                            seed = 108)
+
+
+model_xgb
+
+cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
+h2o.varimp(model_xgb)
+h2o.varimp_plot(model_xgb)
+file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
+predict_daily(number_of_days, all_tables, model_xgb, "xgb")
+
+model_xgb_10 <- h2o.xgboost(x = features,
                          y = response,
                          training_frame = file_shared,
                          sample_rate = 0.57,
@@ -98,13 +130,13 @@ model_xgb <- h2o.xgboost(x = features,
                          nfolds = 10)
 
 
-model_xgb
+model_xgb_10
 
-cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-h2o.varimp(model_xgb)
-h2o.varimp_plot(model_xgb)
-file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
+cvpreds_id <- model_xgb_10@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
+h2o.varimp(model_xgb_10)
+h2o.varimp_plot(model_xgb_10)
+file_shared$h2o_xgb_m_10 <- predict(model_xgb_10, file_shared)
 
 model_xgb_sp <- h2o.xgboost(x = features,
                             y = response,

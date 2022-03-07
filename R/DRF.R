@@ -76,7 +76,28 @@ write.csv(test, "results/DRF/test_h2o_RF.csv")
 file_shared$h2o_rf <- predict(best_model, file_shared)
 
 # Train Final Model: Once we have selected the best model, we train on the full dataset. This model goes into production.
+
 model_drf <- h2o.randomForest(x = features, 
+                                 y = response, 
+                                 training_frame = file_shared,
+                                 ntrees = 400,
+                                 sample_rate = 0.8,
+                                 max_depth = 30,
+                                 min_rows = 5,
+                                 nbins = 10,
+                                 mtries = 6)
+
+model_drf
+cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
+
+h2o.varimp(model_drf)
+h2o.varimp_plot(model_drf)
+file_shared$h2o_rf_m <- predict(model_drf, file_shared)
+predict_daily(number_of_days, all_tables, model_drf, "rf")
+
+
+model_drf_10 <- h2o.randomForest(x = features, 
                               y = response, 
                               training_frame = file_shared,
                               ntrees = 400,
@@ -90,15 +111,15 @@ model_drf <- h2o.randomForest(x = features,
                               keep_cross_validation_fold_assignment = TRUE, 
                               nfolds = 10)
 
-model_drf
+model_drf_10
 
 
-cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
+cvpreds_id <- model_drf_10@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
 
-h2o.varimp(model_drf)
-h2o.varimp_plot(model_drf)
-file_shared$h2o_rf_m <- predict(model_drf, file_shared)
+h2o.varimp(model_drf_10)
+h2o.varimp_plot(model_drf_10)
+file_shared$h2o_rf_m_10 <- predict(model_drf_10, file_shared)
 
 model_drf_sp <- h2o.randomForest(x = features, 
                                 y = response, 
@@ -118,7 +139,6 @@ file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
 h2o.varimp(model_drf_sp)
 h2o.varimp_plot(model_drf_sp)
 file_shared$h2o_drf_sp <- predict(model_drf_sp, file_shared)
-rf <- predict_daily(number_of_days, all_tables, model_drf_sp, "rf")
 
 model_drf_temp <- h2o.randomForest(x = features, 
                                   y = response, 
