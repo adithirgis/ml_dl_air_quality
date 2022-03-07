@@ -70,13 +70,16 @@ names(all_tables) <- gsub("_V", "_", names(all_tables))
 number_of_days <- ncol(table)
 all_tables <- all_tables[-1, ] 
 all_tables <- cbind(all_tables, lat, lon)
+file_meta <- read_csv(here::here("data", "file_meta.csv")) %>% 
+  select("day" = Julain_day, "season" = season) %>% 
+  arrange(day)
 predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
     all_tables_sub <- all_tables %>% 
       select(ends_with(paste0("_", as.character(i))), lat, lon) %>% 
-      mutate(day_code = i)
+      mutate(day = file_meta[i, "day"], season = file_meta[i, "season"])
     names(all_tables_sub) <- c("WS", "WD", "Temp", "RH", "Press", "NDVI", "ELV",
-                               "CWV", "BLH", "AOD", "lat", "lon", "day_code")
+                               "CWV", "BLH", "AOD", "lat", "lon", "day", "season")
     all_tables_sub <- as.h2o(all_tables_sub)
     all_tables_sub$PM2.5 <- predict(model_input_sp, all_tables_sub)
     all_tables_sub <- as.data.frame(all_tables_sub)
