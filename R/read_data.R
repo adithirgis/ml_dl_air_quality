@@ -27,7 +27,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "25g", min_mem_size = "8g")
+h2o.init(max_mem_size = "8g", min_mem_size = "3g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -41,7 +41,7 @@ valid <- splits[[2]]
 test  <- splits[[3]]
 
 response <- "PM2.5"
-features <- setdiff(names(train), c(response, "month", "Station_code", "day", "season"))
+features <- setdiff(names(train), c(response, "month", "Station_code"))
 h2o.describe(file_shared)
 
 search_criteria <- list(strategy = "RandomDiscrete", 
@@ -60,17 +60,23 @@ for(i in list_csv) {
   colnames(table) <- paste0(i, "_", colnames(table))
   all_tables <- cbind(table, all_tables)
 }
+lat <- fread(paste0(here::here("data"), "/", "NCR_LAT.csv"))[, 1] %>% 
+  select("lat" = V1)
+lon <- fread(paste0(here::here("data"), "/", "NCR_LON.csv"))[, 1] %>% 
+  select("lon" = V1)
+
 
 names(all_tables) <- gsub("_V", "_", names(all_tables))
 number_of_days <- ncol(table)
-
+all_tables <- all_tables[-1, ] 
+all_tables <- cbind(all_tables, lat, lon)
 predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
     all_tables_sub <- all_tables %>% 
-      select(ends_with(paste0("_", as.character(i)))) %>% 
-      mutate(day = i)
+      select(ends_with(paste0("_", as.character(i))), lat, lon) %>% 
+      mutate(day_code = i)
     names(all_tables_sub) <- c("WS", "WD", "Temp", "RH", "Press", "NDVI", "ELV",
-                               "CWV", "BLH", "AOD", "day")
+                               "CWV", "BLH", "AOD", "lat", "lon", "day_code")
     all_tables_sub <- as.h2o(all_tables_sub)
     all_tables_sub$PM2.5 <- predict(model_input_sp, all_tables_sub)
     all_tables_sub <- as.data.frame(all_tables_sub)
