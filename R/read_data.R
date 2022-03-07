@@ -87,6 +87,6 @@ predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
     all_tables_sub <- as.h2o(all_tables_sub)
     all_tables_sub$PM2.5 <- predict(model_input_sp, all_tables_sub)
     all_tables_sub <- as.data.frame(all_tables_sub)
-    write.csv(all_tables_sub, paste0(model, "predicted", "_", as.character(i), ".csv"))
+    write.csv(all_tables_sub, paste0(model, "_predicted", "_", as.character(i), ".csv"))
   }
 }    
