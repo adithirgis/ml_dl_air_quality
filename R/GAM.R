@@ -11,8 +11,7 @@ gam_model <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + 
 model_gam_sp <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
                    data = file_shared,
                    method = "gam",
-                   trControl = trainControl(method = "cv", number = 10, 
-                                            savePredictions = TRUE)
+                   trControl = trainControl(method = LOOCV, savePredictions = TRUE)
 )
 predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
