@@ -4,6 +4,8 @@ gam_model <- gam(PM2.5 ~ s(CWV) + s(ELV) + s(AOD) + s(Temp) + s(RH) + s(NDVI) + 
                  data = file_shared)
 plot.gam(gam_model, pages = 1, residuals = TRUE, all.terms = TRUE, 
          shade = TRUE, shade.col = 2)
+file_shared$model_pred <- predict(gam_model, newdata = file_shared)
+
 predict_daily_gam <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
     all_tables_sub <- all_tables %>% 
@@ -15,7 +17,6 @@ predict_daily_gam <- function(number_of_days, all_tables, model_input_sp, model)
   }
 }    
 predict_daily_gam(number_of_days, all_tables, gam_model, "gam")
-file_shared$model_pred <- predict(gam_model, newdata = file_shared)
 
 
 gam_model_10 <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 

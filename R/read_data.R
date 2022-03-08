@@ -76,6 +76,8 @@ all_tables <- cbind(all_tables, lat, lon)
 file_meta <- read_excel(here::here("data", "Julian_Season.xlsx")) %>% 
   select("day" = `Julian Days`, "season" = Season) %>% 
   arrange(day)
+
+
 predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
   for(i in 1:number_of_days) {
     all_tables_sub <- all_tables %>% 
