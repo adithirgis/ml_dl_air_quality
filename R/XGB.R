@@ -98,8 +98,6 @@ model_xgb
 
 cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-h2o.varimp(model_xgb)
-h2o.varimp_plot(model_xgb)
 file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
 predict_daily(number_of_days, all_tables, model_xgb, "xgb")
 
@@ -134,8 +132,6 @@ model_xgb_10
 
 cvpreds_id <- model_xgb_10@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
-h2o.varimp(model_xgb_10)
-h2o.varimp_plot(model_xgb_10)
 file_shared$h2o_xgb_m_10 <- predict(model_xgb_10, file_shared)
 
 model_xgb_sp <- h2o.xgboost(x = features,
@@ -165,8 +161,6 @@ model_xgb_sp <- h2o.xgboost(x = features,
 model_xgb_sp
 cvpreds_id_sp <- model_xgb_sp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
-h2o.varimp(model_xgb_sp)
-h2o.varimp_plot(model_xgb_sp)
 file_shared$h2o_xgb_sp <- predict(model_xgb_sp, file_shared)
 xgb <- predict_daily(number_of_days, all_tables, model_xgb_sp, "xgb")
 
@@ -197,8 +191,6 @@ model_xgb_temp <- h2o.xgboost(x = features,
 model_xgb_temp
 cvpreds_id_temp <- model_xgb_temp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
-h2o.varimp(model_xgb_temp)
-h2o.varimp_plot(model_xgb_temp)
 file_shared$h2o_xgb_temp <- predict(model_xgb_temp, file_shared)
 
 file_shared <- as.data.frame(file_shared)

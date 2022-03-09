@@ -90,9 +90,6 @@ model_drf <- h2o.randomForest(x = features,
 model_drf
 cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-
-h2o.varimp(model_drf)
-h2o.varimp_plot(model_drf)
 file_shared$h2o_rf_m <- predict(model_drf, file_shared)
 predict_daily(number_of_days, all_tables, model_drf, "rf")
 
@@ -136,8 +133,6 @@ model_drf_sp <- h2o.randomForest(x = features,
 model_drf_sp
 cvpreds_id_sp <- model_drf_sp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
-h2o.varimp(model_drf_sp)
-h2o.varimp_plot(model_drf_sp)
 file_shared$h2o_drf_sp <- predict(model_drf_sp, file_shared)
 
 model_drf_temp <- h2o.randomForest(x = features, 
@@ -155,8 +150,6 @@ model_drf_temp <- h2o.randomForest(x = features,
 model_drf_temp
 cvpreds_id_temp <- model_drf_temp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
-h2o.varimp(model_drf_temp)
-h2o.varimp_plot(model_drf_temp)
 file_shared$h2o_drf_temp <- predict(model_drf_temp, file_shared)
 
 

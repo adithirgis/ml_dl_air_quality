@@ -112,8 +112,6 @@ model_dl <- h2o.deeplearning(x = features,
 model_dl
 cvpreds_id <- model_dl@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-h2o.varimp(model_dl)
-h2o.varimp_plot(model_dl)
 file_shared$h2o_dl <- predict(model_dl, file_shared)
 predict_daily(number_of_days, all_tables, model_dl, "dl")
 
@@ -142,8 +140,6 @@ model_dl_10 <- h2o.deeplearning(x = features,
 model_dl_10
 cvpreds_id <- model_dl_10@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
-h2o.varimp(model_dl_10)
-h2o.varimp_plot(model_dl_10)
 file_shared$h2o_dl_10 <- predict(model_dl_10, file_shared)
 
 model_dl_sp <- h2o.deeplearning(x = features,
@@ -170,8 +166,6 @@ model_dl_sp <- h2o.deeplearning(x = features,
 model_dl_sp
 cvpreds_id_sp <- model_dl_sp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
-h2o.varimp(model_dl_sp)
-h2o.varimp_plot(model_dl_sp)
 file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
 dl <- predict_daily(number_of_days, all_tables, model_dl_sp, "dl")
 
@@ -199,8 +193,6 @@ model_dl_temp <- h2o.deeplearning(x = features,
 model_dl_temp
 cvpreds_id_temp <- model_dl_temp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
-h2o.varimp(model_dl_temp)
-h2o.varimp_plot(model_dl_temp)
 file_shared$h2o_dl_temp <- predict(model_dl_temp, file_shared)
 
 file_shared <- as.data.frame(file_shared)
