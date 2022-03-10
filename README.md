@@ -1,4 +1,4 @@
-# Machine Learning and Deep learning in R for air quality data
+# Machine Learning and Deep learning in R for air quality - PM2.5 and Aerosol optical depth data.
 
 This exercise is implemented using the open source H2O platform. 
 
