@@ -17,7 +17,7 @@ predict_daily_gam <- function(number_of_days, all_tables, model_input_sp, model)
   }
 }    
 predict_daily_gam(number_of_days, all_tables, gam_model, "gam")
-
+# Predicted using HPC
 
 gam_model_10 <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
                    data = file_shared,
