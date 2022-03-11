@@ -2,8 +2,8 @@
 
 hyper_grid <- list(
   sample_rate = seq(0.2, 1, 0.01),
-  reg_lambda = c(0, 0.0001, 0.001, 0.1, 1),
-  reg_alpha = c(0, 0.0001, 0.001, 0.1, 1),
+  reg_lambda = c(0, 0.0001, 0.001, 0.01, 0.1, 1),
+  reg_alpha = c(0, 0.0001, 0.001, 0.01, 0.1, 1),
   col_sample_rate = seq(0.2, 1, 0.01),
   col_sample_rate_per_tree = seq(0.2, 1, 0.01),
   min_rows = 2 ^ seq(0, log2(nrow(train))-1, 1),
@@ -72,36 +72,6 @@ write.csv(test, "results/XGB/test_h2o_XGB.csv")
 file_shared$h2o_xgb <- predict(best_model, file_shared)
 
 model_xgb <- h2o.xgboost(x = features,
-                            y = response,
-                            training_frame = file_shared,
-                            sample_rate = 0.57,
-                            reg_lambda = 0.1,
-                            reg_alpha = 0.0001,
-                            col_sample_rate = 0.7900,
-                            col_sample_rate_per_tree = 0.46000,
-                            min_rows = 2,
-                            min_split_improvement = 0.05,
-                            ntrees = 1000, 
-                            max_depth = 4, 
-                            min_child_weight = 2,
-                            eta = 0.1,
-                            gamma = 0.05,
-                            distribution = "gamma",
-                            tree_method = "exact",
-                            grow_policy = "depthwise",
-                            categorical_encoding = "AUTO",
-                            booster = "gbtree",
-                            seed = 108)
-
-
-model_xgb
-
-cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
-file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
-predict_daily(number_of_days, all_tables, model_xgb, "xgb")
-
-model_xgb_10 <- h2o.xgboost(x = features,
                          y = response,
                          training_frame = file_shared,
                          sample_rate = 0.57,
@@ -121,11 +91,41 @@ model_xgb_10 <- h2o.xgboost(x = features,
                          grow_policy = "depthwise",
                          categorical_encoding = "AUTO",
                          booster = "gbtree",
-                         seed = 108,
-                         keep_cross_validation_predictions = TRUE,
-                         keep_cross_validation_models = TRUE,
-                         keep_cross_validation_fold_assignment = TRUE, 
-                         nfolds = 10)
+                         seed = 108)
+
+
+model_xgb
+
+cvpreds_id <- model_xgb@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
+file_shared$h2o_xgb_m <- predict(model_xgb, file_shared)
+predict_daily(number_of_days, all_tables, model_xgb, "xgb")
+
+model_xgb_10 <- h2o.xgboost(x = features,
+                            y = response,
+                            training_frame = file_shared,
+                            sample_rate = 0.57,
+                            reg_lambda = 0.1,
+                            reg_alpha = 0.0001,
+                            col_sample_rate = 0.7900,
+                            col_sample_rate_per_tree = 0.46000,
+                            min_rows = 2,
+                            min_split_improvement = 0.05,
+                            ntrees = 1000, 
+                            max_depth = 4, 
+                            min_child_weight = 2,
+                            eta = 0.1,
+                            gamma = 0.05,
+                            distribution = "gamma",
+                            tree_method = "exact",
+                            grow_policy = "depthwise",
+                            categorical_encoding = "AUTO",
+                            booster = "gbtree",
+                            seed = 108,
+                            keep_cross_validation_predictions = TRUE,
+                            keep_cross_validation_models = TRUE,
+                            keep_cross_validation_fold_assignment = TRUE, 
+                            nfolds = 10)
 
 
 model_xgb_10

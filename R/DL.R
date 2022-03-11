@@ -1,7 +1,24 @@
 # uploaded_model <- h2o.upload_model(my_local_model)
 
+hyper_grid <- list(
+  activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"),
+  hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(50, 50, 50, 50), c(100, 100, 100, 100)),
+  epochs = c(50, 100, 200, 300, 400, 500),
+  l1 = c(0, 0.00001, 0.0001),
+  l2 = c(0, 0.00001, 0.0001),
+  rate = c(0, 0.005, 0.001),
+  rate_annealing = c(1e-7, 1e-6),
+  rho = c(0.9, 0.95, 0.99, 0.999),
+  epsilon = c(1e-10, 1e-8, 1e-6, 1e-4),
+  momentum_start = c(0, 0.5),
+  momentum_stable = c(0.99, 0.5, 0),
+  distribution = c("AUTO", "gaussian", "poisson", "gamma"),
+  input_dropout_ratio = c(0, 0.1, 0.2),
+  max_w2 = c(1, 10, 100, 1000, 3.4028235e+38)
+)
+
 # hyper_grid <- list(
-#   activation = c("Rectifier", "Tanh", "RectifierWithDropout", "MaxoutWithDropout", "TanhWithDropout"), 
+#   activation = c("Tanh", "TanhWithDropout"), 
 #   hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(50, 50, 50, 50), c(100, 100, 100, 100)),
 #   epochs = c(50, 100, 200, 300, 400, 500),
 #   l1 = c(0, 0.00001, 0.0001), 
@@ -12,27 +29,10 @@
 #   epsilon = c(1e-10, 1e-8, 1e-6, 1e-4),
 #   momentum_start = c(0, 0.5),
 #   momentum_stable = c(0.99, 0.5, 0),
-#   distribution = c("AUTO", "gaussian", "poisson", "gamma"),
+#   distribution = c("AUTO", "gaussian", "gamma"),
 #   input_dropout_ratio = c(0, 0.1, 0.2),
-#   max_w2 = c(1, 10, 100, 1000, 3.4028235e+38)
+#   max_w2 = c(1, 10, 100)
 # )
-
-hyper_grid <- list(
-  activation = c("Tanh", "TanhWithDropout"), 
-  hidden = list(c(5, 5, 5, 5, 5), c(30, 30, 30, 30), c(50, 50, 50, 50), c(100, 100, 100, 100)),
-  epochs = c(50, 100, 200, 300, 400, 500),
-  l1 = c(0, 0.00001, 0.0001), 
-  l2 = c(0, 0.00001, 0.0001),
-  rate = c(0, 0.005, 0.001),
-  rate_annealing = c(1e-7, 1e-6),
-  rho = c(0.9, 0.95, 0.99, 0.999),
-  epsilon = c(1e-10, 1e-8, 1e-6, 1e-4),
-  momentum_start = c(0, 0.5),
-  momentum_stable = c(0.99, 0.5, 0),
-  distribution = c("AUTO", "gaussian", "gamma"),
-  input_dropout_ratio = c(0, 0.1, 0.2),
-  max_w2 = c(1, 10, 100)
-)
 
 dl_grid <- h2o.grid(algorithm = "deeplearning", 
                     x = features,
@@ -116,60 +116,6 @@ file_shared$h2o_dl <- predict(model_dl, file_shared)
 predict_daily(number_of_days, all_tables, model_dl, "dl")
 
 model_dl_10 <- h2o.deeplearning(x = features,
-                             y = response,
-                             training_frame = file_shared,
-                             distribution = "gaussian",
-                             hidden =  c(30, 30, 30, 30),
-                             rate = 0.005,
-                             epochs = 54,
-                             l1 = 0.00001, 
-                             l2 = 0.00001,
-                             rho = 0.95,
-                             categorical_encoding = "AUTO",
-                             epsilon = 1e-7,
-                             momentum_start = 0,
-                             input_dropout_ratio = 0.1,
-                             max_w2 = 10,
-                             reproducible = TRUE,
-                             activation = "Tanh",
-                             seed = 108,
-                             keep_cross_validation_predictions = TRUE,
-                             keep_cross_validation_models = TRUE,
-                             keep_cross_validation_fold_assignment = TRUE, 
-                             nfolds = 10)
-model_dl_10
-cvpreds_id <- model_dl_10@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
-file_shared$h2o_dl_10 <- predict(model_dl_10, file_shared)
-
-model_dl_sp <- h2o.deeplearning(x = features,
-                             y = response,
-                             training_frame = file_shared,
-                             distribution = "gaussian",
-                             hidden =  c(30, 30, 30, 30),
-                             rate = 0.005,
-                             epochs = 54,
-                             l1 = 0.00001, 
-                             l2 = 0.00001,
-                             rho = 0.95,
-                             categorical_encoding = "AUTO",
-                             epsilon = 1e-7,
-                             momentum_start = 0,
-                             input_dropout_ratio = 0.1,
-                             max_w2 = 10,
-                             reproducible = TRUE,
-                             activation = "Tanh",
-                             seed = 108,
-                             keep_cross_validation_predictions = TRUE,
-                             keep_cross_validation_models = TRUE,
-                             fold_column = "Station_code")
-model_dl_sp
-cvpreds_id_sp <- model_dl_sp@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
-file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
-dl <- predict_daily(number_of_days, all_tables, model_dl_sp, "dl")
-
-model_dl_temp <- h2o.deeplearning(x = features,
                                 y = response,
                                 training_frame = file_shared,
                                 distribution = "gaussian",
@@ -189,7 +135,61 @@ model_dl_temp <- h2o.deeplearning(x = features,
                                 seed = 108,
                                 keep_cross_validation_predictions = TRUE,
                                 keep_cross_validation_models = TRUE,
-                                fold_column = "month")
+                                keep_cross_validation_fold_assignment = TRUE, 
+                                nfolds = 10)
+model_dl_10
+cvpreds_id <- model_dl_10@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_10 <- h2o.getFrame(cvpreds_id)
+file_shared$h2o_dl_10 <- predict(model_dl_10, file_shared)
+
+model_dl_sp <- h2o.deeplearning(x = features,
+                                y = response,
+                                training_frame = file_shared,
+                                distribution = "gaussian",
+                                hidden =  c(30, 30, 30, 30),
+                                rate = 0.005,
+                                epochs = 54,
+                                l1 = 0.00001, 
+                                l2 = 0.00001,
+                                rho = 0.95,
+                                categorical_encoding = "AUTO",
+                                epsilon = 1e-7,
+                                momentum_start = 0,
+                                input_dropout_ratio = 0.1,
+                                max_w2 = 10,
+                                reproducible = TRUE,
+                                activation = "Tanh",
+                                seed = 108,
+                                keep_cross_validation_predictions = TRUE,
+                                keep_cross_validation_models = TRUE,
+                                fold_column = "Station_code")
+model_dl_sp
+cvpreds_id_sp <- model_dl_sp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+file_shared$h2o_dl_sp <- predict(model_dl_sp, file_shared)
+dl <- predict_daily(number_of_days, all_tables, model_dl_sp, "dl")
+
+model_dl_temp <- h2o.deeplearning(x = features,
+                                  y = response,
+                                  training_frame = file_shared,
+                                  distribution = "gaussian",
+                                  hidden =  c(30, 30, 30, 30),
+                                  rate = 0.005,
+                                  epochs = 54,
+                                  l1 = 0.00001, 
+                                  l2 = 0.00001,
+                                  rho = 0.95,
+                                  categorical_encoding = "AUTO",
+                                  epsilon = 1e-7,
+                                  momentum_start = 0,
+                                  input_dropout_ratio = 0.1,
+                                  max_w2 = 10,
+                                  reproducible = TRUE,
+                                  activation = "Tanh",
+                                  seed = 108,
+                                  keep_cross_validation_predictions = TRUE,
+                                  keep_cross_validation_models = TRUE,
+                                  fold_column = "month")
 model_dl_temp
 cvpreds_id_temp <- model_dl_temp@model$cross_validation_holdout_predictions_frame_id$name
 file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
