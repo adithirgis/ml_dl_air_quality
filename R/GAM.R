@@ -17,7 +17,7 @@ predict_daily_gam <- function(number_of_days, all_tables, model_input_sp, model)
   }
 }    
 predict_daily_gam(number_of_days, all_tables, gam_model, "gam")
-# Used a HPC to do this 
+
 
 gam_model_10 <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
                       data = file_shared,
@@ -31,14 +31,19 @@ gam_cv_10 <- gam_cv_10 %>%
   subset(select == "FALSE")
 write.csv(gam_cv_10, "gam_cv_10.csv")
 
-model_gam_sp <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
-                      data = file_shared,
-                      method = "gam",
-                      trControl = trainControl(method = LOOCV, savePredictions = TRUE)
-)
+# LOOCV based on Station code
+predicted_sp <- data.frame()
+for(i in unique(file_shared$Station_code)){
+  file_shared_sub <- file_shared %>% 
+    subset(Station_code != i)
+  file_shared_pred <- file_shared %>% 
+    subset(Station_code == i)
+  model_gam_sp <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
+                        data = file_shared_sub,
+                        method = "gam")
+  file_shared_pred$predicted <- predict(model_gam_sp, newdata = file_shared_pred)
+  predicted_sp <- rbind(predicted_sp, file_shared_pred)
+}
 
-write.csv(file_shared, "gam_model.csv")
-gam_cv <- as.data.frame(gam_model$pred)
-gam_cv <- gam_cv %>% 
-  subset(select == "FALSE")
-write.csv(gam_cv, "gam_cv.csv")
+write.csv(predicted_sp, "gam_sp.csv")
+
