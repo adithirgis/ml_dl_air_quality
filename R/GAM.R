@@ -38,9 +38,8 @@ for(i in unique(file_shared$Station_code)){
     subset(Station_code != i)
   file_shared_pred <- file_shared %>% 
     subset(Station_code == i)
-  model_gam_sp <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
-                        data = file_shared_sub,
-                        method = "gam")
+  model_gam_sp <- gam(PM2.5 ~ s(CWV) + s(ELV) + s(AOD) + s(Temp) + s(RH) + s(NDVI) + s(WD) + s(WS) + s(BLH) + s(Press), 
+                      data = file_shared_sub)
   file_shared_pred$predicted <- predict(model_gam_sp, newdata = file_shared_pred)
   predicted_sp <- rbind(predicted_sp, file_shared_pred)
 }
