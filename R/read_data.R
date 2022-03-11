@@ -96,6 +96,10 @@ predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
 # For GAM 
 dir <- here::here("results/GAM/gam_spatial_prediction")
 list_files <- list.files(dir, pattern = "\\.csv$")
+files <- data.frame(data = "PM2.5")
+n <- 157600
+files <- do.call("rbind", replicate(n, files, simplify = FALSE))
+
 for(i in list_files) {
   file_model <- read.csv(paste0(dir, "/", i), sep = ",") 
   name <- paste0("PM2.5_", sub('^gam_predicted*_(\\d+).csv*', '\\1', i))
@@ -104,3 +108,4 @@ for(i in list_files) {
     select(!!!name)
   files <- cbind(files, file_model)
 }
+write.csv(files, "final_gam_predicted.csv")
