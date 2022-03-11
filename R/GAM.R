@@ -17,20 +17,24 @@ predict_daily_gam <- function(number_of_days, all_tables, model_input_sp, model)
   }
 }    
 predict_daily_gam(number_of_days, all_tables, gam_model, "gam")
-# Predicted using HPC
+# Used a HPC to do this 
 
 gam_model_10 <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
-                   data = file_shared,
-                   method = "gam",
-                   trControl = trainControl(method = "cv", number = 10, 
-                                            savePredictions = TRUE)
+                      data = file_shared,
+                      method = "gam",
+                      trControl = trainControl(method = "cv", number = 10, 
+                                               savePredictions = TRUE)
 )
 file_shared$model_pred_10 <- predict(gam_model_10, newdata = file_shared)
+gam_cv_10 <- as.data.frame(gam_model_10$pred)
+gam_cv_10 <- gam_cv_10 %>% 
+  subset(select == "FALSE")
+write.csv(gam_cv_10, "gam_cv_10.csv")
 
 model_gam_sp <- train(PM2.5 ~ CWV + ELV + AOD + Temp + RH + NDVI + WD + WS + BLH + Press, 
-                   data = file_shared,
-                   method = "gam",
-                   trControl = trainControl(method = LOOCV, savePredictions = TRUE)
+                      data = file_shared,
+                      method = "gam",
+                      trControl = trainControl(method = LOOCV, savePredictions = TRUE)
 )
 
 write.csv(file_shared, "gam_model.csv")
