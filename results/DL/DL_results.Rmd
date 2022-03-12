@@ -31,51 +31,51 @@ Used hyper parameters:
   -  rate 
   -  rate_annealing 
   -  rho 
-Number of models: 36 
+Number of models: 83 
 Number of failed models: 0 
 
 Hyper-Parameter Search Summary: ordered by increasing residual_deviance
-       activation distribution    epochs epsilon           hidden input_dropout_ratio
-1            Tanh        gamma 504.88408 0.00000  [5, 5, 5, 5, 5]             0.20000
-2            Tanh        gamma 107.10663 0.00000  [5, 5, 5, 5, 5]             0.10000
-3            Tanh        gamma 107.10663 0.00000  [5, 5, 5, 5, 5]             0.00000
-4 TanhWithDropout        gamma 305.12789 0.00000 [50, 50, 50, 50]             0.10000
-5 TanhWithDropout        gamma 305.12789 0.00000 [30, 30, 30, 30]             0.10000
-       l1      l2   max_w2 momentum_stable momentum_start    rate rate_annealing     rho
-1 0.00010 0.00010 10.00000         0.00000        0.00000 0.00500        0.00000 0.90000
-2 0.00000 0.00001  1.00000         0.50000        0.50000 0.00000        0.00000 0.90000
-3 0.00010 0.00001  1.00000         0.00000        0.00000 0.00100        0.00000 0.99900
-4 0.00000 0.00001 10.00000         0.50000        0.50000 0.00500        0.00000 0.95000
-5 0.00010 0.00010 10.00000         0.50000        0.00000 0.00100        0.00000 0.90000
-         model_ids residual_deviance
-1 dl_grid_model_19          11.22800
-2 dl_grid_model_20          11.23727
-3 dl_grid_model_21          11.27036
-4 dl_grid_model_18          11.36024
-5 dl_grid_model_27          11.36783
+         activation distribution    epochs epsilon               hidden input_dropout_ratio      l1
+1         Rectifier      poisson 107.08551 0.00000     [50, 50, 50, 50]             0.10000 0.00000
+2              Tanh      poisson  53.98138 0.00000      [5, 5, 5, 5, 5]             0.20000 0.00010
+3   TanhWithDropout      poisson  53.98138 0.00010     [30, 30, 30, 30]             0.00000 0.00000
+4 MaxoutWithDropout      poisson 305.09408 0.00000 [100, 100, 100, 100]             0.10000 0.00010
+5         Rectifier        gamma 504.85290 0.00000     [30, 30, 30, 30]             0.00000 0.00001
+       l2                                        max_w2 momentum_stable momentum_start    rate
+1 0.00010                                       1.00000         0.99000        0.00000 0.00000
+2 0.00010 340282349999999991754788743781432688640.00000         0.50000        0.50000 0.00100
+3 0.00000 340282349999999991754788743781432688640.00000         0.50000        0.50000 0.00000
+4 0.00000                                     100.00000         0.99000        0.00000 0.00000
+5 0.00000 340282349999999991754788743781432688640.00000         0.00000        0.00000 0.00500
+  rate_annealing     rho        model_ids residual_deviance
+1        0.00000 0.95000  dl_grid_model_5        -925.65099
+2        0.00000 0.99000  dl_grid_model_4        -925.16723
+3        0.00000 0.99000  dl_grid_model_9        -902.56549
+4        0.00000 0.95000 dl_grid_model_11        -614.98345
+5        0.00000 0.90000 dl_grid_model_38          11.24109
 
 ---
-        activation distribution    epochs epsilon               hidden
-31 TanhWithDropout     gaussian 305.12789 0.00010      [5, 5, 5, 5, 5]
-32            Tanh     gaussian 404.11995 0.00010      [5, 5, 5, 5, 5]
-33 TanhWithDropout     gaussian  53.58027 0.00010     [30, 30, 30, 30]
-34            Tanh     gaussian 334.92596 0.00010 [100, 100, 100, 100]
-35            Tanh     gaussian   9.01936 0.00010 [100, 100, 100, 100]
-36 TanhWithDropout     gaussian 115.36108 0.00010     [50, 50, 50, 50]
-   input_dropout_ratio      l1      l2    max_w2 momentum_stable momentum_start    rate
-31             0.20000 0.00001 0.00010  10.00000         0.50000        0.00000 0.00000
-32             0.00000 0.00000 0.00001  10.00000         0.00000        0.00000 0.00000
-33             0.00000 0.00000 0.00000 100.00000         0.50000        0.50000 0.00000
-34             0.10000 0.00010 0.00001 100.00000         0.99000        0.00000 0.00500
-35             0.10000 0.00000 0.00010  10.00000         0.99000        0.00000 0.00500
-36             0.10000 0.00010 0.00000  10.00000         0.00000        0.00000 0.00000
-   rate_annealing     rho        model_ids residual_deviance
-31        0.00000 0.95000 dl_grid_model_15        5876.30480
-32        0.00000 0.99900  dl_grid_model_3        6451.85305
-33        0.00000 0.99000  dl_grid_model_9        7279.99408
-34        0.00000 0.95000 dl_grid_model_23       27452.74039
-35        0.00000 0.95000 dl_grid_model_36       28526.29936
-36        0.00000 0.99900 dl_grid_model_34      141894.41153
+          activation distribution    epochs epsilon               hidden input_dropout_ratio      l1
+78              Tanh     gaussian 107.08551 0.00010 [100, 100, 100, 100]             0.10000 0.00000
+79   TanhWithDropout     gaussian 400.47305 0.00010     [50, 50, 50, 50]             0.10000 0.00010
+80              Tanh     gaussian  17.97134 0.00010 [100, 100, 100, 100]             0.00000 0.00001
+81              Tanh     gaussian 107.08551 0.00000     [50, 50, 50, 50]             0.00000 0.00000
+82   TanhWithDropout     gaussian 404.08167 0.00010     [50, 50, 50, 50]             0.10000 0.00010
+83 MaxoutWithDropout     gaussian 107.08551 0.00010 [100, 100, 100, 100]             0.10000 0.00000
+        l2    max_w2 momentum_stable momentum_start    rate rate_annealing     rho        model_ids
+78 0.00010  10.00000         0.99000        0.00000 0.00500        0.00000 0.95000 dl_grid_model_76
+79 0.00000  10.00000         0.00000        0.00000 0.00000        0.00000 0.99900 dl_grid_model_74
+80 0.00010 100.00000         0.00000        0.50000 0.00100        0.00000 0.90000 dl_grid_model_81
+81 0.00010 100.00000         0.00000        0.50000 0.00000        0.00000 0.99900 dl_grid_model_71
+82 0.00000 100.00000         0.00000        0.00000 0.00000        0.00000 0.99900 dl_grid_model_34
+83 0.00010 100.00000         0.99000        0.00000 0.00500        0.00000 0.95000 dl_grid_model_36
+   residual_deviance
+78        7363.19860
+79       14188.95395
+80       21872.50333
+81       83802.40223
+82      402384.53789
+83     7922589.34173
 ```
 
 ## print(grid_perf)
@@ -100,51 +100,51 @@ Used hyper parameters:
   -  rate 
   -  rate_annealing 
   -  rho 
-Number of models: 36 
+Number of models: 83 
 Number of failed models: 0 
 
 Hyper-Parameter Search Summary: ordered by increasing mse
-  activation distribution    epochs epsilon           hidden input_dropout_ratio      l1
-1       Tanh     gaussian  53.58027 0.00000 [30, 30, 30, 30]             0.10000 0.00001
-2       Tanh        gamma 504.88408 0.00000  [5, 5, 5, 5, 5]             0.20000 0.00010
-3       Tanh     gaussian 206.11739 0.00000 [30, 30, 30, 30]             0.20000 0.00000
-4       Tanh        gamma 107.10663 0.00000  [5, 5, 5, 5, 5]             0.10000 0.00000
-5       Tanh        gamma 107.10663 0.00000  [5, 5, 5, 5, 5]             0.00000 0.00010
-       l2   max_w2 momentum_stable momentum_start    rate rate_annealing     rho
-1 0.00001 10.00000         0.50000        0.00000 0.00000        0.00000 0.95000
-2 0.00010 10.00000         0.00000        0.00000 0.00500        0.00000 0.90000
-3 0.00001 10.00000         0.00000        0.00000 0.00000        0.00000 0.90000
-4 0.00001  1.00000         0.50000        0.50000 0.00000        0.00000 0.90000
-5 0.00001  1.00000         0.00000        0.00000 0.00100        0.00000 0.99900
-         model_ids        mse
-1 dl_grid_model_33  594.17190
-2 dl_grid_model_19  594.50137
-3  dl_grid_model_8  679.51484
-4 dl_grid_model_20  806.85636
-5 dl_grid_model_21 1271.34327
+  activation distribution    epochs epsilon           hidden input_dropout_ratio      l1      l2
+1  Rectifier     gaussian 305.09408 0.00000 [50, 50, 50, 50]             0.10000 0.00000 0.00001
+2  Rectifier        gamma 504.85290 0.00000 [30, 30, 30, 30]             0.00000 0.00001 0.00000
+3       Tanh     gaussian 504.85290 0.00000  [5, 5, 5, 5, 5]             0.20000 0.00010 0.00010
+4  Rectifier     gaussian 404.08167 0.00000 [30, 30, 30, 30]             0.20000 0.00010 0.00010
+5  Rectifier        gamma 504.85290 0.00000  [5, 5, 5, 5, 5]             0.20000 0.00001 0.00001
+                                         max_w2 momentum_stable momentum_start    rate
+1 340282349999999991754788743781432688640.00000         0.50000        0.50000 0.00500
+2 340282349999999991754788743781432688640.00000         0.00000        0.00000 0.00500
+3 340282349999999991754788743781432688640.00000         0.00000        0.00000 0.00500
+4                                    1000.00000         0.99000        0.00000 0.00000
+5                                     100.00000         0.50000        0.50000 0.00100
+  rate_annealing     rho        model_ids       mse
+1        0.00000 0.95000 dl_grid_model_18 725.57676
+2        0.00000 0.90000 dl_grid_model_38 790.13705
+3        0.00000 0.90000 dl_grid_model_19 792.44309
+4        0.00000 0.99900 dl_grid_model_30 820.41788
+5        0.00000 0.95000 dl_grid_model_29 824.25674
 
 ---
-        activation distribution    epochs epsilon               hidden
-31            Tanh        gamma  18.05508 0.00010     [50, 50, 50, 50]
-32            Tanh        gamma  53.58027 0.00010     [50, 50, 50, 50]
-33 TanhWithDropout     gaussian  53.58027 0.00010     [30, 30, 30, 30]
-34            Tanh     gaussian 334.92596 0.00010 [100, 100, 100, 100]
-35            Tanh     gaussian   9.01936 0.00010 [100, 100, 100, 100]
-36 TanhWithDropout     gaussian 115.36108 0.00010     [50, 50, 50, 50]
-   input_dropout_ratio      l1      l2    max_w2 momentum_stable momentum_start    rate
-31             0.20000 0.00000 0.00010 100.00000         0.50000        0.50000 0.00100
-32             0.10000 0.00000 0.00010   1.00000         0.00000        0.50000 0.00500
-33             0.00000 0.00000 0.00000 100.00000         0.50000        0.50000 0.00000
-34             0.10000 0.00010 0.00001 100.00000         0.99000        0.00000 0.00500
-35             0.10000 0.00000 0.00010  10.00000         0.99000        0.00000 0.00500
-36             0.10000 0.00010 0.00000  10.00000         0.00000        0.00000 0.00000
-   rate_annealing     rho        model_ids          mse
-31        0.00000 0.90000 dl_grid_model_35   6850.94241
-32        0.00000 0.90000 dl_grid_model_12   7090.52907
-33        0.00000 0.99000  dl_grid_model_9   7279.99408
-34        0.00000 0.95000 dl_grid_model_23  27452.74039
-35        0.00000 0.95000 dl_grid_model_36  28526.29936
-36        0.00000 0.99900 dl_grid_model_34 141894.41153
+          activation distribution    epochs epsilon               hidden input_dropout_ratio      l1
+78 MaxoutWithDropout      poisson 305.09408 0.00000 [100, 100, 100, 100]             0.10000 0.00010
+79              Tanh     gaussian  17.97134 0.00010 [100, 100, 100, 100]             0.00000 0.00001
+80              Tanh     gaussian 107.08551 0.00000     [50, 50, 50, 50]             0.00000 0.00000
+81   TanhWithDropout     gaussian 404.08167 0.00010     [50, 50, 50, 50]             0.10000 0.00010
+82 MaxoutWithDropout     gaussian 107.08551 0.00010 [100, 100, 100, 100]             0.10000 0.00000
+83   TanhWithDropout        gamma  53.98138 0.00000      [5, 5, 5, 5, 5]             0.00000 0.00010
+        l2    max_w2 momentum_stable momentum_start    rate rate_annealing     rho        model_ids
+78 0.00000 100.00000         0.99000        0.00000 0.00000        0.00000 0.95000 dl_grid_model_11
+79 0.00010 100.00000         0.00000        0.50000 0.00100        0.00000 0.90000 dl_grid_model_81
+80 0.00010 100.00000         0.00000        0.50000 0.00000        0.00000 0.99900 dl_grid_model_71
+81 0.00000 100.00000         0.00000        0.00000 0.00000        0.00000 0.99900 dl_grid_model_34
+82 0.00010 100.00000         0.99000        0.00000 0.00500        0.00000 0.95000 dl_grid_model_36
+83 0.00000  10.00000         0.99000        0.00000 0.00100        0.00000 0.99000 dl_grid_model_77
+                              mse
+78                    15714.08099
+79                    21872.50333
+80                    83802.40223
+81                   402384.53789
+82                  7922589.34173
+83 126183013924360004042752.00000
 ```
 
 
@@ -155,33 +155,33 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.0 KB, 210,131 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039488 0.189886 0.000000    0.000766
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.008613 0.004960 0.000000    0.001928
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.014741 0.008787 0.000000   -0.010104
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.065293 0.152064 0.000000    0.001205
-6     6     1 Linear      NA 0.000010 0.000010  0.009091 0.030009 0.000000   -0.006495
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.091729 -0.025906 0.134391
-3   0.214471  0.008939 0.129609
-4   0.210920  0.020704 0.209174
-5   0.198611 -0.012761 0.237543
-6   0.198861  0.230234 0.000000
+Model ID:  dl_grid_model_18 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 244.3 KB, 1,213,960 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.042195 0.192355 0.000000    0.000962   0.107278
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.005414 0.005663 0.000000   -0.024584   0.211814
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.006003 0.007136 0.000000   -0.030739   0.195136
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.008118 0.023343 0.000000   -0.037190   0.173567
+6     6     1    Linear      NA 0.000000 0.000010  0.001181 0.001077 0.000000   -0.003162   0.182863
+  mean_bias bias_rms
+1        NA       NA
+2  0.383706 0.235384
+3  0.938939 0.096356
+4  0.928688 0.110840
+5  0.847727 0.184105
+6  0.736737 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on full training frame **
 
-MSE:  317.5492
-RMSE:  17.81991
-MAE:  11.8482
-RMSLE:  0.1500814
-Mean Residual Deviance :  317.5492
+MSE:  379.7752
+RMSE:  19.48782
+MAE:  14.11279
+RMSLE:  0.1742339
+Mean Residual Deviance :  379.7752
 
 
 
@@ -189,38 +189,30 @@ H2ORegressionMetrics: deeplearning
 ** Reported on cross-validation data. **
 ** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 
-MSE:  594.1719
-RMSE:  24.37564
-MAE:  16.78922
-RMSLE:  0.19955
-Mean Residual Deviance :  594.1719
+MSE:  725.5768
+RMSE:  26.93653
+MAE:  19.13027
+RMSLE:  0.2228119
+Mean Residual Deviance :  725.5768
 
 
 Cross-Validation Metrics Summary: 
-                             mean         sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-mae                     16.723730   2.326353  17.758130  22.429516  16.044300  16.775139
-mean_residual_deviance 591.066800 162.271470 721.286200 936.492860 560.542660 598.859300
-mse                    591.066800 162.271470 721.286200 936.492860 560.542660 598.859300
-r2                       0.897832   0.030631   0.855498   0.841156   0.896450   0.904107
-residual_deviance      591.066800 162.271470 721.286200 936.492860 560.542660 598.859300
-rmse                    24.113256   3.268979  26.856771  30.602170  23.675781  24.471601
-rmsle                    0.198160   0.020666   0.206698   0.244544   0.189156   0.183289
-                       cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid
-mae                     13.392821  16.580969  16.527500  15.407349  15.420336
-mean_residual_deviance 378.653350 583.508700 636.870200 429.299530 434.001680
-mse                    378.653350 583.508700 636.870200 429.299530 434.001680
-r2                       0.940813   0.911432   0.893849   0.924257   0.921786
-residual_deviance      378.653350 583.508700 636.870200 429.299530 434.001680
-rmse                    19.459017  24.155926  25.236288  20.719545  20.832706
-rmsle                    0.169571   0.186755   0.216400   0.197273   0.193241
-                       cv_10_valid
-mae                      16.901245
-mean_residual_deviance  631.153300
-mse                     631.153300
-r2                        0.888972
-residual_deviance       631.153300
-rmse                     25.122765
-rmsle                     0.194673
+                             mean         sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid cv_5_valid
+mae                     19.153385   1.410158  20.902502  17.144830  19.592735  21.254229  17.923014
+mean_residual_deviance 727.071170 121.405876 821.613900 622.110800 786.262100 980.429700 605.997440
+mse                    727.071170 121.405876 821.613900 622.110800 786.262100 980.429700 605.997440
+r2                       0.874464   0.024989   0.835399   0.894481   0.854752   0.843008   0.905276
+residual_deviance      727.071170 121.405876 821.613900 622.110800 786.262100 980.429700 605.997440
+rmse                    26.884064   2.190443  28.663809  24.942148  28.040365  31.311813  24.617016
+rmsle                    0.223019   0.011507   0.243607   0.213371   0.218698   0.225969   0.213558
+                       cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                     18.850030  17.318794  18.890387  19.479460   20.177876
+mean_residual_deviance 685.585900 639.490700 676.588870 630.384950  822.247130
+mse                    685.585900 639.490700 676.588870 630.384950  822.247130
+r2                       0.895939   0.893413   0.880627   0.886395    0.855356
+residual_deviance      685.585900 639.490700 676.588870 630.384950  822.247130
+rmse                    26.183695  25.288155  26.011322  25.107468   28.674852
+rmsle                    0.205175   0.235962   0.222590   0.220241    0.231020
 ```
 
 
@@ -229,21 +221,44 @@ rmsle                     0.194673
 ```{r eval = FALSE}
 Variable Importances: 
   variable relative_importance scaled_importance percentage
-1   day.81            1.000000          1.000000   0.005972
-2  day.333            0.917059          0.917059   0.005477
-3  day.261            0.904480          0.904480   0.005402
-4  day.171            0.867628          0.867628   0.005182
-5  day.108            0.866431          0.866431   0.005175
+1  day.277            1.000000          1.000000   0.007061
+2  day.278            0.994366          0.994366   0.007021
+3      lat            0.991453          0.991453   0.007000
+4   day.54            0.965155          0.965155   0.006815
+5  day.333            0.930650          0.930650   0.006571
 
 ---
-                    variable relative_importance scaled_importance percentage
-277          Station_code.36            0.412797          0.412797   0.002465
-278                   day.63            0.408197          0.408197   0.002438
-279                       RH            0.354373          0.354373   0.002116
-280          day.missing(NA)            0.000000          0.000000   0.000000
-281 Station_code.missing(NA)            0.000000          0.000000   0.000000
-282       season.missing(NA)            0.000000          0.000000   0.000000
+              variable relative_importance scaled_importance percentage
+240            day.172            0.383457          0.383457   0.002707
+241            day.120            0.373975          0.373975   0.002640
+242               Temp            0.350276          0.350276   0.002473
+243                BLH            0.324953          0.324953   0.002294
+244    day.missing(NA)            0.000000          0.000000   0.000000
+245 season.missing(NA)            0.000000          0.000000   0.000000
 ```
+
+
+## h2o.scoreHistory(best_model)
+
+
+```{r eval = FALSE}
+Scoring History: 
+            timestamp          duration training_speed    epochs iterations        samples
+1 2022-03-12 16:45:27         0.000 sec             NA   0.00000          0       0.000000
+2 2022-03-12 16:45:28 26 min 31.821 sec  35992 obs/sec  10.00000          1   39160.000000
+3 2022-03-12 16:45:34 26 min 37.576 sec  45874 obs/sec  80.00000          8  313280.000000
+4 2022-03-12 16:45:39 26 min 42.636 sec  49473 obs/sec 150.00000         15  587400.000000
+5 2022-03-12 16:45:45 26 min 48.228 sec  51608 obs/sec 230.00000         23  900680.000000
+6 2022-03-12 16:45:50 26 min 53.724 sec  52932 obs/sec 310.00000         31 1213960.000000
+  training_rmse training_deviance training_mae training_r2
+1            NA                NA           NA          NA
+2      32.96518        1086.70336     22.92757     0.81452
+3      24.48511         599.52071     16.88979     0.89767
+4      23.80091         566.48332     16.74367     0.90331
+5      19.80574         392.26750     14.01363     0.93305
+6      19.48782         379.77516     14.11279     0.93518
+```
+
 
 ## cv_models
 
@@ -253,44 +268,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_1 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 193,124 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.043096 0.196443 0.000000    0.000341
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.007072 0.004857 0.000000    0.001237
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.010796 0.006855 0.000000   -0.006472
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.064348 0.205634 0.000000    0.002297
-6     6     1 Linear      NA 0.000010 0.000010  0.006299 0.022764 0.000000   -0.013890
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.088332 -0.017628 0.120409
-3   0.204556 -0.021035 0.119805
-4   0.208534  0.005239 0.187673
-5   0.197633 -0.004025 0.212131
-6   0.209560  0.231127 0.000000
+Model ID:  dl_grid_model_18_cv_1 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,093,369 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.046962 0.200757 0.000000    0.000581   0.094730
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.008741 0.008541 0.000000   -0.019648   0.170555
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.010977 0.013824 0.000000   -0.027018   0.157472
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.038610 0.088583 0.000000   -0.024950   0.151600
+6     6     1    Linear      NA 0.000000 0.000010  0.001732 0.001633 0.000000    0.024417   0.148820
+  mean_bias bias_rms
+1        NA       NA
+2  0.353553 0.168757
+3  0.936309 0.068094
+4  0.966330 0.047215
+5  0.893395 0.105394
+6  0.046838 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  583.9293
-RMSE:  24.16463
-MAE:  16.49679
-RMSLE:  0.1890711
-Mean Residual Deviance :  583.9293
+MSE:  683.6483
+RMSE:  26.14667
+MAE:  19.09949
+RMSLE:  0.2271887
+Mean Residual Deviance :  683.6483
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  721.2862
-RMSE:  26.85677
-MAE:  17.75813
-RMSLE:  0.206698
-Mean Residual Deviance :  721.2862
+MSE:  821.6139
+RMSE:  28.66381
+MAE:  20.9025
+RMSLE:  0.2436074
+Mean Residual Deviance :  821.6139
 
 
 
@@ -300,44 +315,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_2 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 186,019 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.046378 0.202982 0.000000    0.000679
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.006608 0.004887 0.000000    0.001935
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.009313 0.006842 0.000000   -0.009486
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.082083 0.197019 0.000000    0.002468
-6     6     1 Linear      NA 0.000010 0.000010  0.009562 0.030290 0.000000   -0.007895
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.086933 -0.028090 0.111233
-3   0.202720 -0.019976 0.130737
-4   0.205428 -0.005900 0.166936
-5   0.190960 -0.006896 0.168207
-6   0.204753  0.173349 0.000000
+Model ID:  dl_grid_model_18_cv_2 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,053,327 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.050801 0.207416 0.000000    0.001712   0.106557
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.005627 0.005583 0.000000   -0.026638   0.208060
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.005660 0.006311 0.000000   -0.031677   0.189685
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.028426 0.080772 0.000000   -0.032389   0.166942
+6     6     1    Linear      NA 0.000000 0.000010  0.001493 0.001407 0.000000   -0.007365   0.181468
+  mean_bias bias_rms
+1        NA       NA
+2  0.291399 0.235786
+3  0.870260 0.123315
+4  0.931528 0.094880
+5  0.841994 0.164246
+6  0.368145 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  683.2121
-RMSE:  26.13833
-MAE:  18.51886
-RMSLE:  0.2089108
-Mean Residual Deviance :  683.2121
+MSE:  380.2197
+RMSE:  19.49922
+MAE:  13.6047
+RMSLE:  0.1710282
+Mean Residual Deviance :  380.2197
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  936.4928
-RMSE:  30.60217
-MAE:  22.42952
-RMSLE:  0.2445436
-Mean Residual Deviance :  936.4928
+MSE:  622.1108
+RMSE:  24.94215
+MAE:  17.14483
+RMSLE:  0.2133706
+Mean Residual Deviance :  622.1108
 
 
 
@@ -347,44 +362,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_3 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 188,692 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039478 0.189871 0.000000    0.001103
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.006641 0.005716 0.000000    0.001021
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.008705 0.006071 0.000000   -0.006511
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.138961 0.298784 0.000000    0.001307
-6     6     1 Linear      NA 0.000010 0.000010  0.019339 0.053774 0.000000   -0.008294
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.090489 -0.015757 0.131463
-3   0.212214 -0.013424 0.130120
-4   0.210220  0.001095 0.171565
-5   0.192176 -0.011259 0.225271
-6   0.201356  0.299950 0.000000
+Model ID:  dl_grid_model_18_cv_3 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,067,773 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.043436 0.192488 0.000000    0.003446   0.106185
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.006677 0.006442 0.000000   -0.017850   0.207484
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.006087 0.010396 0.000000   -0.026936   0.184657
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.027523 0.074189 0.000000   -0.029517   0.164144
+6     6     1    Linear      NA 0.000000 0.000010  0.000884 0.000771 0.000000    0.017264   0.156735
+  mean_bias bias_rms
+1        NA       NA
+2  0.349571 0.256285
+3  0.927588 0.124107
+4  0.948155 0.068247
+5  0.841597 0.197300
+6  0.373148 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  418.8731
-RMSE:  20.46639
-MAE:  14.25309
-RMSLE:  0.1743865
-Mean Residual Deviance :  418.8731
+MSE:  545.3929
+RMSE:  23.35365
+MAE:  15.93812
+RMSLE:  0.1821323
+Mean Residual Deviance :  545.3929
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  560.5426
-RMSE:  23.67578
-MAE:  16.0443
-RMSLE:  0.1891563
-Mean Residual Deviance :  560.5426
+MSE:  786.2621
+RMSE:  28.04037
+MAE:  19.59274
+RMSLE:  0.2186978
+Mean Residual Deviance :  786.2621
 
 
 
@@ -394,44 +409,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_4 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 189,575 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.050399 0.209389 0.000000    0.001323
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.009436 0.007134 0.000000   -0.000169
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.013172 0.009190 0.000000   -0.003737
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.104774 0.231767 0.000000    0.001560
-6     6     1 Linear      NA 0.000010 0.000010  0.003677 0.010308 0.000000   -0.012584
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.090837 -0.018232 0.123070
-3   0.211593 -0.030241 0.125496
-4   0.212511 -0.003778 0.195921
-5   0.192377 -0.012045 0.226077
-6   0.203405  0.265898 0.000000
+Model ID:  dl_grid_model_18_cv_4 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,074,612 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.054909 0.215346 0.000000    0.000366   0.094444
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.009067 0.008895 0.000000   -0.023913   0.168417
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.012239 0.030568 0.000000   -0.029798   0.156840
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.046622 0.107961 0.000000   -0.026787   0.149693
+6     6     1    Linear      NA 0.000000 0.000010  0.001581 0.001665 0.000000    0.039446   0.145885
+  mean_bias bias_rms
+1        NA       NA
+2  0.358685 0.139344
+3  0.934456 0.059042
+4  0.955678 0.045338
+5  0.894022 0.098057
+6  0.060465 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  409.0212
-RMSE:  20.22427
-MAE:  14.39915
-RMSLE:  0.1780011
-Mean Residual Deviance :  409.0212
+MSE:  690.6777
+RMSE:  26.28075
+MAE:  18.75309
+RMSLE:  0.2156277
+Mean Residual Deviance :  690.6777
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  598.8593
-RMSE:  24.4716
-MAE:  16.77514
-RMSLE:  0.1832892
-Mean Residual Deviance :  598.8593
+MSE:  980.4297
+RMSE:  31.31181
+MAE:  21.25423
+RMSLE:  0.2259688
+Mean Residual Deviance :  980.4297
 
 
 
@@ -441,44 +456,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_5 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 192,601 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039360 0.189885 0.000000    0.000667
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.008344 0.005970 0.000000    0.000047
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.013181 0.007355 0.000000   -0.006858
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.116021 0.287929 0.000000    0.002419
-6     6     1 Linear      NA 0.000010 0.000010  0.034177 0.106067 0.000000   -0.018651
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.089913  0.003769 0.123643
-3   0.212344 -0.025118 0.101052
-4   0.209140  0.004964 0.204489
-5   0.196176 -0.041857 0.227960
-6   0.204184  0.275173 0.000000
+Model ID:  dl_grid_model_18_cv_5 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,091,317 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.043469 0.193030 0.000000    0.000747   0.106931
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.006224 0.006213 0.000000   -0.024116   0.205427
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.007391 0.008206 0.000000   -0.021944   0.192259
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.027486 0.088680 0.000000   -0.026712   0.165350
+6     6     1    Linear      NA 0.000000 0.000010  0.001592 0.001584 0.000000    0.019340   0.184941
+  mean_bias bias_rms
+1        NA       NA
+2  0.342360 0.226894
+3  0.896833 0.105930
+4  0.954839 0.095620
+5  0.889952 0.123389
+6  0.370643 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  436.9978
-RMSE:  20.90449
-MAE:  14.235
-RMSLE:  0.1711815
-Mean Residual Deviance :  436.9978
+MSE:  513.4629
+RMSE:  22.65972
+MAE:  16.32935
+RMSLE:  0.1916295
+Mean Residual Deviance :  513.4629
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  378.6534
-RMSE:  19.45902
-MAE:  13.39282
-RMSLE:  0.1695711
-Mean Residual Deviance :  378.6534
+MSE:  605.9974
+RMSE:  24.61702
+MAE:  17.92301
+RMSLE:  0.2135575
+Mean Residual Deviance :  605.9974
 
 
 
@@ -488,44 +503,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_6 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 187,151 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039200 0.189913 0.000000    0.000176
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.007507 0.005991 0.000000    0.001395
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.012517 0.007721 0.000000   -0.004391
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.098053 0.233298 0.000000   -0.000054
-6     6     1 Linear      NA 0.000010 0.000010  0.007064 0.023854 0.000000   -0.009421
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.090596 -0.023847 0.141045
-3   0.210954 -0.000371 0.128252
-4   0.208164 -0.001784 0.195047
-5   0.195079 -0.021941 0.234271
-6   0.201739  0.300433 0.000000
+Model ID:  dl_grid_model_18_cv_6 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,059,916 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.043306 0.192737 0.000000    0.001061   0.100111
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.007654 0.006719 0.000000   -0.023325   0.187661
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.009448 0.012998 0.000000   -0.021002   0.177764
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.031259 0.078467 0.000000   -0.030074   0.159444
+6     6     1    Linear      NA 0.000000 0.000010  0.001542 0.001679 0.000000    0.027751   0.148806
+  mean_bias bias_rms
+1        NA       NA
+2  0.357066 0.214753
+3  0.924045 0.074977
+4  0.959970 0.082186
+5  0.883826 0.138554
+6  0.228137 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  437.5793
-RMSE:  20.9184
-MAE:  14.51103
-RMSLE:  0.1764458
-Mean Residual Deviance :  437.5793
+MSE:  510.97
+RMSE:  22.60465
+MAE:  15.69231
+RMSLE:  0.1867113
+Mean Residual Deviance :  510.97
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  583.5088
-RMSE:  24.15593
-MAE:  16.58097
-RMSLE:  0.1867551
-Mean Residual Deviance :  583.5088
+MSE:  685.5859
+RMSE:  26.1837
+MAE:  18.85003
+RMSLE:  0.2051755
+Mean Residual Deviance :  685.5859
 
 
 
@@ -535,44 +550,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_7 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 192,070 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.046747 0.202931 0.000000    0.001534
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.012275 0.008862 0.000000   -0.000412
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.017403 0.013108 0.000000   -0.001037
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.138305 0.315262 0.000000    0.001171
-6     6     1 Linear      NA 0.000010 0.000010  0.029266 0.106748 0.000000   -0.003872
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.090483 -0.008896 0.120795
-3   0.210584 -0.029270 0.123707
-4   0.209491  0.003396 0.202505
-5   0.190677 -0.043870 0.255256
-6   0.195279  0.292520 0.000000
+Model ID:  dl_grid_model_18_cv_7 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,088,206 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.050751 0.207583 0.000000    0.001199   0.098840
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.009318 0.013788 0.000000   -0.028398   0.186459
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.011254 0.014124 0.000000   -0.029943   0.174356
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.031759 0.071174 0.000000   -0.032406   0.156022
+6     6     1    Linear      NA 0.000000 0.000010  0.001810 0.001796 0.000000    0.028726   0.154639
+  mean_bias bias_rms
+1        NA       NA
+2  0.307199 0.195510
+3  0.894441 0.085891
+4  0.941826 0.073889
+5  0.878834 0.114183
+6  0.264607 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  389.6294
-RMSE:  19.73903
-MAE:  13.82595
-RMSLE:  0.1647032
-Mean Residual Deviance :  389.6294
+MSE:  560.5826
+RMSE:  23.67663
+MAE:  16.74513
+RMSLE:  0.1946613
+Mean Residual Deviance :  560.5826
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  636.8702
-RMSE:  25.23629
-MAE:  16.5275
-RMSLE:  0.2164001
-Mean Residual Deviance :  636.8702
+MSE:  639.4907
+RMSE:  25.28815
+MAE:  17.31879
+RMSLE:  0.2359622
+Mean Residual Deviance :  639.4907
 
 
 
@@ -582,44 +597,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_8 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 191,916 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039521 0.189876 0.000000    0.000227
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.008803 0.006146 0.000000   -0.001376
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.014108 0.010330 0.000000   -0.005704
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.084914 0.223509 0.000000    0.001418
-6     6     1 Linear      NA 0.000010 0.000010  0.026588 0.092715 0.000000   -0.018498
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.089598  0.003801 0.116528
-3   0.210980 -0.033567 0.130078
-4   0.207100  0.029128 0.189787
-5   0.195009 -0.040106 0.227184
-6   0.203203  0.261418 0.000000
+Model ID:  dl_grid_model_18_cv_8 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,085,824 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.042886 0.192461 0.000000    0.002978   0.107974
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.003966 0.004061 0.000000   -0.022165   0.203998
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.006481 0.008395 0.000000   -0.029368   0.190795
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.020102 0.068703 0.000000   -0.029594   0.167947
+6     6     1    Linear      NA 0.000000 0.000010  0.001059 0.001149 0.000000    0.017804   0.168141
+  mean_bias bias_rms
+1        NA       NA
+2  0.368273 0.240750
+3  0.922307 0.124431
+4  0.950919 0.084918
+5  0.865720 0.172028
+6  0.369929 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  418.9538
-RMSE:  20.46836
-MAE:  14.65397
-RMSLE:  0.1845077
-Mean Residual Deviance :  418.9538
+MSE:  542.0662
+RMSE:  23.28232
+MAE:  16.66959
+RMSLE:  0.2003943
+Mean Residual Deviance :  542.0662
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  429.2995
-RMSE:  20.71954
-MAE:  15.40735
-RMSLE:  0.1972734
-Mean Residual Deviance :  429.2995
+MSE:  676.5889
+RMSE:  26.01132
+MAE:  18.89039
+RMSLE:  0.2225902
+Mean Residual Deviance :  676.5889
 
 
 
@@ -629,44 +644,44 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_9 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 188,784 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.042953 0.196457 0.000000    0.001100
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.008381 0.005700 0.000000    0.002130
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.015055 0.010588 0.000000   -0.006001
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.106618 0.280123 0.000000    0.002226
-6     6     1 Linear      NA 0.000010 0.000010  0.054895 0.175201 0.000000   -0.003197
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.090199 -0.023252 0.114193
-3   0.208190  0.002765 0.113815
-4   0.210188  0.006234 0.189279
-5   0.195547 -0.025122 0.248559
-6   0.206010  0.251738 0.000000
+Model ID:  dl_grid_model_18_cv_9 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,069,120 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.047304 0.200732 0.000000    0.001201   0.099261
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.008511 0.008444 0.000000   -0.022409   0.189819
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.008087 0.008745 0.000000   -0.027515   0.171132
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.026895 0.066516 0.000000   -0.029347   0.156641
+6     6     1    Linear      NA 0.000000 0.000010  0.001454 0.001252 0.000000    0.026674   0.148664
+  mean_bias bias_rms
+1        NA       NA
+2  0.306963 0.197566
+3  0.908686 0.108602
+4  0.952076 0.061953
+5  0.890402 0.142651
+6  0.280040 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  454.18
-RMSE:  21.3115
-MAE:  15.08839
-RMSLE:  0.1794014
-Mean Residual Deviance :  454.18
+MSE:  625.4271
+RMSE:  25.00854
+MAE:  18.51835
+RMSLE:  0.2156437
+Mean Residual Deviance :  625.4271
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  434.0017
-RMSE:  20.83271
-MAE:  15.42034
-RMSLE:  0.1932406
-Mean Residual Deviance :  434.0017
+MSE:  630.3849
+RMSE:  25.10747
+MAE:  19.47946
+RMSLE:  0.2202408
+Mean Residual Deviance :  630.3849
 
 
 
@@ -676,62 +691,45 @@ Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  dl_grid_model_33_cv_10 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.9 KB, 178,373 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.039401 0.189885 0.000000    0.000790
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.007494 0.005881 0.000000   -0.001223
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.011813 0.007286 0.000000   -0.005744
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.080606 0.212990 0.000000    0.002093
-6     6     1 Linear      NA 0.000010 0.000010  0.008099 0.028125 0.000000   -0.009100
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.089629 -0.010249 0.098623
-3   0.210068  0.000419 0.136339
-4   0.209545  0.034522 0.226522
-5   0.196569 -0.020611 0.213685
-6   0.197163  0.243103 0.000000
+Model ID:  dl_grid_model_18_cv_10 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 245.3 KB, 1,069,458 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.044114 0.193864 0.000000    0.001380   0.106250
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.007652 0.005849 0.000000   -0.021134   0.207599
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.007546 0.007731 0.000000   -0.030481   0.188660
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.017932 0.038202 0.000000   -0.032150   0.166874
+6     6     1    Linear      NA 0.000000 0.000010  0.001025 0.000710 0.000000    0.010155   0.171917
+  mean_bias bias_rms
+1        NA       NA
+2  0.352734 0.220188
+3  0.918976 0.115806
+4  0.945062 0.079996
+5  0.875140 0.196530
+6  0.404826 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on temporary training frame with 3916 samples **
 
-MSE:  469.2932
-RMSE:  21.66318
-MAE:  15.10287
-RMSLE:  0.1756946
-Mean Residual Deviance :  469.2932
+MSE:  493.5551
+RMSE:  22.2161
+MAE:  15.74575
+RMSLE:  0.1944853
+Mean Residual Deviance :  493.5551
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on validation data. **
 ** Metrics reported on full validation frame **
 
-MSE:  631.1533
-RMSE:  25.12277
-MAE:  16.90124
-RMSLE:  0.1946735
-Mean Residual Deviance :  631.1533``{r eval = FALSE}
+MSE:  822.2471
+RMSE:  28.67485
+MAE:  20.17788
+RMSLE:  0.2310204
+Mean Residual Deviance :  822.2471
 
-```
-
-
-
-## h2o.scoreHistory(best_model)
-
-
-```{r eval = FALSE}
-Scoring History: 
-            timestamp     duration training_speed   epochs iterations       samples
-1 2021-12-17 20:53:56    0.000 sec             NA  0.00000          0      0.000000
-2 2021-12-17 20:53:56  1:27:08.779  51751 obs/sec  5.37870          1  21063.000000
-3 2021-12-17 20:53:59  1:27:12.324  53373 obs/sec 53.65960         10 210131.000000
-  training_rmse training_deviance training_mae training_r2
-1            NA                NA           NA          NA
-2      28.44509         809.12335     19.69486     0.86189
-3      17.81991         317.54923     11.84820     0.94580
 ```
 
 ## best_model_perf
@@ -740,54 +738,91 @@ Scoring History:
 ```{r eval = FALSE}
 H2ORegressionMetrics: deeplearning
 
-MSE:  428.8604
-RMSE:  20.70895
-MAE:  13.86179
-RMSLE:  0.1670781
-Mean Residual Deviance :  428.8604
+MSE:  681.1223
+RMSE:  26.09832
+MAE:  18.5167
+RMSLE:  0.2152902
+Mean Residual Deviance :  681.1223
 ```
 
 ## h2o.mse(best_model_perf) %>% sqrt()
 
 ```{r eval = FALSE}
-20.70895
+26.09832
 ```
 
 
 ## model_dl
 
 ```{r eval = FALSE}
- Model Details:
+Model Details:
 ==============
 
 H2ORegressionModel: deeplearning
-Model ID:  DeepLearning_model_R_1639749302821_1 
-Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 11,311 weights/biases, 142.4 KB, 111,540 training samples, mini-batch size 1
-  layer units   type dropout       l1       l2 mean_rate rate_rms momentum mean_weight
-1     1   282  Input 10.00 %       NA       NA        NA       NA       NA          NA
-2     2    30   Tanh  0.00 % 0.000010 0.000010  0.027301 0.104469 0.000000    0.000152
-3     3    30   Tanh  0.00 % 0.000010 0.000010  0.046442 0.029375 0.000000    0.004252
-4     4    30   Tanh  0.00 % 0.000010 0.000010  0.052423 0.033213 0.000000   -0.006030
-5     5    30   Tanh  0.00 % 0.000010 0.000010  0.193622 0.204716 0.000000   -0.001468
-6     6     1 Linear      NA 0.000010 0.000010  0.012552 0.014213 0.000000    0.002932
-  weight_rms mean_bias bias_rms
-1         NA        NA       NA
-2   0.101553  0.003295 0.180648
-3   0.255426  0.017951 0.164484
-4   0.219522  0.073901 0.271642
-5   0.184941 -0.052402 0.255533
-6   0.151049  0.651890 0.000000
+Model ID:  DeepLearning_model_R_1647001632925_11 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 244.8 KB, 206,349 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.030223 0.102838 0.000000    0.001588   0.109895
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.027019 0.021004 0.000000   -0.034106   0.215922
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.051104 0.071816 0.000000   -0.048248   0.185121
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.119238 0.164861 0.000000   -0.044644   0.150490
+6     6     1    Linear      NA 0.000000 0.000010  0.003318 0.002362 0.000000    0.025220   0.100696
+  mean_bias bias_rms
+1        NA       NA
+2  0.254893 0.251529
+3  0.892186 0.158582
+4  0.928080 0.114269
+5  0.812169 0.202992
+6  0.493598 0.000000
 
 
 H2ORegressionMetrics: deeplearning
 ** Reported on training data. **
 ** Metrics reported on full training frame **
 
-MSE:  370.5959
-RMSE:  19.25087
-MAE:  13.37479
-RMSLE:  0.1636528
-Mean Residual Deviance :  370.5959
+MSE:  459.1528
+RMSE:  21.42785
+MAE:  15.07051
+RMSLE:  0.1819904
+Mean Residual Deviance :  459.1528
+```
+
+
+## model_dl_10
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: deeplearning
+Model ID:  DeepLearning_model_R_1647001632925_12 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 244.8 KB, 111,540 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.028279 0.102913 0.000000    0.001066   0.102220
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.032982 0.029134 0.000000   -0.035798   0.194811
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.054055 0.063707 0.000000   -0.044436   0.170151
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.134715 0.195859 0.000000   -0.039766   0.147480
+6     6     1    Linear      NA 0.000000 0.000010  0.004560 0.004088 0.000000    0.023197   0.102169
+  mean_bias bias_rms
+1        NA       NA
+2  0.286420 0.211567
+3  0.887598 0.109725
+4  0.917162 0.077425
+5  0.828799 0.173623
+6  0.391521 0.000000
+
+
+H2ORegressionMetrics: deeplearning
+** Reported on training data. **
+** Metrics reported on full training frame **
+
+MSE:  638.045
+RMSE:  25.25955
+MAE:  18.01713
+RMSLE:  0.2122756
+Mean Residual Deviance :  638.045
 
 
 
@@ -795,61 +830,213 @@ H2ORegressionMetrics: deeplearning
 ** Reported on cross-validation data. **
 ** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 
-MSE:  465.0682
-RMSE:  21.56544
-MAE:  14.84452
-RMSLE:  0.1806941
-Mean Residual Deviance :  465.0682
+MSE:  665.0879
+RMSE:  25.7893
+MAE:  17.64706
+RMSLE:  0.2035253
+Mean Residual Deviance :  665.0879
 
 
 Cross-Validation Metrics Summary: 
-                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-mae                     14.847466  0.825079  14.670414  14.679204  16.202507  15.215538
-mean_residual_deviance 465.729280 50.755306 465.001560 408.312100 565.678340 486.284850
-mse                    465.729280 50.755306 465.001560 408.312100 565.678340 486.284850
-r2                       0.921544  0.010264   0.921182   0.939182   0.907343   0.922632
-residual_deviance      465.729280 50.755306 465.001560 408.312100 565.678340 486.284850
-rmse                    21.552626  1.161231  21.563894  20.206734  23.783993  22.051867
-rmsle                    0.180225  0.012572   0.183288   0.180911   0.190426   0.177421
-                       cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid
-mae                     14.076158  13.591070  16.017100  15.230082  14.380145
-mean_residual_deviance 505.224850 411.651860 443.305730 508.974850 419.917270
-mse                    505.224850 411.651860 443.305730 508.974850 419.917270
-r2                       0.909053   0.926979   0.922758   0.909932   0.924741
-residual_deviance      505.224850 411.651860 443.305730 508.974850 419.917270
-rmse                    22.477207  20.289206  21.054827  22.560470  20.491882
-rmsle                    0.181255   0.176517   0.207604   0.170717   0.174096
-                       cv_10_valid
-mae                      14.412445
-mean_residual_deviance  442.941250
-mse                     442.941250
-r2                        0.931638
-residual_deviance       442.941250
-rmse                     21.046170
-rmsle                     0.160016
+                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid cv_5_valid
+mae                     17.638584  0.676270  18.037766  17.112715  17.841550  18.399070  16.875074
+mean_residual_deviance 663.824460 59.618385 697.261300 602.770750 754.668200 681.704400 641.352360
+mse                    663.824460 59.618385 697.261300 602.770750 754.668200 681.704400 641.352360
+r2                       0.888243  0.012415   0.881815   0.910217   0.876386   0.891540   0.884548
+residual_deviance      663.824460 59.618385 697.261300 602.770750 754.668200 681.704400 641.352360
+rmse                    25.741081  1.164858  26.405706  24.551390  27.471226  26.109470  25.324934
+rmsle                    0.203107  0.009024   0.210043   0.196503   0.210370   0.202577   0.202529
+                       cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                     18.073795  16.673344  16.910643  17.981007   18.480879
+mean_residual_deviance 732.403260 558.712200 618.665900 677.540650  673.165470
+mse                    732.403260 558.712200 618.665900 677.540650  673.165470
+r2                       0.870082   0.902649   0.890521   0.878568    0.896107
+residual_deviance      732.403260 558.712200 618.665900 677.540650  673.165470
+rmse                    27.062950  23.637094  24.872995  26.029612   25.945433
+rmsle                    0.218936   0.197781   0.185582   0.204270    0.202478
 ```
 
-## h2o.varimp(model_dl)
+## model_dl_sp
 
-`Variable Importances: 
-  variable relative_importance scaled_importance percentage
-1   day.81            1.000000          1.000000   0.007227
-2  day.261            0.928273          0.928273   0.006709
-3  day.316            0.886567          0.886567   0.006408
-4  day.319            0.861655          0.861655   0.006227
-5  day.333            0.847667          0.847667   0.006126
+```{r eval = FALSE}
+Model Details:
+==============
 
----
-                    variable relative_importance scaled_importance percentage
-277                   day.63            0.325322          0.325322   0.002351
-278                  day.116            0.323131          0.323131   0.002335
-279                       WS            0.301644          0.301644   0.002180
-280          day.missing(NA)            0.000000          0.000000   0.000000
-281 Station_code.missing(NA)            0.000000          0.000000   0.000000
-282       season.missing(NA)            0.000000          0.000000   0.000000``{r eval = FALSE}
+H2ORegressionModel: deeplearning
+Model ID:  DeepLearning_model_R_1647001632925_13 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 244.9 KB, 94,809 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.028094 0.103384 0.000000    0.000857   0.100493
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.034338 0.026459 0.000000   -0.034883   0.190619
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.051010 0.054468 0.000000   -0.041520   0.167541
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.140003 0.200245 0.000000   -0.038334   0.147243
+6     6     1    Linear      NA 0.000000 0.000010  0.004597 0.003991 0.000000    0.023102   0.103035
+  mean_bias bias_rms
+1        NA       NA
+2  0.275496 0.199066
+3  0.896309 0.101567
+4  0.921083 0.067626
+5  0.828787 0.162608
+6  0.362589 0.000000
 
+
+H2ORegressionMetrics: deeplearning
+** Reported on training data. **
+** Metrics reported on full training frame **
+
+MSE:  662.7728
+RMSE:  25.74437
+MAE:  16.92716
+RMSLE:  0.190451
+Mean Residual Deviance :  662.7728
+
+
+
+H2ORegressionMetrics: deeplearning
+** Reported on cross-validation data. **
+** 38-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  580.1089
+RMSE:  24.08545
+MAE:  16.32369
+RMSLE:  0.2002988
+Mean Residual Deviance :  580.1089
+
+
+Cross-Validation Metrics Summary: 
+                             mean         sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid cv_5_valid
+mae                     16.283490   5.012451  13.012255  18.003120  11.419966  17.038557  18.037260
+mean_residual_deviance 576.134500 335.488000 311.778930 642.612400 265.205300 608.456050 955.714100
+mse                    576.134500 335.488000 311.778930 642.612400 265.205300 608.456050 955.714100
+r2                       0.886943   0.095521   0.941376   0.916996   0.963785   0.843658   0.864727
+residual_deviance      576.134500 335.488000 311.778930 642.612400 265.205300 608.456050 955.714100
+rmse                    23.097538   6.617448  17.657263  25.349800  16.285124  24.666900  30.914627
+rmsle                    0.190458   0.058221   0.166727   0.174331   0.135081   0.265552   0.168034
+                       cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid cv_11_valid
+mae                     13.067302  16.553295  12.315071  11.033097   18.531830   15.893987
+mean_residual_deviance 296.918400 490.897980 351.866150 271.061770  757.695740  857.788400
+mse                    296.918400 490.897980 351.866150 271.061770  757.695740  857.788400
+r2                       0.938431   0.912167   0.937567   0.950829    0.879184    0.831073
+residual_deviance      296.918400 490.897980 351.866150 271.061770  757.695740  857.788400
+rmse                    17.231321  22.156218  18.758097  16.463955   27.526274   29.288025
+rmsle                    0.138303   0.217553   0.132276   0.127735    0.223645    0.255311
+                       cv_12_valid cv_13_valid cv_14_valid cv_15_valid cv_16_valid cv_17_valid
+mae                      25.990185   11.339394   14.790206   10.086247   20.571518   12.181074
+mean_residual_deviance 1174.052200  269.123900  443.633240  182.848830  794.942400  316.406830
+mse                    1174.052200  269.123900  443.633240  182.848830  794.942400  316.406830
+r2                        0.705417    0.955450    0.928942    0.973980    0.778415    0.932754
+residual_deviance      1174.052200  269.123900  443.633240  182.848830  794.942400  316.406830
+rmse                     34.264446   16.404997   21.062603   13.522161   28.194723   17.787828
+rmsle                     0.296839    0.121246    0.149343    0.137668    0.261774    0.155756
+                       cv_18_valid cv_19_valid cv_20_valid cv_21_valid cv_22_valid cv_23_valid
+mae                      11.300218   20.258432   18.362970   18.208158   20.212946   20.778208
+mean_residual_deviance  224.366680  899.694600  611.253970  836.877260  745.481900  928.847170
+mse                     224.366680  899.694600  611.253970  836.877260  745.481900  928.847170
+r2                        0.955107    0.887238    0.793229    0.786565    0.842986    0.906356
+residual_deviance       224.366680  899.694600  611.253970  836.877260  745.481900  928.847170
+rmse                     14.978874   29.994910   24.723550   28.928831   27.303514   30.476994
+rmsle                     0.153800    0.193915    0.188174    0.263375    0.215363    0.233284
+                       cv_24_valid cv_25_valid cv_26_valid cv_27_valid cv_28_valid cv_29_valid
+mae                      16.812807   12.769220    9.380861   11.508623   16.744162   28.795687
+mean_residual_deviance  525.217800  327.217200  176.260270  221.407610  448.787080 1176.251000
+mse                     525.217800  327.217200  176.260270  221.407610  448.787080 1176.251000
+r2                        0.898921    0.960732    0.961255    0.961903    0.931780    0.690715
+residual_deviance       525.217800  327.217200  176.260270  221.407610  448.787080 1176.251000
+rmse                     22.917630   18.089146   13.276305   14.879772   21.184595   34.296516
+rmsle                     0.179257    0.177933    0.119703    0.157504    0.211321    0.330476
+                       cv_30_valid cv_31_valid cv_32_valid cv_33_valid cv_34_valid cv_35_valid
+mae                      19.191156   16.347065   32.393833   12.391585   12.857935   14.353794
+mean_residual_deviance  666.293300  598.279100 1732.666900  282.256130  377.688540  711.670800
+mse                     666.293300  598.279100 1732.666900  282.256130  377.688540  711.670800
+r2                        0.908980    0.921347    0.497159    0.952385    0.932116    0.854270
+residual_deviance       666.293300  598.279100 1732.666900  282.256130  377.688540  711.670800
+rmse                     25.812658   24.459745   41.625317   16.800480   19.434212   26.677158
+rmsle                     0.188510    0.143837    0.360285    0.143225    0.155450    0.193289
+                       cv_36_valid cv_37_valid cv_38_valid
+mae                      15.538424   17.603981   13.098192
+mean_residual_deviance  381.545800  681.006840  349.039370
+mse                     381.545800  681.006840  349.039370
+r2                        0.945356    0.919019    0.941680
+residual_deviance       381.545800  681.006840  349.039370
+rmse                     19.533197   26.096107   18.682596
+rmsle                     0.189324    0.151758    0.160445
 ```
 
 
+## model_dl_temp
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: deeplearning
+Model ID:  DeepLearning_model_R_1647001632925_14 
+Status of Neuron Layers: predicting PM2.5, regression, gaussian distribution, Quadratic loss, 20,001 weights/biases, 244.9 KB, 66,924 training samples, mini-batch size 1
+  layer units      type dropout       l1       l2 mean_rate rate_rms momentum mean_weight weight_rms
+1     1   245     Input 10.00 %       NA       NA        NA       NA       NA          NA         NA
+2     2    50 Rectifier  0.00 % 0.000000 0.000010  0.026922 0.105205 0.000000    0.000581   0.097625
+3     3    50 Rectifier  0.00 % 0.000000 0.000010  0.025921 0.024263 0.000000   -0.036381   0.183900
+4     4    50 Rectifier  0.00 % 0.000000 0.000010  0.047346 0.058703 0.000000   -0.036407   0.162007
+5     5    50 Rectifier  0.00 % 0.000000 0.000010  0.138975 0.198553 0.000000   -0.035929   0.146549
+6     6     1    Linear      NA 0.000000 0.000010  0.004128 0.003310 0.000000    0.027120   0.106565
+  mean_bias bias_rms
+1        NA       NA
+2  0.289441 0.187803
+3  0.895886 0.094339
+4  0.931858 0.056169
+5  0.839440 0.144239
+6  0.260065 0.000000
+
+
+H2ORegressionMetrics: deeplearning
+** Reported on training data. **
+** Metrics reported on full training frame **
+
+MSE:  620.1802
+RMSE:  24.90342
+MAE:  17.15232
+RMSLE:  0.1990291
+Mean Residual Deviance :  620.1802
+
+
+
+H2ORegressionMetrics: deeplearning
+** Reported on cross-validation data. **
+** 12-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  2590.217
+RMSE:  50.89417
+MAE:  34.5352
+RMSLE:  0.3772235
+Mean Residual Deviance :  2590.217
+
+
+Cross-Validation Metrics Summary: 
+                              mean          sd  cv_1_valid  cv_2_valid cv_3_valid cv_4_valid
+mae                      30.881390   19.817810   75.190704   41.722330  20.857393  19.149855
+mean_residual_deviance 2150.764000 2773.586400 9142.238000 2668.018000 814.463560 601.594240
+mse                    2150.764000 2773.586400 9142.238000 2668.018000 814.463560 601.594240
+r2                       -0.205693    1.073358   -0.006064   -0.105843  -0.054458   0.306143
+residual_deviance      2150.764000 2773.586400 9142.238000 2668.018000 814.463560 601.594240
+rmse                     39.359790   25.617552   95.615060   51.652863  28.538807  24.527418
+rmsle                     0.381663    0.083038    0.448866    0.431244   0.333887   0.304883
+                        cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                      28.995089  14.737443  15.342937  11.519558  17.547703   26.454939
+mean_residual_deviance 1388.654800 376.352940 453.514340 163.534790 351.948150 1100.285000
+mse                    1388.654800 376.352940 453.514340 163.534790 351.948150 1100.285000
+r2                        0.193274   0.133728  -0.088631  -0.887926  -3.382809    0.687258
+residual_deviance      1388.654800 376.352940 453.514340 163.534790 351.948150 1100.285000
+rmse                     37.264660  19.399818  21.295876  12.788073  18.760280   33.170544
+rmsle                     0.425378   0.289593   0.339489   0.492281   0.417854    0.330932
+                       cv_11_valid cv_12_valid
+mae                      60.203346   38.855390
+mean_residual_deviance 6177.100600 2571.461400
+mse                    6177.100600 2571.461400
+r2                        0.238026    0.498985
+residual_deviance      6177.100600 2571.461400
+rmse                     78.594536   50.709580
+rmsle                     0.510065    0.255478
+```
 
 
