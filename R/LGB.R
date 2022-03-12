@@ -78,9 +78,9 @@ model_lgb <- h2o.xgboost(x = features,
                          grow_policy = "lossguide",
                          tree_method = "hist",
                          sample_rate = 0.57,
-                         reg_lambda = 0.1,
+                         reg_lambda = 0,
                          categorical_encoding = "AUTO",
-                         reg_alpha = 0.0001,
+                         reg_alpha = 0.1,
                          col_sample_rate = 0.79,
                          col_sample_rate_per_tree = 0.46,
                          min_rows = 2,
@@ -96,8 +96,6 @@ model_lgb <- h2o.xgboost(x = features,
 
 
 model_lgb
-cvpreds_id <- model_lgb@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 file_shared$h2o_lgb_m <- predict(model_lgb, file_shared)
 predict_daily(number_of_days, all_tables, model_lgb, "lgb")
 
@@ -107,9 +105,9 @@ model_lgb_10 <- h2o.xgboost(x = features,
                             grow_policy = "lossguide",
                             tree_method = "hist",
                             sample_rate = 0.57,
-                            reg_lambda = 0.1,
+                            reg_lambda = 0,
                             categorical_encoding = "AUTO",
-                            reg_alpha = 0.0001,
+                            reg_alpha = 0.1,
                             col_sample_rate = 0.79,
                             col_sample_rate_per_tree = 0.46,
                             min_rows = 2,
@@ -139,9 +137,9 @@ model_lgb_sp <- h2o.xgboost(x = features,
                             grow_policy = "lossguide",
                             tree_method = "hist",
                             sample_rate = 0.57,
-                            reg_lambda = 0.1,
+                            reg_lambda = 0,
                             categorical_encoding = "AUTO",
-                            reg_alpha = 0.0001,
+                            reg_alpha = 0.1,
                             col_sample_rate = 0.79,
                             col_sample_rate_per_tree = 0.46,
                             min_rows = 2,
@@ -158,10 +156,9 @@ model_lgb_sp <- h2o.xgboost(x = features,
                             keep_cross_validation_models = TRUE,
                             fold_column = "Station_code")
 model_lgb_sp
-cvpreds_id_sp <- model_lgb_sp@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id_sp)
+cvpreds_id <- model_lgb_sp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_sp <- h2o.getFrame(cvpreds_id)
 file_shared$h2o_lgb_sp <- predict(model_lgb_sp, file_shared)
-lgb <- predict_daily(number_of_days, all_tables, model_lgb_sp, "lgb")
 
 
 model_lgb_temp <- h2o.xgboost(x = features,
@@ -170,9 +167,9 @@ model_lgb_temp <- h2o.xgboost(x = features,
                               grow_policy = "lossguide",
                               tree_method = "hist",
                               sample_rate = 0.57,
-                              reg_lambda = 0.1,
+                              reg_lambda = 0,
                               categorical_encoding = "AUTO",
-                              reg_alpha = 0.0001,
+                              reg_alpha = 0.1,
                               col_sample_rate = 0.79,
                               col_sample_rate_per_tree = 0.46,
                               min_rows = 2,
@@ -189,8 +186,8 @@ model_lgb_temp <- h2o.xgboost(x = features,
                               keep_cross_validation_models = TRUE,
                               fold_column = "month")
 model_lgb_temp
-cvpreds_id_temp <- model_lgb_temp@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id_temp)
+cvpreds_id <- model_lgb_temp@model$cross_validation_holdout_predictions_frame_id$name
+file_shared$cvpreds_temp <- h2o.getFrame(cvpreds_id)
 file_shared$h2o_lgb_temp <- predict(model_lgb_temp, file_shared)
 
 file_shared <- as.data.frame(file_shared)

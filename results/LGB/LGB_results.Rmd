@@ -34,51 +34,51 @@ Used hyper parameters:
   -  reg_lambda 
   -  sample_rate 
   -  tree_method 
-Number of models: 42 
+Number of models: 55 
 Number of failed models: 0 
 
 Hyper-Parameter Search Summary: ordered by increasing residual_deviance
-  booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma
-1  gbtree         0.79000                  0.46000        gamma 0.10000 0.05000
-2    dart         0.77000                  0.97000        gamma 0.10000 0.10000
-3  gbtree         0.24000                  0.20000        gamma 0.02500 0.00010
-4    dart         0.90000                  0.68000        gamma 0.05000 0.10000
-5  gbtree         0.69000                  0.79000        gamma 0.30000 0.10000
-  grow_policy max_depth min_child_weight min_rows min_split_improvement     ntrees
-1   lossguide   4.00000          2.00000  2.00000               0.05000 1000.00000
-2   lossguide  20.00000          2.00000  2.00000               0.10000 1000.00000
-3   lossguide  20.00000          3.00000  3.00000               0.00010 1000.00000
-4   lossguide  12.00000          2.00000  2.00000               0.10000  500.00000
-5   lossguide   8.00000          3.00000  3.00000               0.10000 1500.00000
-  reg_alpha reg_lambda sample_rate tree_method         model_ids residual_deviance
-1   0.00010    0.10000     0.57000        hist lgb_grid_model_22          11.22060
-2   0.00100    0.00010     0.45000        hist lgb_grid_model_40          11.22340
-3   0.00100    0.00100     0.29000        hist lgb_grid_model_15          11.22340
-4   0.10000    1.00000     0.81000        hist  lgb_grid_model_2          11.22342
-5   0.00100    0.00000     1.00000        hist lgb_grid_model_36          11.22535
+  booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma grow_policy
+1  gbtree         0.78000                  0.54000      poisson 0.02500 0.10000   lossguide
+2  gbtree         0.79000                  0.46000        gamma 0.10000 0.05000   lossguide
+3    dart         0.90000                  0.68000        gamma 0.05000 0.10000   lossguide
+4  gbtree         0.93000                  0.25000        gamma 0.05000 0.05000   lossguide
+5  gbtree         0.69000                  0.79000        gamma 0.30000 0.10000   lossguide
+  max_depth min_child_weight min_rows min_split_improvement     ntrees reg_alpha reg_lambda
+1   8.00000         16.00000 16.00000               0.10000  500.00000   0.00010    1.00000
+2   4.00000          2.00000  2.00000               0.05000 1000.00000   0.10000    0.00000
+3  12.00000          2.00000  2.00000               0.10000  500.00000   0.00100    0.10000
+4  20.00000          3.00000  3.00000               0.05000  500.00000   0.00100    1.00000
+5   8.00000          3.00000  3.00000               0.10000 1500.00000   0.01000    1.00000
+  sample_rate tree_method         model_ids residual_deviance
+1     0.28000        hist lgb_grid_model_48        -839.24441
+2     0.57000        hist lgb_grid_model_22          11.22326
+3     0.81000        hist  lgb_grid_model_2          11.22548
+4     0.94000        hist lgb_grid_model_43          11.22578
+5     1.00000        hist lgb_grid_model_36          11.22636
 
 ---
-    booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma
-37 gblinear         0.80000                  0.74000      poisson 0.30000 0.10000
-38 gblinear         0.79000                  0.96000      poisson 0.05000 0.10000
-39 gblinear         0.74000                  0.25000      poisson 0.02500 0.00000
-40 gblinear         0.27000                  0.80000      poisson 0.30000 1.00000
-41 gblinear         0.80000                  0.92000      poisson 0.30000 0.90000
-42     dart         0.67000                  0.95000      poisson 0.10000 0.50000
-   grow_policy max_depth min_child_weight   min_rows min_split_improvement     ntrees
-37   lossguide   4.00000          2.00000    2.00000               0.10000 1000.00000
-38   lossguide   8.00000          3.00000    3.00000               0.10000 1500.00000
-39   lossguide   6.00000          3.00000    3.00000               0.00000  500.00000
-40   lossguide  16.00000       1024.00000 1024.00000               1.00000  500.00000
-41   lossguide  16.00000          4.00000    4.00000               0.90000 1000.00000
-42   lossguide  16.00000          2.00000    2.00000               0.50000  500.00000
-   reg_alpha reg_lambda sample_rate tree_method         model_ids residual_deviance
-37   0.10000    0.00000     0.51000        hist  lgb_grid_model_3                NA
-38   1.00000    1.00000     0.96000        hist lgb_grid_model_30                NA
-39   0.00100    0.00100     0.35000        hist lgb_grid_model_33                NA
-40   0.00100    1.00000     0.42000        hist lgb_grid_model_37                NA
-41   0.00010    0.00010     0.24000        hist lgb_grid_model_38                NA
-42   0.00100    0.10000     0.80000        hist  lgb_grid_model_4                NA
+    booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma grow_policy
+50 gblinear         0.80000                  0.74000      poisson 0.30000 0.10000   lossguide
+51 gblinear         0.79000                  0.96000      poisson 0.05000 0.10000   lossguide
+52 gblinear         0.74000                  0.25000      poisson 0.02500 0.00000   lossguide
+53 gblinear         0.27000                  0.80000      poisson 0.30000 1.00000   lossguide
+54 gblinear         0.80000                  0.92000      poisson 0.30000 0.90000   lossguide
+55     dart         0.67000                  0.95000      poisson 0.10000 0.50000   lossguide
+   max_depth min_child_weight   min_rows min_split_improvement     ntrees reg_alpha reg_lambda
+50   4.00000          2.00000    2.00000               0.10000 1000.00000   0.00000    0.00000
+51   8.00000          3.00000    3.00000               0.10000 1500.00000   0.00100    1.00000
+52   6.00000          3.00000    3.00000               0.00000  500.00000   0.00010    0.01000
+53  16.00000       1024.00000 1024.00000               1.00000  500.00000   0.00000    0.00100
+54  16.00000          4.00000    4.00000               0.90000 1000.00000   0.00010    0.01000
+55  16.00000          2.00000    2.00000               0.50000  500.00000   0.10000    0.10000
+   sample_rate tree_method         model_ids residual_deviance
+50     0.51000        hist  lgb_grid_model_3                NA
+51     0.96000        hist lgb_grid_model_30                NA
+52     0.35000        hist lgb_grid_model_33                NA
+53     0.42000        hist lgb_grid_model_37                NA
+54     0.24000        hist lgb_grid_model_38                NA
+55     0.80000        hist  lgb_grid_model_4                NA
 ```
 
 ## print(grid_perf)
@@ -105,51 +105,51 @@ Used hyper parameters:
   -  reg_lambda 
   -  sample_rate 
   -  tree_method 
-Number of models: 42 
+Number of models: 55 
 Number of failed models: 0 
 
 Hyper-Parameter Search Summary: ordered by increasing mse
-  booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma
-1  gbtree         0.79000                  0.46000        gamma 0.10000 0.05000
-2    dart         0.77000                  0.97000        gamma 0.10000 0.10000
-3  gbtree         0.93000                  0.66000     gaussian 0.02500 0.90000
-4  gbtree         0.55000                  0.33000     gaussian 0.02500 0.10000
-5    dart         0.90000                  0.68000        gamma 0.05000 0.10000
-  grow_policy max_depth min_child_weight min_rows min_split_improvement     ntrees
-1   lossguide   4.00000          2.00000  2.00000               0.05000 1000.00000
-2   lossguide  20.00000          2.00000  2.00000               0.10000 1000.00000
-3   lossguide   6.00000          2.00000  2.00000               0.90000 1000.00000
-4   lossguide  16.00000          2.00000  2.00000               0.10000 1000.00000
-5   lossguide  12.00000          2.00000  2.00000               0.10000  500.00000
-  reg_alpha reg_lambda sample_rate tree_method         model_ids       mse
-1   0.00010    0.10000     0.57000        hist lgb_grid_model_22 456.74377
-2   0.00100    0.00010     0.45000        hist lgb_grid_model_40 516.20585
-3   0.10000    0.00010     0.94000        hist lgb_grid_model_34 516.36217
-4   0.00100    1.00000     1.00000        hist lgb_grid_model_32 517.92425
-5   0.10000    1.00000     0.81000        hist  lgb_grid_model_2 530.24014
+  booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma grow_policy
+1  gbtree         0.79000                  0.46000        gamma 0.10000 0.05000   lossguide
+2  gbtree         0.93000                  0.66000     gaussian 0.02500 0.90000   lossguide
+3    dart         0.90000                  0.68000        gamma 0.05000 0.10000   lossguide
+4  gbtree         0.69000                  0.79000        gamma 0.30000 0.10000   lossguide
+5    dart         0.77000                  0.97000        gamma 0.10000 0.10000   lossguide
+  max_depth min_child_weight min_rows min_split_improvement     ntrees reg_alpha reg_lambda
+1   4.00000          2.00000  2.00000               0.05000 1000.00000   0.10000    0.00000
+2   6.00000          2.00000  2.00000               0.90000 1000.00000   0.10000    0.00000
+3  12.00000          2.00000  2.00000               0.10000  500.00000   0.00100    0.10000
+4   8.00000          3.00000  3.00000               0.10000 1500.00000   0.01000    1.00000
+5  20.00000          2.00000  2.00000               0.10000 1000.00000   1.00000    1.00000
+  sample_rate tree_method         model_ids       mse
+1     0.57000        hist lgb_grid_model_22 500.66792
+2     0.94000        hist lgb_grid_model_34 520.72304
+3     0.81000        hist  lgb_grid_model_2 549.42582
+4     1.00000        hist lgb_grid_model_36 562.22089
+5     0.45000        hist lgb_grid_model_40 579.74400
 
 ---
-    booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma
-37 gblinear         0.80000                  0.74000      poisson 0.30000 0.10000
-38 gblinear         0.79000                  0.96000      poisson 0.05000 0.10000
-39 gblinear         0.74000                  0.25000      poisson 0.02500 0.00000
-40 gblinear         0.27000                  0.80000      poisson 0.30000 1.00000
-41 gblinear         0.80000                  0.92000      poisson 0.30000 0.90000
-42     dart         0.67000                  0.95000      poisson 0.10000 0.50000
-   grow_policy max_depth min_child_weight   min_rows min_split_improvement     ntrees
-37   lossguide   4.00000          2.00000    2.00000               0.10000 1000.00000
-38   lossguide   8.00000          3.00000    3.00000               0.10000 1500.00000
-39   lossguide   6.00000          3.00000    3.00000               0.00000  500.00000
-40   lossguide  16.00000       1024.00000 1024.00000               1.00000  500.00000
-41   lossguide  16.00000          4.00000    4.00000               0.90000 1000.00000
-42   lossguide  16.00000          2.00000    2.00000               0.50000  500.00000
-   reg_alpha reg_lambda sample_rate tree_method         model_ids mse
-37   0.10000    0.00000     0.51000        hist  lgb_grid_model_3  NA
-38   1.00000    1.00000     0.96000        hist lgb_grid_model_30  NA
-39   0.00100    0.00100     0.35000        hist lgb_grid_model_33  NA
-40   0.00100    1.00000     0.42000        hist lgb_grid_model_37  NA
-41   0.00010    0.00010     0.24000        hist lgb_grid_model_38  NA
-42   0.00100    0.10000     0.80000        hist  lgb_grid_model_4  NA
+    booster col_sample_rate col_sample_rate_per_tree distribution     eta   gamma grow_policy
+50 gblinear         0.80000                  0.74000      poisson 0.30000 0.10000   lossguide
+51 gblinear         0.79000                  0.96000      poisson 0.05000 0.10000   lossguide
+52 gblinear         0.74000                  0.25000      poisson 0.02500 0.00000   lossguide
+53 gblinear         0.27000                  0.80000      poisson 0.30000 1.00000   lossguide
+54 gblinear         0.80000                  0.92000      poisson 0.30000 0.90000   lossguide
+55     dart         0.67000                  0.95000      poisson 0.10000 0.50000   lossguide
+   max_depth min_child_weight   min_rows min_split_improvement     ntrees reg_alpha reg_lambda
+50   4.00000          2.00000    2.00000               0.10000 1000.00000   0.00000    0.00000
+51   8.00000          3.00000    3.00000               0.10000 1500.00000   0.00100    1.00000
+52   6.00000          3.00000    3.00000               0.00000  500.00000   0.00010    0.01000
+53  16.00000       1024.00000 1024.00000               1.00000  500.00000   0.00000    0.00100
+54  16.00000          4.00000    4.00000               0.90000 1000.00000   0.00010    0.01000
+55  16.00000          2.00000    2.00000               0.50000  500.00000   0.10000    0.10000
+   sample_rate tree_method         model_ids mse
+50     0.51000        hist  lgb_grid_model_3  NA
+51     0.96000        hist lgb_grid_model_30  NA
+52     0.35000        hist lgb_grid_model_33  NA
+53     0.42000        hist lgb_grid_model_37  NA
+54     0.24000        hist lgb_grid_model_38  NA
+55     0.80000        hist  lgb_grid_model_4  NA
 ```
 
 ## best_model
@@ -168,11 +168,11 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  162.9696
-RMSE:  12.76596
-MAE:  8.560533
-RMSLE:  0.09493511
-Mean Residual Deviance :  11.20278
+MSE:  187.5326
+RMSE:  13.69426
+MAE:  9.221833
+RMSLE:  0.1024705
+Mean Residual Deviance :  11.20424
 
 
 
@@ -180,38 +180,30 @@ H2ORegressionMetrics: xgboost
 ** Reported on cross-validation data. **
 ** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 
-MSE:  456.7438
-RMSE:  21.37156
-MAE:  13.81673
-RMSLE:  0.1633341
-Mean Residual Deviance :  11.2206
+MSE:  500.6679
+RMSE:  22.37561
+MAE:  14.53513
+RMSLE:  0.1704793
+Mean Residual Deviance :  11.22326
 
 
 Cross-Validation Metrics Summary: 
-                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-mae                     13.804009  0.618549  12.517337  13.910641  14.179309  14.260604
-mean_residual_deviance  11.219920  0.049151  11.167237  11.206397  11.243350  11.288182
-mse                    457.479500 61.141045 389.167600 443.098000 450.936580 492.813300
-r2                       0.921602  0.009582   0.922034   0.924844   0.916698   0.921088
-residual_deviance       11.219920  0.049151  11.167237  11.206397  11.243350  11.288182
-rmse                    21.346397  1.418455  19.727331  21.049892  21.235268  22.199398
-rmsle                    0.162686  0.014369   0.151037   0.172729   0.170901   0.150794
-                       cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid
-mae                     13.440780  14.457811  14.395952  13.338256  13.383602
-mean_residual_deviance  11.192337  11.281855  11.173231  11.171153  11.194221
-mse                    473.459350 492.532500 480.498000 373.773560 398.596500
-r2                       0.925994   0.925241   0.919913   0.934054   0.928167
-residual_deviance       11.192337  11.281855  11.173231  11.171153  11.194221
-rmse                    21.759120  22.193073  21.920263  19.333223  19.964882
-rmsle                    0.147675   0.158108   0.194086   0.150668   0.162185
-                       cv_10_valid
-mae                      14.155791
-mean_residual_deviance   11.281241
-mse                     579.919740
-r2                        0.897985
-residual_deviance        11.281241
-rmse                     24.081522
-rmsle                     0.168675
+                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid cv_5_valid
+mae                     14.527583  0.836288  13.056693  14.671786  14.328632  15.408299  13.748481
+mean_residual_deviance  11.222584  0.050026  11.170245  11.209469  11.244720  11.293671  11.194000
+mse                    501.174530 90.932860 386.504800 497.802060 454.198060 623.851750 458.348180
+r2                       0.914303  0.013617   0.922568   0.915565   0.916095   0.900105   0.928356
+residual_deviance       11.222584  0.050026  11.170245  11.209469  11.244720  11.293671  11.194000
+rmse                    22.306347  2.000395  19.659725  22.311478  21.311924  24.977024  21.409067
+rmsle                    0.169972  0.012848   0.159661   0.180494   0.174795   0.166033   0.153686
+                       cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                     15.283984  14.722026  14.115473  14.099542   15.840912
+mean_residual_deviance  11.285103  11.174964  11.173362  11.195234   11.285073
+mse                    545.747100 541.649050 420.557500 421.575350  661.511500
+r2                       0.917164   0.909720   0.925800   0.924026    0.883631
+residual_deviance       11.285103  11.174964  11.173362  11.195234   11.285073
+rmse                    23.361230  23.273355  20.507498  20.532300   25.719866
+rmsle                    0.167351   0.195919   0.156890   0.165337    0.179555
 ```
 
 ## h2o.varimp(best_model)
@@ -219,54 +211,48 @@ rmsle                     0.168675
 ```{r eval = FALSE}
 Variable Importances: 
   variable relative_importance scaled_importance percentage
-1      BLH          727.753784          1.000000   0.166013
-2      AOD          637.268738          0.875665   0.145372
-3     Temp          407.828613          0.560394   0.093033
-4      CWV          366.338440          0.503382   0.083568
-5    Press          319.910278          0.439586   0.072977
+1      BLH          703.396545          1.000000   0.164994
+2      AOD          672.612305          0.956235   0.157773
+3    Press          380.072357          0.540339   0.089153
+4      CWV          338.774231          0.481626   0.079466
+5       RH          296.697205          0.421806   0.069596
 
 ---
     variable relative_importance scaled_importance percentage
-231  day.114            0.052916          0.000073   0.000012
-232  day.336            0.048637          0.000067   0.000011
-233   day.33            0.046144          0.000063   0.000011
-234  day.255            0.040736          0.000056   0.000009
-235  day.289            0.037526          0.000052   0.000009
-236  day.110            0.036554          0.000050   0.000008
+182   day.11            0.055834          0.000079   0.000013
+183   day.20            0.054942          0.000078   0.000013
+184  day.321            0.050379          0.000072   0.000012
+185   day.19            0.046446          0.000066   0.000011
+186  day.363            0.045083          0.000064   0.000011
+187  day.100            0.040673          0.000058   0.000010
 ```
 
 ## h2o.scoreHistory(best_model)
 
 ```{r eval = FALSE}
 Scoring History: 
-            timestamp          duration number_of_trees training_rmse training_mae
-1 2021-12-18 00:21:04 55 min 59.206 sec               0     140.35631    117.64853
-2 2021-12-18 00:21:04 55 min 59.229 sec              10     139.64476    116.80016
-3 2021-12-18 00:21:04 55 min 59.241 sec              20     137.76608    114.56395
-4 2021-12-18 00:21:04 55 min 59.255 sec              30     133.03366    108.94486
-5 2021-12-18 00:21:04 55 min 59.269 sec              40     122.34279     96.41234
-  training_deviance
-1         471.20784
-2         175.65984
-3          68.16031
-4          29.78392
-5          16.69074
+            timestamp          duration number_of_trees training_rmse training_mae training_deviance
+1 2022-03-11 18:38:12 39 min 55.088 sec               0     140.35631    117.64853         471.20784
+2 2022-03-11 18:38:12 39 min 55.151 sec              10     139.64476    116.80014         175.65989
+3 2022-03-11 18:38:12 39 min 55.204 sec              20     137.76607    114.56253          68.15988
+4 2022-03-11 18:38:12 39 min 55.269 sec              30     133.03196    108.94858          29.78057
+5 2022-03-11 18:38:12 39 min 55.341 sec              40     122.34733     96.40459          16.69135
 
 ---
               timestamp          duration number_of_trees training_rmse training_mae
-96  2021-12-18 00:21:07 56 min  2.133 sec             950      12.97644      8.69972
-97  2021-12-18 00:21:07 56 min  2.192 sec             960      12.94361      8.67361
-98  2021-12-18 00:21:07 56 min  2.242 sec             970      12.91516      8.65567
-99  2021-12-18 00:21:07 56 min  2.291 sec             980      12.85427      8.61322
-100 2021-12-18 00:21:07 56 min  2.341 sec             990      12.80018      8.58698
-101 2021-12-18 00:21:08 56 min  2.391 sec            1000      12.76596      8.56053
+96  2022-03-11 18:38:23 40 min  6.232 sec             950      13.91584      9.35049
+97  2022-03-11 18:38:23 40 min  6.368 sec             960      13.88225      9.33087
+98  2022-03-11 18:38:23 40 min  6.494 sec             970      13.85028      9.31374
+99  2022-03-11 18:38:24 40 min  6.677 sec             980      13.83424      9.30197
+100 2022-03-11 18:38:24 40 min  6.829 sec             990      13.75261      9.25885
+101 2022-03-11 18:38:24 40 min  6.963 sec            1000      13.69426      9.22183
     training_deviance
-96           11.20312
-97           11.20304
-98           11.20300
-99           11.20293
-100          11.20285
-101          11.20278
+96           11.20458
+97           11.20453
+98           11.20447
+99           11.20444
+100          11.20432
+101          11.20424
 ```
 
 ## cv_models
@@ -286,21 +272,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  167.5585
-RMSE:  12.94444
-MAE:  8.754194
-RMSLE:  0.09645658
-Mean Residual Deviance :  11.20817
+MSE:  184.4685
+RMSE:  13.58192
+MAE:  9.077905
+RMSLE:  0.1008768
+Mean Residual Deviance :  11.20901
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  389.1676
-RMSE:  19.72733
-MAE:  12.51734
-RMSLE:  0.1510366
-Mean Residual Deviance :  11.16724
+MSE:  386.5048
+RMSE:  19.65973
+MAE:  13.05669
+RMSLE:  0.1596608
+Mean Residual Deviance :  11.17025
 
 
 
@@ -319,21 +305,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  159.4081
-RMSE:  12.62569
-MAE:  8.583444
-RMSLE:  0.0942731
-Mean Residual Deviance :  11.2048
+MSE:  180.0503
+RMSE:  13.41828
+MAE:  9.001289
+RMSLE:  0.09952678
+Mean Residual Deviance :  11.20584
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  443.098
-RMSE:  21.04989
-MAE:  13.91064
-RMSLE:  0.1727293
-Mean Residual Deviance :  11.2064
+MSE:  497.8021
+RMSE:  22.31148
+MAE:  14.67179
+RMSLE:  0.1804937
+Mean Residual Deviance :  11.20947
 
 
 
@@ -352,21 +338,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  163.2791
-RMSE:  12.77807
-MAE:  8.593996
-RMSLE:  0.09419664
-Mean Residual Deviance :  11.20018
+MSE:  179.2784
+RMSE:  13.38949
+MAE:  9.014754
+RMSLE:  0.1006389
+Mean Residual Deviance :  11.20142
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  450.9366
-RMSE:  21.23527
-MAE:  14.17931
-RMSLE:  0.1709012
-Mean Residual Deviance :  11.24335
+MSE:  454.1981
+RMSE:  21.31192
+MAE:  14.32863
+RMSLE:  0.1747954
+Mean Residual Deviance :  11.24472
 
 
 
@@ -385,21 +371,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  159.4736
-RMSE:  12.62828
-MAE:  8.549217
-RMSLE:  0.09415387
-Mean Residual Deviance :  11.19468
+MSE:  180.5898
+RMSE:  13.43837
+MAE:  9.027851
+RMSLE:  0.10126
+Mean Residual Deviance :  11.19606
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  492.8133
-RMSE:  22.1994
-MAE:  14.2606
-RMSLE:  0.150794
-Mean Residual Deviance :  11.28818
+MSE:  623.8518
+RMSE:  24.97702
+MAE:  15.4083
+RMSLE:  0.1660328
+Mean Residual Deviance :  11.29367
 
 
 
@@ -418,21 +404,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  163.6007
-RMSE:  12.79065
-MAE:  8.711221
-RMSLE:  0.09531381
-Mean Residual Deviance :  11.20534
+MSE:  183.6572
+RMSE:  13.55202
+MAE:  9.110784
+RMSLE:  0.1009466
+Mean Residual Deviance :  11.20642
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  473.4593
-RMSE:  21.75912
-MAE:  13.44078
-RMSLE:  0.1476749
-Mean Residual Deviance :  11.19234
+MSE:  458.3482
+RMSE:  21.40907
+MAE:  13.74848
+RMSLE:  0.1536863
+Mean Residual Deviance :  11.194
 
 
 
@@ -451,21 +437,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  159.0776
-RMSE:  12.6126
-MAE:  8.482319
-RMSLE:  0.09440364
-Mean Residual Deviance :  11.19504
+MSE:  177.4462
+RMSE:  13.32089
+MAE:  8.92811
+RMSLE:  0.09986837
+Mean Residual Deviance :  11.19612
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  492.5325
-RMSE:  22.19307
-MAE:  14.45781
-RMSLE:  0.1581081
-Mean Residual Deviance :  11.28185
+MSE:  545.7471
+RMSE:  23.36123
+MAE:  15.28398
+RMSLE:  0.1673511
+Mean Residual Deviance :  11.2851
 
 
 
@@ -484,21 +470,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  162.9847
-RMSE:  12.76655
-MAE:  8.673149
-RMSLE:  0.09427098
-Mean Residual Deviance :  11.20836
+MSE:  180.7501
+RMSE:  13.44433
+MAE:  9.070593
+RMSLE:  0.09950449
+Mean Residual Deviance :  11.20937
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  480.498
-RMSE:  21.92026
-MAE:  14.39595
-RMSLE:  0.1940857
-Mean Residual Deviance :  11.17323
+MSE:  541.6491
+RMSE:  23.27336
+MAE:  14.72203
+RMSLE:  0.1959194
+Mean Residual Deviance :  11.17496
 
 
 
@@ -517,21 +503,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  166.3502
-RMSE:  12.89768
-MAE:  8.70873
-RMSLE:  0.0960697
-Mean Residual Deviance :  11.20793
+MSE:  185.5382
+RMSE:  13.62124
+MAE:  9.113686
+RMSLE:  0.1024694
+Mean Residual Deviance :  11.20919
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  373.7735
-RMSE:  19.33322
-MAE:  13.33826
-RMSLE:  0.1506677
-Mean Residual Deviance :  11.17115
+MSE:  420.5575
+RMSE:  20.5075
+MAE:  14.11547
+RMSLE:  0.1568898
+Mean Residual Deviance :  11.17336
 
 
 
@@ -550,21 +536,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  159.1926
-RMSE:  12.61716
-MAE:  8.576319
-RMSLE:  0.0940386
-Mean Residual Deviance :  11.20562
+MSE:  181.0726
+RMSE:  13.45632
+MAE:  9.130735
+RMSLE:  0.1014149
+Mean Residual Deviance :  11.20706
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  398.5965
-RMSE:  19.96488
-MAE:  13.3836
-RMSLE:  0.1621849
-Mean Residual Deviance :  11.19422
+MSE:  421.5754
+RMSE:  20.5323
+MAE:  14.09954
+RMSLE:  0.1653368
+Mean Residual Deviance :  11.19523
 
 
 
@@ -583,21 +569,21 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  165.3742
-RMSE:  12.85979
-MAE:  8.562587
-RMSLE:  0.09515304
-Mean Residual Deviance :  11.19729
+MSE:  177.4832
+RMSE:  13.32228
+MAE:  8.882529
+RMSLE:  0.1003161
+Mean Residual Deviance :  11.19829
 
 
 H2ORegressionMetrics: xgboost
 ** Reported on validation data. **
 
-MSE:  579.9197
-RMSE:  24.08152
-MAE:  14.15579
-RMSLE:  0.1686752
-Mean Residual Deviance :  11.28124
+MSE:  661.5115
+RMSE:  25.71986
+MAE:  15.84091
+RMSLE:  0.1795554
+Mean Residual Deviance :  11.28507
 ```
 
 ## best_model_perf
@@ -606,11 +592,11 @@ Mean Residual Deviance :  11.28124
 ```{r eval = FALSE}
 H2ORegressionMetrics: xgboost
 
-MSE:  492.851
-RMSE:  22.20025
-MAE:  14.44269
-RMSLE:  0.1602908
-Mean Residual Deviance :  11.25213
+MSE:  525.5413
+RMSE:  22.92469
+MAE:  15.00002
+RMSLE:  0.1700334
+Mean Residual Deviance :  11.2558
 ```
 
 
@@ -618,7 +604,7 @@ Mean Residual Deviance :  11.25213
 
 
 ```{r eval = FALSE}
-22.2
+22.9
 ```
 
 ## model_lgb
@@ -628,7 +614,7 @@ Model Details:
 ==============
 
 H2ORegressionModel: xgboost
-Model ID:  XGBoost_model_R_1639763669651_1 
+Model ID:  XGBoost_model_R_1647001632925_1 
 Model Summary: 
   number_of_trees
 1            1000
@@ -637,11 +623,35 @@ Model Summary:
 H2ORegressionMetrics: xgboost
 ** Reported on training data. **
 
-MSE:  183.4787
-RMSE:  13.54543
-MAE:  9.045726
-RMSLE:  0.09936002
-Mean Residual Deviance :  11.21322
+MSE:  213.7468
+RMSE:  14.62008
+MAE:  9.665972
+RMSLE:  0.1071442
+Mean Residual Deviance :  11.21483
+```
+
+
+## model_lgb_10
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: xgboost
+Model ID:  XGBoost_model_R_1647001632925_2 
+Model Summary: 
+  number_of_trees
+1            1000
+
+
+H2ORegressionMetrics: xgboost
+** Reported on training data. **
+
+MSE:  213.7468
+RMSE:  14.62008
+MAE:  9.665972
+RMSLE:  0.1071442
+Mean Residual Deviance :  11.21483
 
 
 
@@ -649,58 +659,184 @@ H2ORegressionMetrics: xgboost
 ** Reported on cross-validation data. **
 ** 10-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 
-MSE:  408.0295
-RMSE:  20.19974
-MAE:  13.24341
-RMSLE:  0.1535726
-Mean Residual Deviance :  11.22719
+MSE:  456.5013
+RMSE:  21.36589
+MAE:  13.85984
+RMSLE:  0.160457
+Mean Residual Deviance :  11.22949
 
 
 Cross-Validation Metrics Summary: 
-                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid
-mae                     13.253414  0.848627  12.325696  12.454924  13.993827  14.235712
-mean_residual_deviance  11.226399  0.064212  11.242674  11.288456  11.235558  11.301356
-mse                    409.445500 68.460570 333.891660 336.491550 483.883480 442.896200
-r2                       0.931223  0.011048   0.943406   0.949880   0.920741   0.929535
-residual_deviance       11.226399  0.064212  11.242674  11.288456  11.235558  11.301356
-rmse                    20.172136  1.676776  18.272703  18.343706  21.997353  21.045100
-rmsle                    0.153355  0.007100   0.146940   0.142976   0.153891   0.154680
-                       cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid
-mae                     13.003510  12.733501  12.674425  13.661238  12.679277
-mean_residual_deviance  11.183208  11.228848  11.100985  11.249696  11.149688
-mse                    457.480700 347.996520 371.993740 432.624970 359.529850
-r2                       0.917647   0.938271   0.935183   0.923443   0.935563
-residual_deviance       11.183208  11.228848  11.100985  11.249696  11.149688
-rmse                    21.388798  18.654665  19.287140  20.799639  18.961271
-rmsle                    0.159562   0.168254   0.147235   0.154849   0.153417
-                       cv_10_valid
-mae                      14.772033
-mean_residual_deviance   11.283524
-mse                     527.666300
-r2                        0.918562
-residual_deviance        11.283524
-rmse                     22.970990
-rmsle                     0.151744
+                             mean        sd cv_1_valid cv_2_valid cv_3_valid cv_4_valid cv_5_valid
+mae                     13.869308  0.889428  12.600118  13.134823  14.699620  14.766918  13.893967
+mean_residual_deviance  11.228728  0.064085  11.244463  11.290787  11.238800  11.303929  11.187835
+mse                    457.608700 76.354080 353.829530 393.086200 534.486450 523.269200 492.004520
+r2                       0.923194  0.011962   0.940026   0.941450   0.912452   0.916748   0.911433
+residual_deviance       11.228728  0.064085  11.244463  11.290787  11.238800  11.303929  11.187835
+rmse                    21.325129  1.778766  18.810356  19.826403  23.118963  22.875078  22.181175
+rmsle                    0.160358  0.006025   0.153669   0.152117   0.163302   0.162426   0.171243
+                       cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                     13.367044  13.190544  14.310334  13.346264   15.383451
+mean_residual_deviance  11.228596  11.103122  11.250483  11.152487   11.286785
+mse                    402.102540 402.645630 491.993350 400.305570  582.363900
+r2                       0.928673   0.929842   0.912937   0.928255    0.910121
+residual_deviance       11.228596  11.103122  11.250483  11.152487   11.286785
+rmse                    20.052494  20.066032  22.180923  20.007639   24.132217
+rmsle                    0.166166   0.154643   0.156782   0.161998    0.161235
 ```
 
-## h2o.varimp(model_lgb)
+## model_lgb_sp
 
 ```{r eval = FALSE}
-Variable Importances: 
-  variable relative_importance scaled_importance percentage
-1      BLH         1320.473022          1.000000   0.214516
-2      AOD          817.333740          0.618970   0.132779
-3    Press          568.027588          0.430170   0.092278
-4      CWV          484.099121          0.366610   0.078644
-5     Temp          399.397400          0.302465   0.064884
+Model Details:
+==============
 
----
-    variable relative_importance scaled_importance percentage
-248   day.86            0.051629          0.000039   0.000008
-249  day.159            0.051261          0.000039   0.000008
-250    day.7            0.051052          0.000039   0.000008
-251  day.296            0.045053          0.000034   0.000007
-252   day.85            0.041753          0.000032   0.000007
-253  day.110            0.028974          0.000022   0.000005
+H2ORegressionModel: xgboost
+Model ID:  XGBoost_model_R_1647001632925_3 
+Model Summary: 
+  number_of_trees
+1            1000
+
+
+H2ORegressionMetrics: xgboost
+** Reported on training data. **
+
+MSE:  213.7468
+RMSE:  14.62008
+MAE:  9.665972
+RMSLE:  0.1071442
+Mean Residual Deviance :  11.21483
+
+
+
+H2ORegressionMetrics: xgboost
+** Reported on cross-validation data. **
+** 38-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  746.7126
+RMSE:  27.32604
+MAE:  18.99147
+RMSLE:  0.2172315
+Mean Residual Deviance :  11.25261
+
+
+Cross-Validation Metrics Summary: 
+                             mean         sd cv_1_valid  cv_2_valid cv_3_valid cv_4_valid
+mae                     19.025797   5.153726  20.109324   25.864462  13.550444  19.816048
+mean_residual_deviance  11.258440   0.281063  11.215061   11.565320  11.417018  10.660776
+mse                    752.486450 407.656370 616.365300 1299.316000 416.411300 775.923400
+r2                       0.858151   0.106284   0.884104    0.832171   0.943138   0.800628
+residual_deviance       11.258440   0.281063  11.215061   11.565320  11.417018  10.660776
+rmse                    26.551605   6.984446  24.826706   36.046030  20.406158  27.855402
+rmsle                    0.208246   0.058748   0.242599    0.241705   0.128687   0.278540
+                        cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                      20.726320  19.490007  15.808366  14.234166  13.668944   17.102299
+mean_residual_deviance   11.710113  11.226155  11.131782  11.414517  11.066280   11.298333
+mse                    1138.819800 620.142150 512.645500 475.490080 382.354160  587.332150
+r2                        0.838811   0.871407   0.908276   0.915631   0.930641    0.906349
+residual_deviance        11.710113  11.226155  11.131782  11.414517  11.066280   11.298333
+rmse                     33.746407  24.902653  22.641676  21.805735  19.553879   24.234938
+rmsle                     0.166544   0.195545   0.209818   0.133966   0.156375    0.212465
+                       cv_11_valid cv_12_valid cv_13_valid cv_14_valid cv_15_valid cv_16_valid
+mae                      15.327437   27.887177   15.254027   14.405132   18.292130   22.704456
+mean_residual_deviance   10.933225   11.508469   11.345115   11.697988   11.064305   10.776008
+mse                     456.559080 1354.747400  398.894560  435.196320  803.456050  973.925400
+r2                        0.910088    0.660078    0.933968    0.930294    0.885664    0.728525
+residual_deviance        10.933225   11.508469   11.345115   11.697988   11.064305   10.776008
+rmse                     21.367243   36.806896   19.972345   20.861359   28.345300   31.207779
+rmsle                     0.272624    0.314826    0.175894    0.148376    0.173545    0.262054
+                       cv_17_valid cv_18_valid cv_19_valid cv_20_valid cv_21_valid cv_22_valid
+mae                      11.009565   12.462131   24.124626   25.563494   22.272330   15.495413
+mean_residual_deviance   10.969001   11.188464   11.672575   11.552626   11.025571   11.300622
+mse                     302.641300  316.985780 1106.286400 1002.021100  875.854000  461.989320
+r2                        0.935680    0.936576    0.861345    0.661042    0.776624    0.902695
+residual_deviance        10.969001   11.188464   11.672575   11.552626   11.025571   11.300622
+rmse                     17.396590   17.804094   33.260883   31.654716   29.594830   21.493937
+rmsle                     0.127015    0.169390    0.216379    0.304974    0.284971    0.165795
+                       cv_23_valid cv_24_valid cv_25_valid cv_26_valid cv_27_valid cv_28_valid
+mae                      23.520405   18.472649   16.238739   14.456997   13.731945   22.733658
+mean_residual_deviance   11.303176   11.360932   11.178438   11.006327   11.159268   11.106145
+mse                    1262.056200  655.796940  687.350600  317.766360  314.116500 1143.792700
+r2                        0.872763    0.873791    0.917513    0.930149    0.945950    0.826132
+residual_deviance        11.303176   11.360932   11.178438   11.006327   11.159268   11.106145
+rmse                     35.525430   25.608532   26.217371   17.826002   17.723331   33.820004
+rmsle                     0.197452    0.204170    0.149073    0.194663    0.174130    0.248598
+                       cv_29_valid cv_30_valid cv_31_valid cv_32_valid cv_33_valid cv_34_valid
+mae                      21.575891   26.813568   22.718023   35.336884   18.835865   14.916724
+mean_residual_deviance   10.743098   11.457818   11.637596   11.731430   11.275572   11.173873
+mse                     942.580300 1663.250000  951.121900 2048.990700  627.558350  424.664900
+r2                        0.752156    0.772790    0.874960    0.405358    0.894135    0.923672
+residual_deviance        10.743098   11.457818   11.637596   11.731430   11.275572   11.173873
+rmse                     30.701471   40.782963   30.840265   45.265778   25.051115   20.607399
+rmsle                     0.247596    0.218075    0.192644    0.406470    0.200470    0.162581
+                       cv_35_valid cv_36_valid cv_37_valid cv_38_valid
+mae                      15.668625   17.469654   21.005047   14.317311
+mean_residual_deviance   10.820946   11.276080   11.619196   11.231490
+mse                     402.921600  500.752380  923.881700  414.527920
+r2                        0.917493    0.928283    0.890138    0.930738
+residual_deviance        10.820946   11.276080   11.619196   11.231490
+rmse                     20.072906   22.377497   30.395424   20.359959
+rmsle                     0.209002    0.205203    0.165447    0.155669
 ```
 
+## model_lgb_temp
+
+```{r eval = FALSE}
+Model Details:
+==============
+
+H2ORegressionModel: xgboost
+Model ID:  XGBoost_model_R_1647001632925_6 
+Model Summary: 
+  number_of_trees
+1            1000
+
+
+H2ORegressionMetrics: xgboost
+** Reported on training data. **
+
+MSE:  213.7468
+RMSE:  14.62008
+MAE:  9.665972
+RMSLE:  0.1071442
+Mean Residual Deviance :  11.21483
+
+
+
+H2ORegressionMetrics: xgboost
+** Reported on cross-validation data. **
+** 12-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
+
+MSE:  2906.716
+RMSE:  53.91397
+MAE:  35.50606
+RMSLE:  0.3780344
+Mean Residual Deviance :  11.3598
+
+
+Cross-Validation Metrics Summary: 
+                              mean          sd  cv_1_valid  cv_2_valid cv_3_valid cv_4_valid
+mae                      32.431920   21.697830   73.803820   43.192024  16.936155  19.274519
+mean_residual_deviance   10.967557    1.263218   12.737198   11.424062  10.762413  10.790223
+mse                    2532.640000 3181.034000 8871.977000 2888.470700 456.025270 596.213750
+r2                       -0.264295    0.921583    0.023677   -0.197217   0.409600   0.312348
+residual_deviance        10.967557    1.263218   12.737198   11.424062  10.762413  10.790223
+rmse                     42.113956   28.776022   94.191170   53.744495  21.354748  24.417488
+rmsle                     0.392947    0.104877    0.455858    0.438503   0.262535   0.294114
+                        cv_5_valid cv_6_valid cv_7_valid cv_8_valid cv_9_valid cv_10_valid
+mae                      24.141542  15.505552  17.765455  14.922297  13.361679   29.912428
+mean_residual_deviance   10.785081  10.320320  10.227948   8.705313   9.325542   11.397628
+mse                    1096.168000 411.916900 637.383800 306.766200 211.364030 1485.812100
+r2                        0.363192   0.051869  -0.529998  -2.541460  -1.632115    0.577677
+residual_deviance        10.785081  10.320320  10.227948   8.705313   9.325542   11.397628
+rmse                     33.108425  20.295736  25.246462  17.514742  14.538363   38.546234
+rmsle                     0.350508   0.306663   0.395243   0.605798   0.335857    0.372913
+                       cv_11_valid cv_12_valid
+mae                      68.867840   51.499733
+mean_residual_deviance   12.463312   12.671643
+mse                    8498.116000 4931.467000
+r2                       -0.048282    0.039170
+residual_deviance        12.463312   12.671643
+rmse                     92.185230   70.224400
+rmsle                     0.557663    0.339703
+```

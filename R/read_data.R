@@ -30,7 +30,7 @@ file_shared$day <- as.factor(file_shared$day)
 
 # h2o.shutdown()
 h2o.no_progress()
-h2o.init(max_mem_size = "25g", min_mem_size = "8g")
+h2o.init(max_mem_size = "256g", min_mem_size = "128g")
 
 file_shared <- as.h2o(file_shared)
 
@@ -91,7 +91,8 @@ predict_daily <- function(number_of_days, all_tables, model_input_sp, model) {
     all_tables_sub <- as.data.frame(all_tables_sub)
     write.csv(all_tables_sub, paste0(model, "_predicted", "_", as.character(i), ".csv"))
   }
-}  
+}   
+
 
 # For GAM 
 dir <- here::here("results/GAM/gam_spatial_prediction")
@@ -109,3 +110,4 @@ for(i in list_files) {
   files <- cbind(files, file_model)
 }
 write.csv(files, "final_gam_predicted.csv")
+
