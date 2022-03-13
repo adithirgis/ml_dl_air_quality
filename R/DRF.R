@@ -80,16 +80,14 @@ file_shared$h2o_rf <- predict(best_model, file_shared)
 model_drf <- h2o.randomForest(x = features, 
                                  y = response, 
                                  training_frame = file_shared,
-                                 ntrees = 400,
-                                 sample_rate = 0.8,
-                                 max_depth = 30,
+                                 ntrees = 200,
+                                 sample_rate = 0.632,
+                                 max_depth = 15,
                                  min_rows = 5,
-                                 nbins = 10,
-                                 mtries = 6)
+                                 nbins = 40,
+                                 mtries = 7)
 
 model_drf
-cvpreds_id <- model_drf@model$cross_validation_holdout_predictions_frame_id$name
-file_shared$cvpreds <- h2o.getFrame(cvpreds_id)
 file_shared$h2o_rf_m <- predict(model_drf, file_shared)
 predict_daily(number_of_days, all_tables, model_drf, "rf")
 
@@ -97,12 +95,12 @@ predict_daily(number_of_days, all_tables, model_drf, "rf")
 model_drf_10 <- h2o.randomForest(x = features, 
                               y = response, 
                               training_frame = file_shared,
-                              ntrees = 400,
-                              sample_rate = 0.8,
-                              max_depth = 30,
+                              ntrees = 200,
+                              sample_rate = 0.632,
+                              max_depth = 15,
                               min_rows = 5,
-                              nbins = 10,
-                              mtries = 6,
+                              nbins = 40,
+                              mtries = 7,
                               keep_cross_validation_predictions = TRUE,
                               keep_cross_validation_models = TRUE,
                               keep_cross_validation_fold_assignment = TRUE, 
@@ -121,12 +119,12 @@ file_shared$h2o_rf_m_10 <- predict(model_drf_10, file_shared)
 model_drf_sp <- h2o.randomForest(x = features, 
                                 y = response, 
                                 training_frame = file_shared,
-                                ntrees = 400,
-                                sample_rate = 0.8,
-                                max_depth = 30,
+                                ntrees = 200,
+                                sample_rate = 0.632,
+                                max_depth = 15,
                                 min_rows = 5,
-                                nbins = 10,
-                                mtries = 6,
+                                nbins = 40,
+                                mtries = 7,
                                 keep_cross_validation_predictions = TRUE,
                                 keep_cross_validation_models = TRUE,
                                 fold_column = "Station_code")
@@ -138,12 +136,12 @@ file_shared$h2o_drf_sp <- predict(model_drf_sp, file_shared)
 model_drf_temp <- h2o.randomForest(x = features, 
                                   y = response, 
                                   training_frame = file_shared,
-                                  ntrees = 400,
-                                  sample_rate = 0.8,
-                                  max_depth = 30,
+                                  ntrees = 200,
+                                  sample_rate = 0.632,
+                                  max_depth = 15,
                                   min_rows = 5,
-                                  nbins = 10,
-                                  mtries = 6,
+                                  nbins = 40,
+                                  mtries = 7,
                                   keep_cross_validation_predictions = TRUE,
                                   keep_cross_validation_models = TRUE,
                                   fold_column = "month")
