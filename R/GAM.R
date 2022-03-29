@@ -33,6 +33,7 @@ write.csv(gam_cv_10, "gam_cv_10.csv")
 
 # LOOCV based on Station code
 predicted_sp <- data.frame()
+predicted_para <- data.frame()
 for(i in unique(file_shared$Station_code)){
   file_shared_sub <- file_shared %>% 
     subset(Station_code != i)
@@ -40,6 +41,11 @@ for(i in unique(file_shared$Station_code)){
     subset(Station_code == i)
   model_gam_sp <- gam(PM2.5 ~ s(CWV) + s(ELV) + s(AOD) + s(Temp) + s(RH) + s(NDVI) + s(WD) + s(WS) + s(BLH) + s(Press), 
                       data = file_shared_sub)
+  table <- summary(model_gam_sp)
+  r2 <- table$r.sq
+  intercept <- as.numeric(table$p.coeff)
+  para <- data.frame(r2, intercept)
+  predicted_para <- rbind(predicted_para, para)
   file_shared_pred$predicted <- predict(model_gam_sp, newdata = file_shared_pred)
   predicted_sp <- rbind(predicted_sp, file_shared_pred)
 }
