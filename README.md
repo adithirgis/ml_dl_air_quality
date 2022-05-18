@@ -2,6 +2,8 @@
 
 This exercise is implemented using the open source H2O platform. 
 
+## [Paper](https://www.sciencedirect.com/science/article/pii/S1352231022002291?dgcid=coauthor)
+
 ## Random Forest
 
 - https://uc-r.github.io/random_forests
